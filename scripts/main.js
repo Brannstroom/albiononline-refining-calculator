@@ -1686,9 +1686,13 @@ init();
 
 function updateNumbers(element_id) {
     let refining_resource = document.getElementById("refining-resource").value;
-
-    let elementValue = document.getElementById(element_id).value;
-    localStorage.setItem(refining_resource+element_id, elementValue);
+    
+    if(element_id != null) {
+        if(element_id.includes("product-price-input-") || element_id.includes("resource-price-input-")) {
+            let elementValue = document.getElementById(element_id).value;
+            localStorage.setItem(refining_resource+element_id, elementValue);
+        }
+    }
 
     let tax = document.getElementById("refining-station-tax").value;
     let return_rate = document.getElementById("refining-station-return-rate").value;
