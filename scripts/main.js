@@ -1591,7 +1591,7 @@ function init() {
         resource_price_input_element.onclick = function () {
             this.select();
         }
-        resource_price_input_element.onchange = function () {
+        resource_price_input_element.oninput = function () {
             updateNumbers(this.id);
         }
         resource_price_input.appendChild(resource_price_input_element);
@@ -1615,7 +1615,7 @@ function init() {
         product_price_element.onclick = function () {
             this.select();
         }
-        product_price_element.onchange = function () {
+        product_price_element.oninput = function () {
             updateNumbers(this.id);
         }
         product_price.appendChild(product_price_element);
@@ -1661,6 +1661,7 @@ function init() {
     }
 
     loadFromLocalStorage();
+    updateNumbers();
 }
 
 function loadFromLocalStorage() {
@@ -1773,4 +1774,6 @@ function clearTable() {
     }
 
     localStorage.clear();
+
+    init();
 }

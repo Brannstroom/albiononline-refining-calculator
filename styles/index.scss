@@ -67,15 +67,6 @@ input::-webkit-inner-spin-button {
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-button {
-    width: 4rem;
-    height: 1.5rem;
-    border-radius: 5px;
-    border: 1px solid $color1;
-    background-color: $color2;
-    color: $color4;
-    text-align: center;
-}
 
 th {
     padding-top: 1rem;
@@ -157,21 +148,25 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
-// Rounded button
-.button {
-    background-color: $color2;
-    border: none;
-    color: $color4;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+.clear-table-button {
     cursor: pointer;
+    background-color: $color2;
+    color: $color4;
+    border: none;
     border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 1em;
+    margin: 0.5rem;
+
+}
+  
+.clear-table-button:hover {
+    background-color: $color3;
 }
 
-.button:hover {
-    background-color: $color3;
+.clear-table-button:active {
+    background-color: $color2;
+    color: $color4;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
 }
