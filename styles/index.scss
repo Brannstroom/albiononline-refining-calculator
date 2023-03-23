@@ -1,0 +1,177 @@
+$color1: #2C3333;
+$color2: #2E4F4F;
+$color3: #0E8388;
+$color4: #CBE4DE;
+
+body {
+    background-color: $color1;
+    color: $color4;
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1 {
+    color: $color3;
+    font-size: 2em;
+    text-align: center;
+}
+
+h2 {
+    color: $color2;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+p {
+    color: $color4;
+    font-size: 1em;
+    text-align: center;
+}
+
+a {
+    color: $color3;
+    font-size: 1em;
+    text-align: center;
+}
+
+div {
+    color: $color4;
+    font-size: 1em;
+}
+
+.profile {
+    padding: 1rem;
+    padding-top: 0.05rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    margin-bottom: 2rem;
+}
+
+label {
+    margin-left: 1rem;
+}
+
+input, select {
+    width: 6rem;
+    height: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid $color1;
+    background-color: $color2;
+    color: $color4;
+    text-align: right;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+button {
+    width: 4rem;
+    height: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid $color1;
+    background-color: $color2;
+    color: $color4;
+    text-align: center;
+}
+
+th {
+    padding-top: 1rem;
+}
+
+#refining-resource {
+    text-align: left;
+}
+
+#refining-table {
+    margin: 0 auto;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid $color2;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+// rounded switch button
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color2;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: $color4;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: $color3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px $color3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+// Rounded button
+.button {
+    background-color: $color2;
+    border: none;
+    color: $color4;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: $color3;
+}

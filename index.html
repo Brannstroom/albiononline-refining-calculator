@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Resource Refining Table</title>
+    <link rel="stylesheet" href="styles/index.css">
+  </head>
+  <body>
+    <h1>Resource Refining Calculator</h1>
+
+    <div class="profile">
+
+        <div class="refining-settings">
+            <h3>Profile Settings</h3>
+            <label for="refining-resource">Resource</label>
+            <select id="refining-resource" onchange="init()">
+                <option value="0">Cloth</option>
+                <option value="1">Bar</option>
+                <option value="2">Leather</option>
+                <option value="3">Wood</option>
+            </select>
+            <br><br>
+
+            <div>
+                <label for="refining-market-tax">Include Market Tax (6.5%)</label>
+                <label class="switch">
+                    <input type="checkbox" id="refining-market-tax" onchange="updateNumbers()">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <br>
+
+            <div>
+                <label for="refine-from-t2">Refine From T2 (Not implemented)</label>
+                <label class="switch">
+                    <input type="checkbox" id="refine-from-t2" onchange="updateNumbers()">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <br>
+
+            <label for="clear-table">Clear Table & Local Storage</label>
+            <button id="clear-table" onclick="clearTable()">Clear</button>
+        </div>
+
+        <div class="refining-station">
+            <h3>Refining Station</h3>
+
+            <label for="refining-station-tax">Tax</label>
+            <input type="number" id="refining-station-tax" value="0" onClick="this.select();" onchange="updateNumbers()">
+
+            <label for="refining-station-return-rate">Return rate</label>
+            <input type="number" id="refining-station-return-rate" value="15" onClick="this.select();" onchange="updateNumbers()">
+
+            <label for="refining-station">Amount</label>
+            <input type="number" id="refining-station-amount" value="1" onClick="this.select();" onchange="updateNumbers()">
+
+        </div>
+
+        <div class="refining-mastery">
+            <h3>Refining Mastery (Not implemented)</h3>
+
+            <label for="refining-mastery">T4</label>
+            <input type="number" id="refining-mastery-t4" value="0" onClick="this.select();" onchange="updateNumbers()">
+
+            <label for="refining-mastery">T5</label>
+            <input type="number" id="refining-mastery-t5" value="0" onClick="this.select();" onchange="updateNumbers()">
+
+            <label for="refining-mastery">T6</label>
+            <input type="number" id="refining-mastery-t6" value="0" onClick="this.select();" onchange="updateNumbers()">
+
+            <label for="refining-mastery">T7</label>
+            <input type="number" id="refining-mastery-t7" value="0" onClick="this.select();" onchange="updateNumbers()">
+
+            <label for="refining-mastery">T8</label>
+            <input type="number" id="refining-mastery-t8" value="0" onClick="this.select();" onchange="updateNumbers()">
+        </div>
+    </div>
+
+    <div class="refining">
+        <table id="refining-table">
+            <thead>
+                <tr>
+                    <th>TIER</th>
+                    <th>RESOURCE</th>
+                    <th>PRICE</th>
+                    <th>PRODUCT</th>
+                    <th>PRICE</th>
+                    <th>PROFIT</th>
+                    <th>PROFIT PERCENTAGE</th>
+                    <th>FOCUS COST</th>
+                    <th>FOCUS PROFIT</th>
+                    <th>FOCUS PROFIT PERCENTAGE</th>
+                </tr>
+            </thead>
+
+            <tbody id="resouce-table-body">
+                
+            </tbody>
+        </table>
+    </div>
+    </body>
+
+    <script src="scripts/main.js"></script>
+</html>

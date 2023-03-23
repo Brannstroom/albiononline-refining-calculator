@@ -1,0 +1,166 @@
+body {
+  background-color: #2C3333;
+  color: #CBE4DE;
+  width: 80%;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #0E8388;
+  font-size: 2em;
+  text-align: center;
+}
+
+h2 {
+  color: #2E4F4F;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+p {
+  color: #CBE4DE;
+  font-size: 1em;
+  text-align: center;
+}
+
+a {
+  color: #0E8388;
+  font-size: 1em;
+  text-align: center;
+}
+
+div {
+  color: #CBE4DE;
+  font-size: 1em;
+}
+
+.profile {
+  padding: 1rem;
+  padding-top: 0.05rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  margin-bottom: 2rem;
+}
+
+label {
+  margin-left: 1rem;
+}
+
+input, select {
+  width: 6rem;
+  height: 1.5rem;
+  border-radius: 5px;
+  border: 1px solid #2C3333;
+  background-color: #2E4F4F;
+  color: #CBE4DE;
+  text-align: right;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+button {
+  width: 4rem;
+  height: 1.5rem;
+  border-radius: 5px;
+  border: 1px solid #2C3333;
+  background-color: #2E4F4F;
+  color: #CBE4DE;
+  text-align: center;
+}
+
+th {
+  padding-top: 1rem;
+}
+
+#refining-resource {
+  text-align: left;
+}
+
+#refining-table {
+  margin: 0 auto;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #2E4F4F;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2E4F4F;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #CBE4DE;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #0E8388;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #0E8388;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.button {
+  background-color: #2E4F4F;
+  border: none;
+  color: #CBE4DE;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #0E8388;
+}/*# sourceMappingURL=index.css.map */
