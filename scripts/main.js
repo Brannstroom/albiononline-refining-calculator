@@ -773,6 +773,7 @@ const products = {
             item_value: 4,
             tier: 2,
             enchant: 0,
+            focus_cost: 18,
         },
         {
             name: "Neat Cloth",
@@ -780,6 +781,7 @@ const products = {
             item_value: 8,
             tier: 3,
             enchant: 0,
+            focus_cost: 31,
         },
         {
             name: "Fine Cloth",
@@ -787,6 +789,7 @@ const products = {
             item_value: 16,
             tier: 4,
             enchant: 0,
+            focus_cost: 54,
         },
         {
             name: "Uncommon Fine Cloth",
@@ -794,6 +797,7 @@ const products = {
             item_value: 32,
             tier: 4,
             enchant: 1,
+            focus_cost: 94,
         },
         {
             name: "Rare Fine Cloth",
@@ -801,6 +805,7 @@ const products = {
             item_value: 64,
             tier: 4,
             enchant: 2,
+            focus_cost: 164,
         },
         {
             name: "Exceptional Fine Cloth",
@@ -808,6 +813,7 @@ const products = {
             item_value: 128,
             tier: 4,
             enchant: 3,
+            focus_cost: 287,
         },
         {
             name: "Pristine Fine Cloth",
@@ -815,6 +821,7 @@ const products = {
             item_value: 256,
             tier: 4,
             enchant: 4,
+            focus_cost: 503,
         },
         {
             name: "Ornate Cloth",
@@ -822,6 +829,7 @@ const products = {
             item_value: 32,
             tier: 5,
             enchant: 0,
+            focus_cost: 94,
         },
         {
             name: "Uncommon Ornate Cloth",
@@ -829,6 +837,7 @@ const products = {
             item_value: 64,
             tier: 5,
             enchant: 1,
+            focus_cost: 164,
         },
         {
             name: "Rare Ornate Cloth",
@@ -836,6 +845,7 @@ const products = {
             item_value: 128,
             tier: 5,
             enchant: 2,
+            focus_cost: 287,
         },
         {
             name: "Exceptional Ornate Cloth",
@@ -843,6 +853,7 @@ const products = {
             item_value: 256,
             tier: 5,
             enchant: 3,
+            focus_cost: 503,
         },
         {
             name: "Pristine Ornate Cloth",
@@ -850,6 +861,7 @@ const products = {
             item_value: 512,
             tier: 5,
             enchant: 4,
+            focus_cost: 880,
         },
         {
             name: "Lavish Cloth",
@@ -857,6 +869,7 @@ const products = {
             item_value: 64,
             tier: 6,
             enchant: 0,
+            focus_cost: 164,
         },
         {
             name: "Uncommon Lavish Cloth",
@@ -864,6 +877,7 @@ const products = {
             item_value: 128,
             tier: 6,
             enchant: 1,
+            focus_cost: 287,
         },
         {
             name: "Rare Lavish Cloth",
@@ -871,6 +885,7 @@ const products = {
             item_value: 256,
             tier: 6,
             enchant: 2,
+            focus_cost: 503,
         },
         {
             name: "Exceptional Lavish Cloth",
@@ -878,6 +893,7 @@ const products = {
             item_value: 512,
             tier: 6,
             enchant: 3,
+            focus_cost: 880,
         },
         {
             name: "Pristine Lavish Cloth",
@@ -885,6 +901,7 @@ const products = {
             item_value: 1024,
             tier: 6,
             enchant: 4,
+            focus_cost: 1539,
         },
         {
             name: "Opulent Cloth",
@@ -892,6 +909,7 @@ const products = {
             item_value: 128,
             tier: 7,
             enchant: 0,
+            focus_cost: 287,
         },
         {
             name: "Uncommon Opulent Cloth",
@@ -899,6 +917,7 @@ const products = {
             item_value: 256,
             tier: 7,
             enchant: 1,
+            focus_cost: 503,
         },
         {
             name: "Rare Opulent Cloth",
@@ -906,6 +925,7 @@ const products = {
             item_value: 512,
             tier: 7,
             enchant: 2,
+            focus_cost: 880,
         },
         {
             name: "Exceptional Opulent Cloth",
@@ -913,6 +933,7 @@ const products = {
             item_value: 1024,
             tier: 7,
             enchant: 3,
+            focus_cost: 1539,
         },
         {
             name: "Pristine Opulent Cloth",
@@ -920,6 +941,7 @@ const products = {
             item_value: 2048,
             tier: 7,
             enchant: 4,
+            focus_cost: 2694,
         },
         {
             name: "Baroque Cloth",
@@ -927,6 +949,7 @@ const products = {
             item_value: 256,
             tier: 8,
             enchant: 0,
+            focus_cost: 503,
         },
         {
             name: "Uncommon Baroque Cloth",
@@ -934,6 +957,7 @@ const products = {
             item_value: 512,
             tier: 8,
             enchant: 1,
+            focus_cost: 880,
         },
         {
             name: "Rare Baroque Cloth",
@@ -941,6 +965,7 @@ const products = {
             item_value: 1024,
             tier: 8,
             enchant: 2,
+            focus_cost: 1539,
         },
         {
             name: "Exceptional Baroque Cloth",
@@ -948,6 +973,7 @@ const products = {
             item_value: 2048,
             tier: 8,
             enchant: 3,
+            focus_cost: 2694,
         },
         {
 
@@ -956,6 +982,7 @@ const products = {
             item_value: 4096,
             tier: 8,
             enchant: 4,
+            focus_cost: 4714,
         }
     ],
     bar: [
@@ -965,6 +992,7 @@ const products = {
             item_value: 4,
             tier: 2,
             enchant: 0,
+            focus_cost: 18,
         },
         {
             name: "Bronze Bar",
@@ -972,6 +1000,7 @@ const products = {
             item_value: 8,
             tier: 3,
             enchant: 0,
+            focus_cost: 31,
         },
         {
             name: "Steel Bar",
@@ -979,6 +1008,7 @@ const products = {
             item_value: 16,
             tier: 4,
             enchant: 0,
+            focus_cost: 54,
         },
         {
             name: "Uncommon Steel Bar",
@@ -986,6 +1016,7 @@ const products = {
             item_value: 32,
             tier: 4,
             enchant: 1,
+            focus_cost: 94,
         },
         {
             name: "Rare Steel Bar",
@@ -993,6 +1024,7 @@ const products = {
             item_value: 64,
             tier: 4,
             enchant: 2,
+            focus_cost: 164,
         },
         {
             name: "Exceptional Steel Bar",
@@ -1000,6 +1032,7 @@ const products = {
             item_value: 128,
             tier: 4,
             enchant: 3,
+            focus_cost: 287,
         },
         {
             name: "Pristine Steel Bar",
@@ -1007,6 +1040,7 @@ const products = {
             item_value: 256,
             tier: 4,
             enchant: 4,
+            focus_cost: 503,
         },
         {
             name: "Titanium Steel Bar",
@@ -1014,6 +1048,7 @@ const products = {
             item_value: 32,
             tier: 5,
             enchant: 0,
+            focus_cost: 94,
         },
         {
             name: "Uncommon Titanium Steel Bar",
@@ -1021,6 +1056,7 @@ const products = {
             item_value: 64,
             tier: 5,
             enchant: 1,
+            focus_cost: 164,
         },
         {
             name: "Rare Titanium Steel Bar",
@@ -1028,6 +1064,7 @@ const products = {
             item_value: 128,
             tier: 5,
             enchant: 2,
+            focus_cost: 287,
         },
         {
             name: "Exceptional Titanium Steel Bar",
@@ -1035,6 +1072,7 @@ const products = {
             item_value: 256,
             tier: 5,
             enchant: 3,
+            focus_cost: 503,
         },
         {
             name: "Pristine Titanium Steel Bar",
@@ -1042,6 +1080,7 @@ const products = {
             item_value: 512,
             tier: 5,
             enchant: 4,
+            focus_cost: 880,
         },
         {
             name: "Runite Steel Bar",
@@ -1049,6 +1088,7 @@ const products = {
             item_value: 64,
             tier: 6,
             enchant: 0,
+            focus_cost: 164,
         },
         {
             name: "Uncommon Runite Steel Bar",
@@ -1056,6 +1096,7 @@ const products = {
             item_value: 128,
             tier: 6,
             enchant: 1,
+            focus_cost: 287,
         },
         {
             name: "Rare Runite Steel Bar",
@@ -1063,6 +1104,7 @@ const products = {
             item_value: 256,
             tier: 6,
             enchant: 2,
+            focus_cost: 503,
         },
         {
             name: "Exceptional Runite Steel Bar",
@@ -1070,6 +1112,7 @@ const products = {
             item_value: 512,
             tier: 6,
             enchant: 3,
+            focus_cost: 880,
         },
         {
             name: "Pristine Runite Steel Bar",
@@ -1077,6 +1120,7 @@ const products = {
             item_value: 1024,
             tier: 6,
             enchant: 4,
+            focus_cost: 1539,
         },
         {
             name: "Meteorite Steel Bar",
@@ -1084,6 +1128,8 @@ const products = {
             item_value: 128,
             tier: 7,
             enchant: 0,
+            focus_cost: 287,
+
         },
         {
             name: "Uncommon Meteorite Steel Bar",
@@ -1091,6 +1137,7 @@ const products = {
             item_value: 256,
             tier: 7,
             enchant: 1,
+            focus_cost: 503,
         },
         {
             name: "Rare Meteorite Steel Bar",
@@ -1098,6 +1145,7 @@ const products = {
             item_value: 512,
             tier: 7,
             enchant: 2,
+            focus_cost: 880,
         },
         {
             name: "Exceptional Meteorite Steel Bar",
@@ -1105,6 +1153,7 @@ const products = {
             item_value: 1024,
             tier: 7,
             enchant: 3,
+            focus_cost: 1539,
         },
         {
             name: "Pristine Meteorite Steel Bar",
@@ -1112,6 +1161,7 @@ const products = {
             item_value: 2048,
             tier: 7,
             enchant: 4,
+            focus_cost: 2694,
         },
         {
             name: "Adamantium Steel Bar",
@@ -1119,6 +1169,7 @@ const products = {
             item_value: 256,
             tier: 8,
             enchant: 0,
+            focus_cost: 503,
         },
         {
             name: "Uncommon Adamantium Steel Bar",
@@ -1126,6 +1177,7 @@ const products = {
             item_value: 512,
             tier: 8,
             enchant: 1,
+            focus_cost: 880,
         },
         {
             name: "Rare Adamantium Steel Bar",
@@ -1133,6 +1185,7 @@ const products = {
             item_value: 1024,
             tier: 8,
             enchant: 2,
+            focus_cost: 1539,
         },
         {
             name: "Exceptional Adamantium Steel Bar",
@@ -1140,6 +1193,7 @@ const products = {
             item_value: 2048,
             tier: 8,
             enchant: 3,
+            focus_cost: 2694,
         },
         {
 
@@ -1148,6 +1202,7 @@ const products = {
             item_value: 4096,
             tier: 8,
             enchant: 4,
+            focus_cost: 4714,
         }
     ],
     leather: [
@@ -1157,6 +1212,7 @@ const products = {
             item_value: 4,
             tier: 2,
             enchant: 0,
+            focus_cost: 18,
         },
         {
             name: "Thick Leather",
@@ -1164,6 +1220,7 @@ const products = {
             item_value: 8,
             tier: 3,
             enchant: 0,
+            focus_cost: 31,
         },
         {
             name: "Worked Leather",
@@ -1171,6 +1228,7 @@ const products = {
             item_value: 16,
             tier: 4,
             enchant: 0,
+            focus_cost: 54,
         },
         {
             name: "Uncommon Worked Leather",
@@ -1178,6 +1236,7 @@ const products = {
             item_value: 32,
             tier: 4,
             enchant: 1,
+            focus_cost: 94,
         },
         {
             name: "Rare Worked Leather",
@@ -1185,6 +1244,7 @@ const products = {
             item_value: 64,
             tier: 4,
             enchant: 2,
+            focus_cost: 164,
         },
         {
             name: "Exceptional Worked Leather",
@@ -1192,6 +1252,7 @@ const products = {
             item_value: 128,
             tier: 4,
             enchant: 3,
+            focus_cost: 287,
         },
         {
             name: "Pristine Worked Leather",
@@ -1199,6 +1260,7 @@ const products = {
             item_value: 256,
             tier: 4,
             enchant: 4,
+            focus_cost: 503,
         },
         {
             name: "Cured Leather",
@@ -1206,6 +1268,7 @@ const products = {
             item_value: 32,
             tier: 5,
             enchant: 0,
+            focus_cost: 94,
         },
         {
             name: "Uncommon Cured Leather",
@@ -1213,6 +1276,7 @@ const products = {
             item_value: 64,
             tier: 5,
             enchant: 1,
+            focus_cost: 164,
         },
         {
             name: "Rare Cured Leather",
@@ -1220,6 +1284,7 @@ const products = {
             item_value: 128,
             tier: 5,
             enchant: 2,
+            focus_cost: 287,
         },
         {
             name: "Exceptional Cured Leather",
@@ -1227,6 +1292,7 @@ const products = {
             item_value: 256,
             tier: 5,
             enchant: 3,
+            focus_cost: 503,
         },
         {
             name: "Pristine Cured Leather",
@@ -1234,6 +1300,7 @@ const products = {
             item_value: 512,
             tier: 5,
             enchant: 4,
+            focus_cost: 880,
         },
         {
             name: "Hardened Leather",
@@ -1241,6 +1308,7 @@ const products = {
             item_value: 64,
             tier: 6,
             enchant: 0,
+            focus_cost: 164,
         },
         {
             name: "Uncommon Hardened Leather",
@@ -1248,6 +1316,7 @@ const products = {
             item_value: 128,
             tier: 6,
             enchant: 1,
+            focus_cost: 287,
         },
         {
             name: "Rare Hardened Leather",
@@ -1255,6 +1324,7 @@ const products = {
             item_value: 256,
             tier: 6,
             enchant: 2,
+            focus_cost: 503,
         },
         {
             name: "Exceptional Hardened Leather",
@@ -1262,6 +1332,7 @@ const products = {
             item_value: 512,
             tier: 6,
             enchant: 3,
+            focus_cost: 880,
         },
         {
             name: "Pristine Hardened Leather",
@@ -1269,6 +1340,7 @@ const products = {
             item_value: 1024,
             tier: 6,
             enchant: 4,
+            focus_cost: 1539,
         },
         {
             name: "Reinforced Leather",
@@ -1276,6 +1348,7 @@ const products = {
             item_value: 128,
             tier: 7,
             enchant: 0,
+            focus_cost: 287,
         },
         {
             name: "Uncommon Reinforced Leather",
@@ -1283,6 +1356,7 @@ const products = {
             item_value: 256,
             tier: 7,
             enchant: 1,
+            focus_cost: 503,
         },
         {
             name: "Rare Reinforced Leather",
@@ -1290,6 +1364,7 @@ const products = {
             item_value: 512,
             tier: 7,
             enchant: 2,
+            focus_cost: 880,
         },
         {
             name: "Exceptional Reinforced Leather",
@@ -1297,6 +1372,7 @@ const products = {
             item_value: 1024,
             tier: 7,
             enchant: 3,
+            focus_cost: 1539,
         },
         {
             name: "Pristine Reinforced Leather",
@@ -1304,6 +1380,7 @@ const products = {
             item_value: 2048,
             tier: 7,
             enchant: 4,
+            focus_cost: 2694,
         },
         {
             name: "Fortified Leather",
@@ -1311,6 +1388,7 @@ const products = {
             item_value: 256,
             tier: 8,
             enchant: 0,
+            focus_cost: 503,
         },
         {
             name: "Uncommon Fortified Leather",
@@ -1318,6 +1396,7 @@ const products = {
             item_value: 512,
             tier: 8,
             enchant: 1,
+            focus_cost: 880,
         },
         {
             name: "Rare Fortified Leather",
@@ -1325,6 +1404,7 @@ const products = {
             item_value: 1024,
             tier: 8,
             enchant: 2,
+            focus_cost: 1539,
         },
         {
             name: "Exceptional Fortified Leather",
@@ -1332,6 +1412,7 @@ const products = {
             item_value: 2048,
             tier: 8,
             enchant: 3,
+            focus_cost: 2694,
         },
         {
 
@@ -1340,6 +1421,7 @@ const products = {
             item_value: 4096,
             tier: 8,
             enchant: 4,
+            focus_cost: 4714,
         }
     ],
     plank: [
@@ -1349,6 +1431,7 @@ const products = {
             item_value: 4,
             tier: 2,
             enchant: 0,
+            focus_cost: 18,
         },
         {
             name: "Chestnut Planks",
@@ -1356,6 +1439,7 @@ const products = {
             item_value: 8,
             tier: 3,
             enchant: 0,
+            focus_cost: 31,
         },
         {
             name: "Pine Planks",
@@ -1363,6 +1447,7 @@ const products = {
             item_value: 16,
             tier: 4,
             enchant: 0,
+            focus_cost: 54,
         },
         {
             name: "Uncommon Pine Planks",
@@ -1370,6 +1455,7 @@ const products = {
             item_value: 32,
             tier: 4,
             enchant: 1,
+            focus_cost: 94,
         },
         {
             name: "Rare Pine Planks",
@@ -1377,6 +1463,7 @@ const products = {
             item_value: 64,
             tier: 4,
             enchant: 2,
+            focus_cost: 164,
         },
         {
             name: "Exceptional Pine Planks",
@@ -1384,6 +1471,7 @@ const products = {
             item_value: 128,
             tier: 4,
             enchant: 3,
+            focus_cost: 287,
         },
         {
             name: "Pristine Pine Planks",
@@ -1391,6 +1479,7 @@ const products = {
             item_value: 256,
             tier: 4,
             enchant: 4,
+            focus_cost: 503,
         },
         {
             name: "Cedar Planks",
@@ -1398,6 +1487,7 @@ const products = {
             item_value: 32,
             tier: 5,
             enchant: 0,
+            focus_cost: 94,
         },
         {
             name: "Uncommon Cedar Planks",
@@ -1405,6 +1495,7 @@ const products = {
             item_value: 64,
             tier: 5,
             enchant: 1,
+            focus_cost: 164,
         },
         {
             name: "Rare Cedar Planks",
@@ -1412,6 +1503,7 @@ const products = {
             item_value: 128,
             tier: 5,
             enchant: 2,
+            focus_cost: 287,
         },
         {
             name: "Exceptional Cedar Planks",
@@ -1419,6 +1511,7 @@ const products = {
             item_value: 256,
             tier: 5,
             enchant: 3,
+            focus_cost: 503,
         },
         {
             name: "Pristine Cedar Planks",
@@ -1426,6 +1519,7 @@ const products = {
             item_value: 512,
             tier: 5,
             enchant: 4,
+            focus_cost: 880,
         },
         {
             name: "Bloodoak Planks",
@@ -1433,6 +1527,7 @@ const products = {
             item_value: 64,
             tier: 6,
             enchant: 0,
+            focus_cost: 164,
         },
         {
             name: "Uncommon Bloodoak Planks",
@@ -1440,6 +1535,7 @@ const products = {
             item_value: 128,
             tier: 6,
             enchant: 1,
+            focus_cost: 287,
         },
         {
             name: "Rare Bloodoak Planks",
@@ -1447,6 +1543,7 @@ const products = {
             item_value: 256,
             tier: 6,
             enchant: 2,
+            focus_cost: 503,
         },
         {
             name: "Exceptional Bloodoak Planks",
@@ -1454,6 +1551,7 @@ const products = {
             item_value: 512,
             tier: 6,
             enchant: 3,
+            focus_cost: 880,
         },
         {
             name: "Pristine Bloodoak Planks",
@@ -1461,6 +1559,7 @@ const products = {
             item_value: 1024,
             tier: 6,
             enchant: 4,
+            focus_cost: 1539,
         },
         {
             name: "Ashenbark Planks",
@@ -1468,6 +1567,7 @@ const products = {
             item_value: 128,
             tier: 7,
             enchant: 0,
+            focus_cost: 287,
         },
         {
             name: "Uncommon Ashenbark Planks",
@@ -1475,6 +1575,7 @@ const products = {
             item_value: 256,
             tier: 7,
             enchant: 1,
+            focus_cost: 503,
         },
         {
             name: "Rare Ashenbark Planks",
@@ -1482,6 +1583,7 @@ const products = {
             item_value: 512,
             tier: 7,
             enchant: 2,
+            focus_cost: 880,
         },
         {
             name: "Exceptional Ashenbark Planks",
@@ -1489,6 +1591,7 @@ const products = {
             item_value: 1024,
             tier: 7,
             enchant: 3,
+            focus_cost: 1539,
         },
         {
             name: "Pristine Ashenbark Planks",
@@ -1496,6 +1599,7 @@ const products = {
             item_value: 2048,
             tier: 7,
             enchant: 4,
+            focus_cost: 2694,
         },
         {
             name: "Whitewood Planks",
@@ -1503,6 +1607,7 @@ const products = {
             item_value: 256,
             tier: 8,
             enchant: 0,
+            focus_cost: 503,
         },
         {
             name: "Uncommon Whitewood Planks",
@@ -1510,6 +1615,7 @@ const products = {
             item_value: 512,
             tier: 8,
             enchant: 1,
+            focus_cost: 880,
         },
         {
             name: "Rare Whitewood Planks",
@@ -1517,6 +1623,7 @@ const products = {
             item_value: 1024,
             tier: 8,
             enchant: 2,
+            focus_cost: 1539,
         },
         {
             name: "Exceptional Whitewood Planks",
@@ -1524,14 +1631,15 @@ const products = {
             item_value: 2048,
             tier: 8,
             enchant: 3,
+            focus_cost: 2694,
         },
         {
-
             name: "Pristine Whitewood Planks",
             image: "planks/T8_PLANKS_LEVEL4.png",
             item_value: 4096,
             tier: 8,
             enchant: 4,
+            focus_cost: 4714,
         }
     ]
 }
@@ -1562,7 +1670,7 @@ function init() {
             break;
     }
 
-    // For every element in resources.hide, find the matching element in products.leather and add to the table
+    // For every element in resources.hide, find the matching    element in products.leather and add to the table
     for (let i = 0; i < refining_resource_list.length; i++) {
         // Add a row to the table
         let row = document.createElement("tr");
@@ -1592,7 +1700,7 @@ function init() {
             this.select();
         }
         resource_price_input_element.oninput = function () {
-            updateNumbers(this.id);
+            updateNumbers(this);
         }
         resource_price_input.appendChild(resource_price_input_element);
         row.appendChild(resource_price_input);
@@ -1616,7 +1724,7 @@ function init() {
             this.select();
         }
         product_price_element.oninput = function () {
-            updateNumbers(this.id);
+            updateNumbers(this);
         }
         product_price.appendChild(product_price_element);
         row.appendChild(product_price);
@@ -1638,7 +1746,9 @@ function init() {
         // Focus cost text
         let focus_cost = document.createElement("td");
         let focus_cost_element = document.createElement("p");
-        focus_cost_element.innerHTML = "0";
+        focus_cost_element.innerHTML = "0"
+        focus_cost_element.id = refining_product_list[i].focus_cost;
+        focus_cost.id = "focus-column";
         focus_cost.appendChild(focus_cost_element);
         row.appendChild(focus_cost);
 
@@ -1646,15 +1756,17 @@ function init() {
         let focus_profit = document.createElement("td");
         let focus_profit_element = document.createElement("p");
         focus_profit_element.innerHTML = "0";
+        focus_profit.id = "focus-column";
         focus_profit.appendChild(focus_profit_element);
         row.appendChild(focus_profit);
 
-        // Focus profit percentage
-        let focus_profit_percentage = document.createElement("td");
-        let focus_profit_percentage_element = document.createElement("p");
-        focus_profit_percentage_element.innerHTML = "0%";
-        focus_profit_percentage.appendChild(focus_profit_percentage_element);
-        row.appendChild(focus_profit_percentage);
+        // Profit per focus text
+        let profit_per_focus = document.createElement("td");
+        let profit_per_focus_element = document.createElement("p");
+        profit_per_focus_element.innerHTML = "0";
+        profit_per_focus.id = "focus-column";
+        profit_per_focus.appendChild(profit_per_focus_element);
+        row.appendChild(profit_per_focus);
 
         // Add the row to the table
         document.getElementById("resouce-table-body").appendChild(row);
@@ -1663,6 +1775,7 @@ function init() {
     loadFromLocalStorage();
     updateMastery();
     updateNumbers();
+    updateFocus();
 }
 
 function loadFromLocalStorage() {
@@ -1683,34 +1796,32 @@ function loadFromLocalStorage() {
     }
 }
 
-init();
+function updateNumbers(element) {
 
-
-function updateNumbers(element_id) {
     let refining_resource = document.getElementById("refining-resource").value;
-    
-    if(element_id != null) {
-        if(element_id.includes("product-price-input-") || element_id.includes("resource-price-input-")) {
-            let elementValue = document.getElementById(element_id).value;
-            if(elementValue < 0 || elementValue == "") {
-                elementValue = 0;
-                document.getElementById(element_id).value = 0;
-            }   
-            localStorage.setItem(refining_resource+element_id, elementValue);
-        }
 
-        if(element_id.includes("refining-mastery-t")) {
-            let elementValue = document.getElementById(element_id).value;
-            if(elementValue < 0 || elementValue == "") {
-                elementValue = 0;
-                document.getElementById(element_id).value = 0;
+    if(element != null) {
+        validateInput(element);
+        let element_id = element.id;
+        if(element_id != null) {
+            if(element_id.includes("product-price-input-") || element_id.includes("resource-price-input-")) {
+                let elementValue = document.getElementById(element_id).value;
+                if(elementValue < 0 || elementValue == "") {
+                    elementValue = 0;
+                    document.getElementById(element_id).value = 0;
+                }   
+                localStorage.setItem(refining_resource+element_id, elementValue);
             }
-            localStorage.setItem(refining_resource+element_id, elementValue);
+
+            if(element_id.includes("refining-mastery-t")) {
+                let elementValue = document.getElementById(element_id).value;
+                localStorage.setItem(refining_resource+element_id, elementValue);
+            }
         }
     }
 
     let tax = document.getElementById("refining-station-tax").value;
-    let return_rate = document.getElementById("refining-station-return-rate").value;
+    let return_rate = parseFloat(document.getElementById("refining-station-return-rate").value);
     let craft_amount = document.getElementById("refining-station-amount").value;
 
     // Loop through every row in the table
@@ -1718,9 +1829,169 @@ function updateNumbers(element_id) {
     for (let i = 0; i < table.rows.length; i++) {
 
         if(table.rows[i].cells[2].getElementsByTagName("input")[0].value == 0 || table.rows[i].cells[4].getElementsByTagName("input")[0].value == 0) {
+            table.rows[i].cells[5].children[0].innerHTML = "0";
+            table.rows[i].cells[6].children[0].innerHTML = "0%";
             continue;
         }
 
+        let resource_cost = getResourceCosts()[i];
+
+        let product_price = table.rows[i].cells[4].children[0].value;
+        let item_value = table.rows[i].cells[0].className;
+        let tax_cost = item_value*(tax/4444)*5;
+
+        let profit = (product_price - resource_cost + (resource_cost/100*return_rate) - tax_cost)*craft_amount;
+
+        if(document.getElementById("refining-market-tax").checked) {
+            profit = profit - (profit*0.065);
+        }
+
+        let profit_percentage = (profit / (resource_cost*craft_amount)) * 100;
+        
+        table.rows[i].cells[5].children[0].innerHTML = profit.toFixed(0);
+        table.rows[i].cells[6].children[0].innerHTML = profit_percentage.toFixed(2) + "%";
+
+        colorProfits(table.rows[i].cells[5].children[0]);
+        colorProfits(table.rows[i].cells[6].children[0]);
+    }
+    updateFocus();
+}
+
+function clearTable() {
+    let table = document.getElementById("resouce-table-body");
+    for (let i = 0; i < table.rows.length; i++) {
+        table.rows[i].cells[2].getElementsByTagName("input")[0].value = 0;
+        table.rows[i].cells[4].getElementsByTagName("input")[0].value = 0;
+    }
+
+    localStorage.clear();
+
+    for(let i = 4; i < 9; i++) {
+        document.getElementById("refining-mastery-t" + i).value = 0;
+    }
+
+    init();
+}
+
+function updateMastery() {
+    let refining_resource = document.getElementById("refining-resource").value;
+    for(let i = 4; i < 9; i++) {
+        let refining_mastery = localStorage.getItem(refining_resource+"refining-mastery-t" + i);
+        if(refining_mastery != null) {
+            document.getElementById("refining-mastery-t" + i).value = refining_mastery;
+        }
+        else {
+            document.getElementById("refining-mastery-t" + i).value = 0;
+        }
+    }
+}
+
+function updateFocus() {
+    let t4_mastery = parseInt(document.getElementById("refining-mastery-t4").value);
+    let t5_mastery = parseInt(document.getElementById("refining-mastery-t5").value);
+    let t6_mastery = parseInt(document.getElementById("refining-mastery-t6").value);
+    let t7_mastery = parseInt(document.getElementById("refining-mastery-t7").value);
+    let t8_mastery = parseInt(document.getElementById("refining-mastery-t8").value);
+
+    let craft_amount = parseInt(document.getElementById("refining-station-amount").value);
+
+    let table = document.getElementById("resouce-table-body");
+    for (let i = 0; i < table.rows.length; i++) {
+
+        if(table.rows[i].cells[2].getElementsByTagName("input")[0].value == 0 || table.rows[i].cells[4].getElementsByTagName("input")[0].value == 0) continue;
+        
+        let tier = table.rows[i].cells[0].innerHTML;
+        let focus_efficiency = t4_mastery*30 + t5_mastery*30 + t6_mastery*30 + t7_mastery*30 + t8_mastery*30;
+
+        switch (tier[0]) {
+            case "4":
+                focus_efficiency += t4_mastery*250;
+                break;
+            case "5":
+                focus_efficiency += t5_mastery*250;
+                break;
+            case "6":
+                focus_efficiency += t6_mastery*250;
+                break;
+            case "7":
+                focus_efficiency += t7_mastery*250;
+                break;
+            case "8":
+                focus_efficiency += t8_mastery*220;
+                break;
+        }
+
+        let base_focus_cost = parseInt(table.rows[i].cells[7].children[0].id);
+        let focus_cost = (base_focus_cost*0.5**(focus_efficiency/10000))*craft_amount;
+
+        let tax = document.getElementById("refining-station-tax").value;
+
+        let product_price = table.rows[i].cells[4].children[0].value;
+        let item_value = table.rows[i].cells[0].className;
+        let tax_cost = item_value*(tax/4444)*5;
+
+        let return_rate;
+        switch(document.getElementById("refining-station-return-rate").value) {
+            case "15.2": return_rate = 43.5; break;
+            case "36.7": return_rate = 53.9; break;
+            case "28.5": return_rate = 49.7; break;
+            case "20": return_rate = 46; break;
+            case "0": return_rate = 37.1; break;
+        }
+
+        let resource_cost = getResourceCosts()[i];
+
+        let focus_profit = (product_price - resource_cost + (resource_cost/100*return_rate) - tax_cost)*craft_amount;
+
+        if(document.getElementById("refining-market-tax").checked) {
+            focus_profit = focus_profit - (focus_profit*0.065);
+        }
+
+        let profit_per_focus = focus_profit/focus_cost;
+
+        table.rows[i].cells[7].children[0].innerHTML = Math.ceil(focus_cost);
+        table.rows[i].cells[8].children[0].innerHTML = focus_profit.toFixed(0);
+        table.rows[i].cells[9].children[0].innerHTML = profit_per_focus.toFixed(0);
+
+        colorProfits(table.rows[i].cells[8].children[0]);
+        colorProfits(table.rows[i].cells[9].children[0]);
+    }
+}
+
+function validateInput(element) {
+    let value = element.value;
+
+    if(element.value[0] == "0" && element.value.length > 1) {
+        element.value = element.value.substring(1);
+    }
+
+    if (isNaN(value) || value == "") {
+        element.value = 0;
+    }
+
+    if (value < 0) {
+        element.value = 0;
+    }
+
+    if(element.id.includes("refining-mastery-t")) {
+        if(value > 100) {
+            element.value = 100;
+        }
+    }
+
+    if(element.id == "refining-station-tax") {
+        if(value > 9999) {
+            element.value = 9999;
+        }
+    }
+}
+
+function getResourceCosts() {
+    let table = document.getElementById("resouce-table-body");
+    // array with prices
+    let resource_prices = [];
+
+    for(let i = 0; i < table.rows.length; i++) {
         let tier = table.rows[i].cells[0].innerHTML;
         let resource_price = table.rows[i].cells[2].children[0].value;
 
@@ -1760,62 +2031,32 @@ function updateNumbers(element_id) {
                 break;
         }
 
-        let product_price = table.rows[i].cells[4].children[0].value;
-        let item_value = table.rows[i].cells[0].className;
-        let tax_cost = item_value*(tax/4444)*5;
+        resource_prices.push(resource_cost);
+    }
 
-        let profit = (product_price - resource_cost + (resource_cost/100*return_rate) - tax_cost)*craft_amount;
+    return resource_prices;
+}
 
-        if(document.getElementById("refining-market-tax").checked) {
-            profit = profit - (profit*0.065);
-        }
-
-        let profit_percentage = (profit / (resource_cost*craft_amount)) * 100;
-        
-        table.rows[i].cells[5].children[0].innerHTML = profit.toFixed(0);
-        table.rows[i].cells[6].children[0].innerHTML = profit_percentage.toFixed(2) + "%";
-
-        if(profit > 0) {
-            table.rows[i].cells[5].children[0].style.color = "green";
-            table.rows[i].cells[6].children[0].style.color = "green";
-        } else if(profit < 0) {
-            table.rows[i].cells[5].children[0].style.color = "red";
-            table.rows[i].cells[6].children[0].style.color = "red";
-        } else {
-            table.rows[i].cells[5].children[0].style.color = "#cbe4de";
-            table.rows[i].cells[6].children[0].style.color = "#cbe4de";
-        }
-        
+function colorProfits(row) {
+    if(row.innerHTML.includes("-")) {
+        row.style.color = "red";
+    } else {
+        row.style.color = "green";
     }
 }
 
-function clearTable() {
-    let table = document.getElementById("resouce-table-body");
-    for (let i = 0; i < table.rows.length; i++) {
-        table.rows[i].cells[2].getElementsByTagName("input")[0].value = 0;
-        table.rows[i].cells[4].getElementsByTagName("input")[0].value = 0;
-    }
-
-    localStorage.clear();
-
-    for(let i = 4; i < 9; i++) {
-        document.getElementById("refining-mastery-t" + i).value = 0;
-    }
-
-    init();
-}
-
-
-function updateMastery() {
-    let refining_resource = document.getElementById("refining-resource").value;
-    for(let i = 4; i < 9; i++) {
-        let refining_mastery = localStorage.getItem(refining_resource+"refining-mastery-t" + i);
-        if(refining_mastery != null) {
-            console.log("refining-mastery-t" + i)
-            document.getElementById("refining-mastery-t" + i).value = refining_mastery;
-        }
-        else {
-            document.getElementById("refining-mastery-t" + i).value = 0;
-        }
+function focusToggle() {
+    let focus_switch = document.getElementById("refining-use-focus");
+    if(focus_switch.checked) {
+        document.getElementById("refining-table").classList.add("focus-table");
+        document.getElementById("refining").style.width = "60%";
+        document.getElementById("refining").style.margin = "0 auto";
+    } else {
+        document.getElementById("refining-table").classList.remove("focus-table");
+        document.getElementById("refining").style.width = "100%";
+        document.getElementById("refining").style.margin = "";
     }
 }
+
+init();
+fucusToggle();
