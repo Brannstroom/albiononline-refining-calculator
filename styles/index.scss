@@ -1,7 +1,7 @@
 $color1: #2C3333;
 $color2: #2E4F4F;
 $color3: #0E8388;
-$color4: #CBE4DE;
+$color4: #cbe4de;
 
 body {
     background-color: $color1;
@@ -179,4 +179,8 @@ input:checked + .slider:before {
 
 .profile-settings {
     margin-right: 8%;
+}
+
+h1 {
+    text-shadow: 0 0 10px rgba(44, 51, 51, 0.55);
 }

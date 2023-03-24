@@ -1774,6 +1774,17 @@ function updateNumbers(element_id) {
         
         table.rows[i].cells[5].children[0].innerHTML = profit.toFixed(0);
         table.rows[i].cells[6].children[0].innerHTML = profit_percentage.toFixed(2) + "%";
+
+        if(profit > 0) {
+            table.rows[i].cells[5].children[0].style.color = "green";
+            table.rows[i].cells[6].children[0].style.color = "green";
+        } else if(profit < 0) {
+            table.rows[i].cells[5].children[0].style.color = "red";
+            table.rows[i].cells[6].children[0].style.color = "red";
+        } else {
+            table.rows[i].cells[5].children[0].style.color = "#cbe4de";
+            table.rows[i].cells[6].children[0].style.color = "#cbe4de";
+        }
         
     }
 }

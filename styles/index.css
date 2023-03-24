@@ -1,6 +1,6 @@
 body {
   background-color: #2C3333;
-  color: #CBE4DE;
+  color: #cbe4de;
   width: 80%;
   margin: 0 auto;
 }
@@ -18,7 +18,7 @@ h2 {
 }
 
 p {
-  color: #CBE4DE;
+  color: #cbe4de;
   font-size: 1em;
   text-align: center;
 }
@@ -30,7 +30,7 @@ a {
 }
 
 div {
-  color: #CBE4DE;
+  color: #cbe4de;
   font-size: 1em;
 }
 
@@ -51,7 +51,7 @@ input, select {
   border-radius: 5px;
   border: 1px solid #2C3333;
   background-color: #2E4F4F;
-  color: #CBE4DE;
+  color: #cbe4de;
   text-align: right;
 }
 
@@ -112,7 +112,7 @@ th {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: #CBE4DE;
+  background-color: #cbe4de;
   transition: 0.4s;
 }
 
@@ -140,7 +140,7 @@ input:checked + .slider:before {
 .clear-table-button {
   cursor: pointer;
   background-color: #2E4F4F;
-  color: #CBE4DE;
+  color: #cbe4de;
   border: none;
   border-radius: 5px;
   padding: 0.5rem;
@@ -154,7 +154,7 @@ input:checked + .slider:before {
 
 .clear-table-button:active {
   background-color: #2E4F4F;
-  color: #CBE4DE;
+  color: #cbe4de;
   box-shadow: 0 2px #666;
   transform: translateY(2px);
 }
@@ -167,4 +167,8 @@ input:checked + .slider:before {
 
 .profile-settings {
   margin-right: 8%;
+}
+
+h1 {
+  text-shadow: 0 0 10px rgba(44, 51, 51, 0.55);
 }/*# sourceMappingURL=index.css.map */
