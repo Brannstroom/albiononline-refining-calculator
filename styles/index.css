@@ -186,4 +186,9 @@ h1 {
 
 .focus-table #focus-column {
   display: none;
+}
+
+#refine-from-t2-dropdown {
+  margin-left: 0.5rem;
+  width: 4rem;
 }/*# sourceMappingURL=index.css.map */

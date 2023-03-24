@@ -78,7 +78,16 @@
             <br>
 
             <div>
-                <label class="text-label" for="refine-from-t2">Refine from T2 (Not implemented)</label>
+                <label class="text-label" for="refine-from-t2">Refine from 
+                    <select id="refine-from-t2-dropdown" onchange="updateNumbers(this)" oninput="updateNumbers(this)">
+                        <option value="2">T2</option>
+                        <option value="3">T3</option>
+                        <option value="4">T4</option>
+                        <option value="5">T5</option>
+                        <option value="6">T6</option>
+                        <option value="7">T7</option>
+                    </select>
+                </label>
                 <label class="switch">
                     <input type="checkbox" id="refine-from-t2" onchange="updateNumbers()">
                     <span class="slider round"></span>

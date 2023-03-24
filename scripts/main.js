@@ -1846,6 +1846,17 @@ function updateNumbers(element) {
             profit = profit - (profit*0.065);
         }
 
+
+        if(document.getElementById("refine-from-t2").checked) {
+            let tier = table.rows[i].cells[0].innerHTML;
+            if(tier[0] > document.getElementById("refine-from-t2-dropdown").value) {
+                let offset = getOffset(tier);
+                let previous_profit = table.rows[i-offset].cells[5].children[0].innerHTML;
+                profit = profit + parseFloat(previous_profit);
+            }
+            console.log(tier)
+        }
+
         let profit_percentage = (profit / (resource_cost*craft_amount)) * 100;
         
         table.rows[i].cells[5].children[0].innerHTML = profit.toFixed(0);
@@ -2058,5 +2069,18 @@ function focusToggle() {
     }
 }
 
+function getOffset(tier) {
+    let offset = 5;
+    if(tier == "3.0" || tier == "4.0") {
+        offset = 1;
+    } else if (tier == "4.1") {
+        offset = 2;
+    } else if (tier == "4.2") {
+        offset = 3;
+    } else if (tier == "4.3") {
+        offset = 4;
+    }
+    return offset;
+}
+
 init();
-fucusToggle();
