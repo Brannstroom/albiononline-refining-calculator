@@ -1854,7 +1854,6 @@ function updateNumbers(element) {
                 let previous_profit = table.rows[i-offset].cells[5].children[0].innerHTML;
                 profit = profit + parseFloat(previous_profit);
             }
-            console.log(tier)
         }
 
         let profit_percentage = (profit / (resource_cost*craft_amount)) * 100;
