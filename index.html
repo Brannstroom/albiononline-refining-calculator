@@ -9,18 +9,52 @@
     <h1>Resource Refining Calculator</h1>
 
     <div class="profile">
-
         <div class="refining-settings">
-            <h3>Profile Settings</h3>
-            <label for="refining-resource">Resource</label>
+            <h3>Resource</h3>
+            <label for="refining-resource">Type</label>
             <select id="refining-resource" onchange="init()">
                 <option value="0">Cloth</option>
                 <option value="1">Bar</option>
                 <option value="2">Leather</option>
                 <option value="3">Wood</option>
             </select>
-            <br><br>
 
+            <div class="refining-station">
+                <h3>Refining Station</h3>
+
+                <label for="refining-station-tax">Tax</label>
+                <input type="number" id="refining-station-tax" value="0" onClick="this.select();" onchange="updateNumbers()" oninput="updateNumbers()">
+
+                <label for="refining-station-return-rate">Return rate</label>
+                <input type="number" id="refining-station-return-rate" value="15" onClick="this.select();" onchange="updateNumbers()" oninput="updateNumbers()">
+
+                <label for="refining-station">Amount</label>
+                <input type="number" id="refining-station-amount" value="1" onClick="this.select();" onchange="updateNumbers()" oninput="updateNumbers()">
+
+            </div>
+
+            <div class="refining-mastery">
+                <h3>Refining Mastery (Not implemented)</h3>
+
+                <label for="refining-mastery">T4</label>
+                <input type="number" id="refining-mastery-t4" value="0" onClick="this.select();" onchange="updateNumbers(this.id)" oninput="updateNumbers()">
+
+                <label for="refining-mastery">T5</label>
+                <input type="number" id="refining-mastery-t5" value="0" onClick="this.select();" onchange="updateNumbers(this.id)" oninput="updateNumbers()">
+
+                <label for="refining-mastery">T6</label>
+                <input type="number" id="refining-mastery-t6" value="0" onClick="this.select();" onchange="updateNumbers(this.id)" oninput="updateNumbers()">
+
+                <label for="refining-mastery">T7</label>
+                <input type="number" id="refining-mastery-t7" value="0" onClick="this.select();" onchange="updateNumbers(this.id)" oninput="updateNumbers()">
+
+                <label for="refining-mastery">T8</label>
+                <input type="number" id="refining-mastery-t8" value="0" onClick="this.select();" onchange="updateNumbers(this.id)" oninput="updateNumbers()">
+            </div>
+        </div>
+
+        <div class="profile-settings">
+            <h3>Profile Settings</h3>
             <div>
                 <label for="refining-market-tax">Include Market Tax (6.5%)</label>
                 <label class="switch">
@@ -39,40 +73,7 @@
             </div>
 
             <label for="clear-table-button">Clear Table & Local Storage</label>
-            <button class="clear-table-button">Clear</button>
-        </div>
-
-        <div class="refining-station">
-            <h3>Refining Station</h3>
-
-            <label for="refining-station-tax">Tax</label>
-            <input type="number" id="refining-station-tax" value="0" onClick="this.select();" onchange="updateNumbers()" oninput="updateNumbers()">
-
-            <label for="refining-station-return-rate">Return rate</label>
-            <input type="number" id="refining-station-return-rate" value="15" onClick="this.select();" onchange="updateNumbers()" oninput="updateNumbers()">
-
-            <label for="refining-station">Amount</label>
-            <input type="number" id="refining-station-amount" value="1" onClick="this.select();" onchange="updateNumbers()" oninput="updateNumbers()">
-
-        </div>
-
-        <div class="refining-mastery">
-            <h3>Refining Mastery (Not implemented)</h3>
-
-            <label for="refining-mastery">T4</label>
-            <input type="number" id="refining-mastery-t4" value="0" onClick="this.select();" onchange="updateNumbers()" oninput="updateNumbers()">
-
-            <label for="refining-mastery">T5</label>
-            <input type="number" id="refining-mastery-t5" value="0" onClick="this.select();" onchange="updateNumbers()" oninput="updateNumbers()">
-
-            <label for="refining-mastery">T6</label>
-            <input type="number" id="refining-mastery-t6" value="0" onClick="this.select();" onchange="updateNumbers()" oninput="updateNumbers()">
-
-            <label for="refining-mastery">T7</label>
-            <input type="number" id="refining-mastery-t7" value="0" onClick="this.select();" onchange="updateNumbers()" oninput="updateNumbers()">
-
-            <label for="refining-mastery">T8</label>
-            <input type="number" id="refining-mastery-t8" value="0" onClick="this.select();" onchange="updateNumbers()" oninput="updateNumbers()">
+            <button class="clear-table-button" onclick="clearTable()">Clear</button>
         </div>
     </div>
 

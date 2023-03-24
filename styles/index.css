@@ -157,4 +157,14 @@ input:checked + .slider:before {
   color: #CBE4DE;
   box-shadow: 0 2px #666;
   transform: translateY(2px);
+}
+
+.profile {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.profile-settings {
+  margin-right: 8%;
 }/*# sourceMappingURL=index.css.map */

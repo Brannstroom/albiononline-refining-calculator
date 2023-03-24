@@ -1661,6 +1661,7 @@ function init() {
     }
 
     loadFromLocalStorage();
+    updateMastery();
     updateNumbers();
 }
 
@@ -1691,6 +1692,19 @@ function updateNumbers(element_id) {
     if(element_id != null) {
         if(element_id.includes("product-price-input-") || element_id.includes("resource-price-input-")) {
             let elementValue = document.getElementById(element_id).value;
+            if(elementValue < 0 || elementValue == "") {
+                elementValue = 0;
+                document.getElementById(element_id).value = 0;
+            }   
+            localStorage.setItem(refining_resource+element_id, elementValue);
+        }
+
+        if(element_id.includes("refining-mastery-t")) {
+            let elementValue = document.getElementById(element_id).value;
+            if(elementValue < 0 || elementValue == "") {
+                elementValue = 0;
+                document.getElementById(element_id).value = 0;
+            }
             localStorage.setItem(refining_resource+element_id, elementValue);
         }
     }
@@ -1752,8 +1766,6 @@ function updateNumbers(element_id) {
 
         let profit = (product_price - resource_cost + (resource_cost/100*return_rate) - tax_cost)*craft_amount;
 
-        console.log(resource_cost + " " + product_price + " " + tax_cost + " " + profit)
-
         if(document.getElementById("refining-market-tax").checked) {
             profit = profit - (profit*0.065);
         }
@@ -1775,5 +1787,24 @@ function clearTable() {
 
     localStorage.clear();
 
+    for(let i = 4; i < 9; i++) {
+        document.getElementById("refining-mastery-t" + i).value = 0;
+    }
+
     init();
+}
+
+
+function updateMastery() {
+    let refining_resource = document.getElementById("refining-resource").value;
+    for(let i = 4; i < 9; i++) {
+        let refining_mastery = localStorage.getItem(refining_resource+"refining-mastery-t" + i);
+        if(refining_mastery != null) {
+            console.log("refining-mastery-t" + i)
+            document.getElementById("refining-mastery-t" + i).value = refining_mastery;
+        }
+        else {
+            document.getElementById("refining-mastery-t" + i).value = 0;
+        }
+    }
 }
