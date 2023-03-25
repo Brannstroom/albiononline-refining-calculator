@@ -1867,17 +1867,20 @@ function updateNumbers(element) {
     updateFocus();
 }
 
-function clearTable() {
+function clearTable(type) {
     let table = document.getElementById("resouce-table-body");
-    for (let i = 0; i < table.rows.length; i++) {
-        table.rows[i].cells[2].getElementsByTagName("input")[0].value = 0;
-        table.rows[i].cells[4].getElementsByTagName("input")[0].value = 0;
-    }
-
-    localStorage.clear();
-
-    for(let i = 4; i < 9; i++) {
-        document.getElementById("refining-mastery-t" + i).value = 0;
+    if(type == "table") {
+        let refining_resource = document.getElementById("refining-resource").value;
+        for (let i = 0; i < table.rows.length; i++) {
+            localStorage.removeItem(refining_resource+"resource-price-input-" + table.rows[i].cells[0].innerHTML);
+            localStorage.removeItem(refining_resource+"product-price-input-" + table.rows[i].cells[0].innerHTML);
+        }
+    } else {
+        localStorage.clear();
+    
+        for(let i = 4; i < 9; i++) {
+            document.getElementById("refining-mastery-t" + i).value = 0;
+        }
     }
 
     init();

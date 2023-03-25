@@ -105,8 +105,13 @@
             <br>
 
             <div>
-                <label class="text-label" for="clear-table-button">Clear table & stored data</label>
-                <button class="clear-table-button" onclick="clearTable()">Clear</button>
+                <label class="text-label" for="clear-table-button">Clear current table data</label>
+                <button class="clear-table-button" onclick="clearTable('table')">Table</button>
+            </div>
+            <br>
+            <div>
+                <label class="text-label" for="clear-table-button">Clear all data</label>
+                <button class="clear-table-button" onclick="clearTable('all')">All</button>
             </div>
         </div>
     </div>

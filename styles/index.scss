@@ -146,6 +146,7 @@ input:checked + .slider:before {
 
 .clear-table-button {
     cursor: pointer;
+    width: 60px;
     background-color: $color2;
     color: $color4;
     border: none;
@@ -206,3 +207,4 @@ h1 {
     margin-left: 0.5rem;
     width: 4rem;
 }
+
