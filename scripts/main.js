@@ -1843,7 +1843,7 @@ function updateNumbers(element) {
         let profit = (product_price - resource_cost + (resource_cost/100*return_rate) - tax_cost)*craft_amount;
 
         if(document.getElementById("refining-market-tax").checked) {
-            profit = profit - (profit*0.065);
+            profit = profit - (product_price*0.065);
         }
 
 
