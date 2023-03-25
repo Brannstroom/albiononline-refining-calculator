@@ -1839,7 +1839,8 @@ function updateNumbers(element) {
         let product_price = table.rows[i].cells[4].children[0].value;
         let item_value = table.rows[i].cells[0].className;
         let tax_cost = item_value*(tax/4444)*5;
-
+        
+        if(table.rows[i].cells[0].innerHTML == "2.0") tax_cost = 0;
         let profit = (product_price - resource_cost + (resource_cost/100*return_rate) - tax_cost)*craft_amount;
 
         if(document.getElementById("refining-market-tax").checked) {
@@ -1930,7 +1931,7 @@ function updateFocus() {
                 focus_efficiency += t7_mastery*250;
                 break;
             case "8":
-                focus_efficiency += t8_mastery*220;
+                focus_efficiency += t8_mastery*250;
                 break;
         }
 
