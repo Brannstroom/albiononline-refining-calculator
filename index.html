@@ -94,7 +94,7 @@
             <br>
 
             <div>
-                <label class="text-label" for="profile-settings-focus-columns">Remove focus columns</label>
+                <label class="text-label" for="profile-settings-focus-columns">Hide focus columns</label>
                 <label class="switch">
                     <input type="checkbox" id="profile-settings-focus-columns" onchange="toggleColumns('focus')">
                     <span class="slider round"></span>
@@ -103,7 +103,7 @@
             <br>
 
             <div>
-                <label class="text-label" for="profile-settings-detail-columns">Enable detail columns</label>
+                <label class="text-label" for="profile-settings-detail-columns">Show detail columns</label>
                 <label class="switch">
                     <input type="checkbox" id="profile-settings-detail-columns" onchange="toggleColumns('detail')">
                     <span class="slider round"></span>
@@ -113,7 +113,7 @@
         </div>
 
         <div class="data-settings">
-            <h3>Table / Data Settings</h3>
+            <h3>Table settings</h3>
             <div>
                 <label class="text-label" for="table-settings-flip-table">Flip table</label>
                 <label class="switch">
@@ -134,15 +134,53 @@
 
             <div style="margin-bottom:0.3rem;">
                 <label class="text-label" for="clear-table-button">Clear current table data</label>
-                <button class="clear-table-button" onclick="clearTable('table')">Table</button>
+                <button class="profile-button" onclick="clearTable('table')">Table</button>
             </div>
             <br>
 
             <div>
                 <label class="text-label" for="clear-table-button">Clear all data</label>
-                <button class="clear-table-button" onclick="clearTable('all')">All</button>
+                <button class="profile-button" onclick="clearTable('all')">All</button>
             </div>
         </div>
+
+        <div class="data-scrape">
+            <h3>Data Scrape</h3>
+
+            <div>
+                <label class="text-label" for="server-select">Select server</label>
+                <select id="server-select">
+                    <option value="west">West</option>
+                    <option value="east">East</option>
+                </select>
+            </div>
+            <br>
+
+            <div>
+                <label for="refining-city">Location</label>
+                <select id="refining-city">
+                    <option value="martlock">Martlock</option>
+                    <option value="thetford">Thetford</option>
+                    <option value="fortsterling">Fort Sterling</option>
+                    <option value="lymhurst">Lymhurst</option>
+                    <option value="bridgewatch">Bridgewatch</option>
+                    <option value="caerleon">Caerleon</option>
+                </select>
+            </div>
+            <br>
+
+            <div class="scrape-button">
+                <label class="text-label" for="scrape-button">Pull resource prices</label>
+                <button class="profile-button" onclick="pullResourcePrices()">Pull</button>
+            </div>
+            <br>
+
+            <div class="scrape-button">
+                <label class="text-label" for="scrape-button">Pull product prices</label>
+                <button class="profile-button" onclick="pullProductPrices()">Pull</button>
+            </div>
+        </div>
+
     </div>
 
     <div id="refining" class="refining">

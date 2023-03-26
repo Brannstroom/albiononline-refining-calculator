@@ -137,7 +137,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.clear-table-button {
+.profile-button {
   cursor: pointer;
   width: 60px;
   background-color: #2E4F4F;
@@ -148,11 +148,11 @@ input:checked + .slider:before {
   font-size: 1em;
 }
 
-.clear-table-button:hover {
+.profile-button:hover {
   background-color: #0E8388;
 }
 
-.clear-table-button:active {
+.profile-button:active {
   background-color: #2E4F4F;
   color: #cbe4de;
   box-shadow: 0 2px #666;
@@ -165,11 +165,13 @@ input:checked + .slider:before {
   justify-content: space-between;
 }
 
-.profile-settings div {
-  margin-bottom: 0.2rem;
-}
 .profile-settings .switch, .profile-settings button {
   float: right;
+}
+.profile-settings #server-select {
+  float: right;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .data-settings {
@@ -179,6 +181,19 @@ input:checked + .slider:before {
 }
 .data-settings .switch, .data-settings button {
   float: right;
+}
+
+.data-scrape {
+  width: 16%;
+  margin-left: -5rem;
+}
+.data-scrape #refining-city, .data-scrape #server-select, .data-scrape button {
+  width: -moz-fit-content;
+  width: fit-content;
+  float: right;
+}
+.data-scrape .scrape-button {
+  margin-bottom: 0.3rem;
 }
 
 h1 {
@@ -222,4 +237,8 @@ h1 {
   -moz-appearance: none;
   text-indent: 1px;
   text-overflow: "";
+}
+
+.refining-mastery input {
+  width: 3rem;
 }/*# sourceMappingURL=index.css.map */

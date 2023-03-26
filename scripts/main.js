@@ -1829,7 +1829,6 @@ function loadFromLocalStorage() {
 }
 
 function updateNumbers(element) {
-
     let refining_resource = document.getElementById("refining-resource").value;
 
     if(element != null) {
@@ -2172,6 +2171,68 @@ function hideRows() {
     }
 }
 
+function pullProductPrices() {
+    let server = document.getElementById("server-select").value;
+    let city = document.getElementById("refining-city").value;
 
+    let item_list = "";
+    let table = document.getElementById("resouce-table-body");
+    for(let i = 0; i < table.rows.length; i++) {
+        let img_value = table.rows[i].cells[3].innerHTML.split("/");
+        let item_id = img_value[img_value.length-1].split(".")[0];
+
+        if(item_id[item_id.length-1] >= '0' && item_id[item_id.length-1] <= '9') {
+            let enchant = item_id[item_id.length-1];
+            item_id = item_id.replace("_LEVEL"+enchant, "_LEVEL"+enchant+"@"+enchant);
+        }
+
+        item_list += item_id + ",";
+    }
+
+    let url = "https://"+server+".albion-online-data.com/api/v2/stats/prices/"+item_list+"?locations="+city;
+    console.log(url);
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        for(let i = 0; i < table.rows.length; i++) {
+            let price = data[i].sell_price_min;
+            let price_cell = table.rows[i].cells[4].children[0];
+            price_cell.value = price;
+        }
+        updateNumbers();
+    })
+}
+
+function pullResourcePrices() {
+    let server = document.getElementById("server-select").value;
+    let city = document.getElementById("refining-city").value;
+
+    let item_list = "";
+    let table = document.getElementById("resouce-table-body");
+    for(let i = 0; i < table.rows.length; i++) {
+        let img_value = table.rows[i].cells[1].innerHTML.split("/");
+        let item_id = img_value[img_value.length-1].split(".")[0];
+
+        if(item_id[item_id.length-1] >= '0' && item_id[item_id.length-1] <= '9') {
+            let enchant = item_id[item_id.length-1];
+            item_id = item_id.replace("_LEVEL"+enchant, "_LEVEL"+enchant+"@"+enchant);
+        }
+
+        item_list += item_id + ",";
+    }
+
+    let url = "https://"+server+".albion-online-data.com/api/v2/stats/prices/"+item_list+"?locations="+city;
+    console.log(url);
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        for(let i = 0; i < table.rows.length; i++) {
+            let price = data[i].sell_price_min;
+            let price_cell = table.rows[i].cells[2].children[0];
+            price_cell.value = price;
+        }
+        updateNumbers();
+    })
+}
 
 init();

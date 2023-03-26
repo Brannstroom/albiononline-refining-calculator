@@ -148,7 +148,7 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
-.clear-table-button {
+.profile-button {
     cursor: pointer;
     width: 60px;
     background-color: $color2;
@@ -159,11 +159,11 @@ input:checked + .slider:before {
     font-size: 1em;
 }
   
-.clear-table-button:hover {
+.profile-button:hover {
     background-color: $color3;
 }
 
-.clear-table-button:active {
+.profile-button:active {
     background-color: $color2;
     color: $color4;
     box-shadow: 0 2px #666;
@@ -177,12 +177,12 @@ input:checked + .slider:before {
 }
 
 .profile-settings {
-    div {
-        margin-bottom: 0.2rem;
-    }
-
     .switch, button {
         float: right;
+    }
+    #server-select {
+        float: right;
+        width: fit-content;
     }
 }
 
@@ -194,6 +194,19 @@ input:checked + .slider:before {
         float: right;
     }
 }
+
+.data-scrape {
+    width: 16%;
+    margin-left: -5rem;
+    #refining-city, #server-select, button{
+        width: fit-content;
+        float: right;
+    }
+    .scrape-button {
+        margin-bottom: 0.3rem;
+    }
+}
+
 
 h1 {
     text-shadow: 0 0 10px rgba(44, 51, 51, 0.55);
@@ -240,3 +253,10 @@ h1 {
     text-indent: 1px;
     text-overflow: '';
 }
+
+.refining-mastery {
+    input {
+        width: 3rem;
+    }
+}
+
