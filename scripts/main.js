@@ -1800,13 +1800,21 @@ function init() {
     updateMastery();
     updateNumbers();
     updateFocus();
+
+    if(document.getElementById("table-settings-flip-table").checked) {
+        flipTable();
+    }
+
+    if(document.getElementById("table-settings-hide-rows").checked) {
+        document.getElementById("table-settings-hide-rows").click();
+    }
 }
 
 function loadFromLocalStorage() {
     let table = document.getElementById("resouce-table-body");
+
     let refining_resource = document.getElementById("refining-resource").value;
     for (let i = 0; i < table.rows.length; i++) {
-        
         let tier = table.rows[i].cells[0].innerHTML;
         let resource_price = localStorage.getItem(refining_resource+"resource-price-input-" + tier);
         let product_price = localStorage.getItem(refining_resource+"product-price-input-" + tier);
@@ -1885,8 +1893,17 @@ function updateNumbers(element) {
 
         let profit_percentage = (profit / (resource_cost*craft_amount)) * 100;
         
-        table.rows[i].cells[5].children[0].innerHTML = profit.toFixed(0);
-        table.rows[i].cells[6].children[0].innerHTML = profit_percentage.toFixed(2) + "%";
+        let label_prefix = "<a href='#' class='missing_resource_tooltip' style='color:red;text-decoration:none;' title='Missing price of previous tier product'>";
+        let label_suffix = " (!)</a>";
+        if(tier != "2.0") {
+            let value = table.rows[i-getOffset(tier)].cells[4].children[0].value;
+            if(value != 0) label_prefix = "", label_suffix = "";
+        } else {
+            label_prefix = "", label_suffix = "";
+        }
+
+        table.rows[i].cells[5].children[0].innerHTML = label_prefix + profit.toFixed(0) + label_suffix;
+        table.rows[i].cells[6].children[0].innerHTML = label_prefix + profit_percentage.toFixed(2) + "%" + label_suffix;
         
         table.rows[i].cells[10].children[0].innerHTML = (resource_cost*craft_amount).toFixed(0);
         table.rows[i].cells[11].children[0].innerHTML = (tax_cost*craft_amount).toFixed(0);
@@ -2045,16 +2062,7 @@ function getResourceCosts() {
         let tier = table.rows[i].cells[0].innerHTML;
         let resource_price = table.rows[i].cells[2].children[0].value;
 
-        let offset = 5;
-        if(tier[0] == "3" || (tier[0] == "4" && tier[2] == "0")) {
-            offset = 1;
-        } else if (tier[0] == "4" && tier[2] == "1") {
-            offset = 2;
-        } else if (tier[0] == "4" && tier[2] == "2") {
-            offset = 3;
-        } else if (tier[0] == "4" && tier[2] == "3") {
-            offset = 4;
-        }
+        let offset = getOffset(tier);
 
         let resource_cost;
         switch (tier[0]) {
@@ -2106,16 +2114,20 @@ function getOffset(tier) {
     } else if (tier == "4.3") {
         offset = 4;
     }
+
+    let flipped = document.getElementById("table-settings-flip-table").checked;
+    if(flipped) {
+        offset = offset * -1;
+    }
+
     return offset;
 }
 
 function toggleColumns(type) {
-    console.log(type);
     let focus_switch = document.getElementById("profile-settings-focus-columns");
     let detail_switch = document.getElementById("profile-settings-detail-columns");
 
     let width = !focus_switch.checked ? "100%" : detail_switch.checked ? "75%" : "60%";
-    console.log(width);
 
     document.getElementById("refining-table").classList.toggle("focus-table", focus_switch.checked);
     document.getElementById("refining-table").classList.toggle("detail-table", !detail_switch.checked);
@@ -2123,5 +2135,43 @@ function toggleColumns(type) {
     document.getElementById("refining").style.width = width;
     document.getElementById("refining").style.margin = "0 auto";
 }
+
+function flipTable() {
+
+    let table = document.getElementById("resouce-table-body");
+    let rows = table.rows;
+    var numRows = rows.length;
+    var temp = [];
+  
+    // Loop through the rows and store them in an array
+    for (var i = 0; i < numRows; i++) {
+      temp.push(rows[i]);
+    }
+  
+    // Clear the table
+    while (table.firstChild) {
+      table.removeChild(table.firstChild);
+    }
+  
+    // Insert the rows in reverse order
+    for (var i = numRows - 1; i >= 0; i--) {
+      table.appendChild(temp[i]);
+    }
+}
+
+function hideRows() {
+    let table = document.getElementById("resouce-table-body");
+    let rows = table.rows;
+    let hide_switch = document.getElementById("table-settings-hide-rows");
+    for(let i = 0; i < rows.length; i++) {
+        let value1 = rows[i].cells[2].children[0].value;
+        let value2 = rows[i].cells[4].children[0].value;
+        if(value1 == 0 && value2 == 0) {
+            rows[i].classList.toggle("hidden-row", hide_switch.checked);
+        }
+    }
+}
+
+
 
 init();

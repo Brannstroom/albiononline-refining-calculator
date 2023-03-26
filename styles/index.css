@@ -5,6 +5,10 @@ body {
   margin: 0 auto;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 h1 {
   color: #0E8388;
   font-size: 2em;
@@ -196,6 +200,10 @@ h1 {
 }
 
 .detail-table #detail-column {
+  display: none;
+}
+
+.hidden-row {
   display: none;
 }
 

@@ -10,6 +10,10 @@ body {
     margin: 0 auto;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 h1 {
     color: $color3;
     font-size: 2em;
@@ -215,6 +219,10 @@ h1 {
     }
 }
 
+.hidden-row {
+    display: none;
+}
+
 #refine-from-t2-dropdown{
     margin-left: 0.5rem;
     width: 4rem;
@@ -232,4 +240,3 @@ h1 {
     text-indent: 1px;
     text-overflow: '';
 }
-

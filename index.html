@@ -13,7 +13,6 @@
         <div class="refining-settings">
             <div class="refining-station">
                 <h3>Refining Station</h3>
-
                 <label for="refining-resource">Resource</label>
                 <select id="refining-resource" onchange="init()">
                     <option value="0">Cloth</option>
@@ -114,8 +113,26 @@
         </div>
 
         <div class="data-settings">
-            <h3>Data Settings</h3>
+            <h3>Table / Data Settings</h3>
             <div>
+                <label class="text-label" for="table-settings-flip-table">Flip table</label>
+                <label class="switch">
+                    <input type="checkbox" id="table-settings-flip-table" onchange="flipTable()">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <br>
+
+            <div>
+                <label class="text-label" for="table-settings-hide-rows">Hide unused rows</label>
+                <label class="switch">
+                    <input type="checkbox" id="table-settings-hide-rows" onchange="hideRows()">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <br>
+
+            <div style="margin-bottom:0.3rem;">
                 <label class="text-label" for="clear-table-button">Clear current table data</label>
                 <button class="clear-table-button" onclick="clearTable('table')">Table</button>
             </div>
