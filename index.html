@@ -23,21 +23,16 @@
                 </select>
 
                 <label for="refining-station-tax">Tax</label>
-                <input type="number" id="refining-station-tax" value="0" min="0" max="9999" onClick="this.select();" onchange="updateNumbers(this)" oninput="updateNumbers(this)">
-
-                <!--
-                <label for="refining-station-return-rate">Return rate</label>
-                <input type="number" id="refining-station-return-rate" value="15" onClick="this.select();" onchange="updateNumbers(this)" oninput="updateNumbers(this)">
-                -->                
+                <input type="number" id="refining-station-tax" value="0" min="0" max="9999" onClick="this.select();" oninput="updateNumbers(this)">           
 
                 <label for="refining-station">Amount</label>
-                <input type="number" id="refining-station-amount" value="1" min="1" onClick="this.select();" onchange="updateNumbers(this)" oninput="updateNumbers(this)">                
+                <input type="number" id="refining-station-amount" value="1" min="1" onClick="this.select();" oninput="updateNumbers(this)">                
             </div>
             <br>
 
             <div>
                 <label for="refining-location">Return rate</label>
-                <select id="refining-station-return-rate" onchange="updateNumbers(this)" oninput="updateNumbers(this)">
+                <select id="refining-station-return-rate" onchange="updateNumbers(this)">
                     <option value="15.2">Royal City (15.2%)</option>
                     <option value="36.7">Royal City with Bonus (36.7%)</option>
                     <option value="0">Royal Island (0%)</option>
@@ -50,26 +45,30 @@
                 <h3>Refining Mastery</h3>
 
                 <label for="refining-mastery">T4</label>
-                <input type="number" id="refining-mastery-t4" value="0" min="0" max="100" onClick="this.select();" onchange="updateNumbers(this)" oninput="updateNumbers(this)">
+                <input type="number" id="refining-mastery-t4" value="0" min="0" max="100" onClick="this.select();" oninput="updateNumbers(this)">
 
                 <label for="refining-mastery">T5</label>
-                <input type="number" id="refining-mastery-t5" value="0" min="0" max="100" onClick="this.select();" onchange="updateNumbers(this)" oninput="updateNumbers(this)">
+                <input type="number" id="refining-mastery-t5" value="0" min="0" max="100" onClick="this.select();" oninput="updateNumbers(this)">
 
                 <label for="refining-mastery">T6</label>
-                <input type="number" id="refining-mastery-t6" value="0" min="0" max="100" onClick="this.select();" onchange="updateNumbers(this)" oninput="updateNumbers(this)">
+                <input type="number" id="refining-mastery-t6" value="0" min="0" max="100" onClick="this.select();" oninput="updateNumbers(this)">
 
                 <label for="refining-mastery">T7</label>
-                <input type="number" id="refining-mastery-t7" value="0" min="0" max="100" onClick="this.select();" onchange="updateNumbers(this)" oninput="updateNumbers(this)">
+                <input type="number" id="refining-mastery-t7" value="0" min="0" max="100" onClick="this.select();" oninput="updateNumbers(this)">
 
                 <label for="refining-mastery">T8</label>
-                <input type="number" id="refining-mastery-t8" value="0" min="0" max="100" onClick="this.select();" onchange="updateNumbers(this)" oninput="updateNumbers(this)">
+                <input type="number" id="refining-mastery-t8" value="0" min="0" max="100" onClick="this.select();" oninput="updateNumbers(this)">
             </div>
         </div>
 
         <div class="profile-settings">
             <h3>Profile Settings</h3>
             <div>
-                <label class="text-label" for="refining-market-tax">Include market tax (6.5%)</label>
+                <label class="text-label" for="refining-market-tax">Include market tax</label>
+                <select id="refining-market-tax-percentage" onchange="updateNumbers(this)"">
+                    <option value="6.5">( 6.5%)</option>
+                    <option value="10.5">(10.5%)</option>
+                </select>
                 <label class="switch">
                     <input type="checkbox" id="refining-market-tax" onchange="updateNumbers()">
                     <span class="slider round"></span>
@@ -79,7 +78,7 @@
 
             <div>
                 <label class="text-label" for="refine-from-t2">Stack profit from 
-                    <select id="refine-from-t2-dropdown" onchange="updateNumbers(this)" oninput="updateNumbers(this)">
+                    <select id="refine-from-t2-dropdown" onchange="updateNumbers(this)"">
                         <option value="2">T2</option>
                         <option value="3">T3</option>
                         <option value="4">T4</option>
@@ -96,19 +95,32 @@
             <br>
 
             <div>
-                <label class="text-label" for="refining-use-focus">Remove focus columns</label>
+                <label class="text-label" for="profile-settings-focus-columns">Remove focus columns</label>
                 <label class="switch">
-                    <input type="checkbox" id="refining-use-focus" onchange="focusToggle()">
+                    <input type="checkbox" id="profile-settings-focus-columns" onchange="toggleColumns('focus')">
                     <span class="slider round"></span>
                 </label>
             </div>
             <br>
 
             <div>
+                <label class="text-label" for="profile-settings-detail-columns">Enable detail columns</label>
+                <label class="switch">
+                    <input type="checkbox" id="profile-settings-detail-columns" onchange="toggleColumns('detail')">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <br>
+        </div>
+
+        <div class="data-settings">
+            <h3>Data Settings</h3>
+            <div>
                 <label class="text-label" for="clear-table-button">Clear current table data</label>
                 <button class="clear-table-button" onclick="clearTable('table')">Table</button>
             </div>
             <br>
+
             <div>
                 <label class="text-label" for="clear-table-button">Clear all data</label>
                 <button class="clear-table-button" onclick="clearTable('all')">All</button>
@@ -117,7 +129,7 @@
     </div>
 
     <div id="refining" class="refining">
-        <table id="refining-table">
+        <table id="refining-table" class="detail-table">
             <thead>
                 <tr>
                     <th>TIER</th>
@@ -130,6 +142,9 @@
                     <th id="focus-column">FOCUS COST</th>
                     <th id="focus-column">FOCUS PROFIT</th>
                     <th id="focus-column">PROFIT/FOCUS</th>
+                    <th id="detail-column">RESOURCE COST</th>
+                    <th id="detail-column">STATION TAX</th>
+                    <th id="detail-column">MARKET TAX</th>
                 </tr>
             </thead>
 

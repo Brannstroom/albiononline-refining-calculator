@@ -173,13 +173,19 @@ input:checked + .slider:before {
 }
 
 .profile-settings {
-    margin-right: 8%;
-
-
     div {
         margin-bottom: 0.2rem;
     }
 
+    .switch, button {
+        float: right;
+    }
+}
+
+.data-settings {
+    width: 16%;
+    margin-right: 0.5rem;
+    margin-left: -5rem;
     .switch, button {
         float: right;
     }
@@ -203,8 +209,27 @@ h1 {
     }
 }
 
+.detail-table {
+    #detail-column {
+        display: none;
+    }
+}
+
 #refine-from-t2-dropdown{
     margin-left: 0.5rem;
     width: 4rem;
+}
+
+#refining-market-tax-percentage {
+    width: fit-content;
+    background-color: #2C3333;
+    margin-left: 0.3rem;
+    
+    border-bottom: $color3 solid 0.8px;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
 }
 
