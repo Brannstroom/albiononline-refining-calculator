@@ -1826,6 +1826,35 @@ function loadFromLocalStorage() {
             table.rows[i].cells[4].getElementsByTagName("input")[0].value = product_price;
         }
     }
+
+    updateElementFromLocalStorage("refining-market-tax", true);
+    updateElementFromLocalStorage("refining-market-tax-percentage", false);
+    updateElementFromLocalStorage("profile-settings-focus-columns", true);
+    updateElementFromLocalStorage("profile-settings-detail-columns", true);
+    updateElementFromLocalStorage("table-settings-flip-table", true);
+    updateElementFromLocalStorage("server-select", false);
+    updateElementFromLocalStorage("refining-city", false);
+}
+
+function updateElementFromLocalStorage(elementId, isCheckbox) {
+    const storedValue = localStorage.getItem(elementId);
+    if (storedValue !== null) {
+        const element = document.getElementById(elementId);
+        if (isCheckbox) {
+            let bool = (storedValue === "true");
+            if(bool) {
+                element.click();
+            }
+        } else {
+            element.value = storedValue;
+        }
+    }
+
+    if(elementId == "table-settings-flip-table") {
+        if(document.getElementById("table-settings-flip-table").checked) {
+            flipTable();
+        }
+    }
 }
 
 function updateNumbers(element) {
@@ -2190,7 +2219,6 @@ function pullProductPrices() {
     }
 
     let url = "https://"+server+".albion-online-data.com/api/v2/stats/prices/"+item_list+"?locations="+city;
-    console.log(url);
     fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -2222,7 +2250,6 @@ function pullResourcePrices() {
     }
 
     let url = "https://"+server+".albion-online-data.com/api/v2/stats/prices/"+item_list+"?locations="+city;
-    console.log(url);
     fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -2233,6 +2260,67 @@ function pullResourcePrices() {
         }
         updateNumbers();
     })
+}
+
+function findResourceZCost() {
+
+    let table = document.getElementById("resouce-table-body");
+
+
+    let station_tax = document.getElementById("refining-station-tax").value;
+    let return_rate = document.getElementById("refining-station-return-rate").value;
+    let tax_rate = 0;
+    if(document.getElementById("refining-market-tax").checked) tax_rate = document.getElementById("refining-market-tax-percentage").value/100;
+
+    for(let i = 0; i < table.rows.length; i++) {
+
+        let tier = table.rows[i].cells[0].innerHTML;
+
+        let item_value = table.rows[i].cells[0].className;
+        let tax_cost = item_value*(station_tax/4444)*5;
+        let resources_needed = getResourcesNeeded(tier);
+
+        let product_value = table.rows[i].cells[4].children[0].value;
+        let previous_product = 0;
+        if(tier == "2.0") {
+            previous_product = 0;
+            tax_cost = 0;
+        } else {
+            previous_product = table.rows[i-getOffset(tier)].cells[4].children[0].value;
+        }
+
+        if(tier != "2.0" && (product_value == 0 || previous_product == 0)) continue;
+
+        let zMax = maxZ(product_value, previous_product, return_rate, tax_cost, tax_rate, resources_needed);
+        table.rows[i].cells[2].children[0].value = zMax.toFixed(0);
+    }
+
+    updateNumbers();
+}
+
+function maxZ(x, y, n, m, o, p) {
+    return (x * (1 - o) - y + (y * n) / 100 - m) / (p - (p * n) / 100);
+}
+
+function getResourcesNeeded(tier) {
+    let amount = 0;
+    switch(tier[0]) {
+        case "2": amount = 1; break;
+        case "3": amount = 2; break;
+        case "4": amount = 2; break;
+        case "5": amount = 3; break;
+        case "6": amount = 4; break;
+        case "7": amount = 5; break;
+        case "8": amount = 5; break;
+    }
+    return amount;
+}
+
+function saveSettings(element) {
+    let id = element.id;
+    let value = element.type == "checkbox" ? element.checked : element.value;
+
+    localStorage.setItem(id, value);
 }
 
 init();

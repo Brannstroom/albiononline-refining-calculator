@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   </head>
   <body>
-    <h1>Resource Refining Calculator</h1>
+    <h1>Resource Refining Calcula<a onclick="findResourceZCost()">tor</a></h1>
 
     <div class="profile">
         <div class="refining-settings">
@@ -18,7 +18,7 @@
                     <option value="0">Cloth</option>
                     <option value="1">Bar</option>
                     <option value="2">Leather</option>
-                    <option value="3">Wood</option>
+                    <option value="3">Plank</option>
                 </select>
 
                 <label for="refining-station-tax">Tax</label>
@@ -64,12 +64,12 @@
             <h3>Profile Settings</h3>
             <div>
                 <label class="text-label" for="refining-market-tax">Include market tax</label>
-                <select id="refining-market-tax-percentage" onchange="updateNumbers(this)"">
+                <select id="refining-market-tax-percentage" onchange="updateNumbers(this);saveSettings(this);">
                     <option value="6.5">( 6.5%)</option>
                     <option value="10.5">(10.5%)</option>
                 </select>
                 <label class="switch">
-                    <input type="checkbox" id="refining-market-tax" onchange="updateNumbers()">
+                    <input type="checkbox" id="refining-market-tax" onchange="updateNumbers();saveSettings(this);">
                     <span class="slider round"></span>
                 </label>
             </div>
@@ -96,7 +96,7 @@
             <div>
                 <label class="text-label" for="profile-settings-focus-columns">Hide focus columns</label>
                 <label class="switch">
-                    <input type="checkbox" id="profile-settings-focus-columns" onchange="toggleColumns('focus')">
+                    <input type="checkbox" id="profile-settings-focus-columns" onchange="toggleColumns('focus');saveSettings(this);">
                     <span class="slider round"></span>
                 </label>
             </div>
@@ -105,7 +105,7 @@
             <div>
                 <label class="text-label" for="profile-settings-detail-columns">Show detail columns</label>
                 <label class="switch">
-                    <input type="checkbox" id="profile-settings-detail-columns" onchange="toggleColumns('detail')">
+                    <input type="checkbox" id="profile-settings-detail-columns" onchange="toggleColumns('detail');saveSettings(this);">
                     <span class="slider round"></span>
                 </label>
             </div>
@@ -117,7 +117,7 @@
             <div>
                 <label class="text-label" for="table-settings-flip-table">Flip table</label>
                 <label class="switch">
-                    <input type="checkbox" id="table-settings-flip-table" onchange="flipTable()">
+                    <input type="checkbox" id="table-settings-flip-table" onchange="flipTable();saveSettings(this);">
                     <span class="slider round"></span>
                 </label>
             </div>
@@ -126,7 +126,7 @@
             <div>
                 <label class="text-label" for="table-settings-hide-rows">Hide unused rows</label>
                 <label class="switch">
-                    <input type="checkbox" id="table-settings-hide-rows" onchange="hideRows()">
+                    <input type="checkbox" id="table-settings-hide-rows" onchange="hideRows();">
                     <span class="slider round"></span>
                 </label>
             </div>
@@ -149,7 +149,7 @@
 
             <div>
                 <label class="text-label" for="server-select">Select server</label>
-                <select id="server-select">
+                <select id="server-select" onchange="saveSettings(this);">
                     <option value="west">West</option>
                     <option value="east">East</option>
                 </select>
@@ -158,7 +158,7 @@
 
             <div>
                 <label for="refining-city">Location</label>
-                <select id="refining-city">
+                <select id="refining-city" onchange="saveSettings(this);">
                     <option value="martlock">Martlock</option>
                     <option value="thetford">Thetford</option>
                     <option value="fortsterling">Fort Sterling</option>
