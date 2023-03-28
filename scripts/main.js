@@ -1670,18 +1670,14 @@ function init() {
             break;
     }
 
-    // For every element in resources.hide, find the matching    element in products.leather and add to the table
     for (let i = 0; i < refining_resource_list.length; i++) {
-        // Add a row to the table
         let row = document.createElement("tr");
 
-        // Add the resource name to the table
         let resource_tier = document.createElement("td");
         resource_tier.innerHTML = refining_resource_list[i].tier + "." + refining_resource_list[i].enchant;
         resource_tier.className = refining_product_list[i].item_value;
         row.appendChild(resource_tier);
 
-        // Add the resource image to the table
         let resource_image = document.createElement("td");
         let resource_image_element = document.createElement("img");
         resource_image_element.src = "images/resources/" + refining_resource_list[i].image;
@@ -1690,7 +1686,6 @@ function init() {
         resource_image.appendChild(resource_image_element);
         row.appendChild(resource_image);
 
-        // Price input
         let resource_price_input = document.createElement("td");
         let resource_price_input_element = document.createElement("input");
         resource_price_input_element.id = "resource-price-input-" + refining_resource_list[i].tier + "." + refining_resource_list[i].enchant;
@@ -1705,7 +1700,6 @@ function init() {
         resource_price_input.appendChild(resource_price_input_element);
         row.appendChild(resource_price_input);
 
-        // Add the product image to the table
         let product_image = document.createElement("td");
         let product_image_element = document.createElement("img");
         product_image_element.src = "images/resources/" + refining_product_list[i].image;
@@ -1714,7 +1708,6 @@ function init() {
         product_image.appendChild(product_image_element);
         row.appendChild(product_image);
 
-        // Price input
         let product_price = document.createElement("td");
         let product_price_element = document.createElement("input");
         product_price_element.id = "product-price-input-" + refining_product_list[i].tier + "." + refining_product_list[i].enchant;
@@ -1729,21 +1722,18 @@ function init() {
         product_price.appendChild(product_price_element);
         row.appendChild(product_price);
 
-        // Profit text
         let profit = document.createElement("td");
         let profit_element = document.createElement("p");
         profit_element.innerHTML = "0";
         profit.appendChild(profit_element);
         row.appendChild(profit);
 
-        // Profit percentage text
         let profit_percentage = document.createElement("td");
         let profit_percentage_element = document.createElement("p");
         profit_percentage_element.innerHTML = "0%";
         profit_percentage.appendChild(profit_percentage_element);
         row.appendChild(profit_percentage);
 
-        // Focus cost text
         let focus_cost = document.createElement("td");
         let focus_cost_element = document.createElement("p");
         focus_cost_element.innerHTML = "0"
@@ -1752,7 +1742,6 @@ function init() {
         focus_cost.appendChild(focus_cost_element);
         row.appendChild(focus_cost);
 
-        // Focus profit
         let focus_profit = document.createElement("td");
         let focus_profit_element = document.createElement("p");
         focus_profit_element.innerHTML = "0";
@@ -1760,7 +1749,6 @@ function init() {
         focus_profit.appendChild(focus_profit_element);
         row.appendChild(focus_profit);
 
-        // Profit per focus text
         let profit_per_focus = document.createElement("td");
         let profit_per_focus_element = document.createElement("p");
         profit_per_focus_element.innerHTML = "0";
@@ -1768,7 +1756,6 @@ function init() {
         profit_per_focus.appendChild(profit_per_focus_element);
         row.appendChild(profit_per_focus);
 
-        // Total resource cost text
         let total_resource_cost = document.createElement("td");
         let total_resource_cost_element = document.createElement("p");
         total_resource_cost_element.innerHTML = "0";
@@ -1776,7 +1763,6 @@ function init() {
         total_resource_cost.appendChild(total_resource_cost_element);
         row.appendChild(total_resource_cost);
 
-        // Station tax detail text
         let station_tax_detail = document.createElement("td");
         let station_tax_detail_element = document.createElement("p");
         station_tax_detail_element.innerHTML = "0";
@@ -1784,7 +1770,6 @@ function init() {
         station_tax_detail.appendChild(station_tax_detail_element);
         row.appendChild(station_tax_detail);
 
-        // Market tax detail text
         let market_tax_detail = document.createElement("td");
         let market_tax_detail_element = document.createElement("p");
         market_tax_detail_element.innerHTML = "0";
@@ -1792,25 +1777,24 @@ function init() {
         market_tax_detail.appendChild(market_tax_detail_element);
         row.appendChild(market_tax_detail);
 
-        // Add the row to the table
         document.getElementById("resouce-table-body").appendChild(row);
     }
-
-    loadFromLocalStorage();
-    updateMastery();
-    updateNumbers();
-    updateFocus();
 
     if(document.getElementById("table-settings-flip-table").checked) {
         flipTable();
     }
+
+    loadFromLocalStorage("init");
+    updateMastery();
+    updateNumbers();
+    updateFocus();
 
     if(document.getElementById("table-settings-hide-rows").checked) {
         document.getElementById("table-settings-hide-rows").click();
     }
 }
 
-function loadFromLocalStorage() {
+function loadFromLocalStorage(type) {
     let table = document.getElementById("resouce-table-body");
 
     let refining_resource = document.getElementById("refining-resource").value;
@@ -1827,6 +1811,7 @@ function loadFromLocalStorage() {
         }
     }
 
+    if(type == "init") return;
     updateElementFromLocalStorage("refining-market-tax", true);
     updateElementFromLocalStorage("refining-market-tax-percentage", false);
     updateElementFromLocalStorage("profile-settings-focus-columns", true);
@@ -1838,6 +1823,7 @@ function loadFromLocalStorage() {
 
 function updateElementFromLocalStorage(elementId, isCheckbox) {
     const storedValue = localStorage.getItem(elementId);
+
     if (storedValue !== null) {
         const element = document.getElementById(elementId);
         if (isCheckbox) {
@@ -1884,7 +1870,6 @@ function updateNumbers(element) {
     let return_rate = parseFloat(document.getElementById("refining-station-return-rate").value);
     let craft_amount = document.getElementById("refining-station-amount").value;
 
-    // Loop through every row in the table
     let table = document.getElementById("resouce-table-body");
     for (let i = 0; i < table.rows.length; i++) {
 
@@ -2082,46 +2067,32 @@ function validateInput(element) {
 }
 
 function getResourceCosts() {
-    let table = document.getElementById("resouce-table-body");
-    // array with prices
-    let resource_prices = [];
-
-    for(let i = 0; i < table.rows.length; i++) {
-        let tier = table.rows[i].cells[0].innerHTML;
-        let resource_price = table.rows[i].cells[2].children[0].value;
-
-        let offset = getOffset(tier);
-
-        let resource_cost;
-        switch (tier[0]) {
-            case "2":
-                resource_cost = resource_price;
-                break;
-            case "3":
-                resource_cost = (resource_price*2)+parseInt(table.rows[i-offset].cells[4].children[0].value);
-                break;
-            case "4":
-                resource_cost = (resource_price*2)+parseInt(table.rows[i-offset].cells[4].children[0].value);
-                break;
-            case "5":
-                resource_cost = (resource_price*3)+parseInt(table.rows[i-offset].cells[4].children[0].value);
-                break;
-            case "6":
-                resource_cost = (resource_price*4)+parseInt(table.rows[i-offset].cells[4].children[0].value);
-                break;
-            case "7":
-                resource_cost = (resource_price*5)+parseInt(table.rows[i-offset].cells[4].children[0].value);
-                break;
-            case "8":
-                resource_cost = (resource_price*5)+parseInt(table.rows[i-offset].cells[4].children[0].value);
-                break;
-        }
-
+    const table = document.getElementById("resouce-table-body");
+    const resource_prices = [];
+  
+    const tierMultipliers = {
+        "2": 1,
+        "3": 2,
+        "4": 2,
+        "5": 3,
+        "6": 4,
+        "7": 5,
+        "8": 5,
+    };
+  
+    for (let i = 0; i < table.rows.length; i++) {
+        const tier = table.rows[i].cells[0].innerHTML;
+        const resource_price = +table.rows[i].cells[2].children[0].value;
+        const offset = getOffset(tier);
+        const prevValue = i - offset >= 0 ? +table.rows[i - offset].cells[4].children[0].value : 0;
+        const multiplier = tierMultipliers[tier[0]];
+        const resource_cost = resource_price * multiplier + prevValue;
+    
         resource_prices.push(resource_cost);
     }
-
+  
     return resource_prices;
-}
+  }
 
 function colorProfits(row) {
     if(row.innerHTML.includes("-")) {
@@ -2141,17 +2112,18 @@ function getOffset(tier) {
         offset = 3;
     } else if (tier == "4.3") {
         offset = 4;
+    } else if(tier == "2.0") {
+        offset = -1;
     }
 
     let flipped = document.getElementById("table-settings-flip-table").checked;
     if(flipped) {
         offset = offset * -1;
     }
-
     return offset;
 }
 
-function toggleColumns(type) {
+function toggleColumns() {
     let focus_switch = document.getElementById("profile-settings-focus-columns");
     let detail_switch = document.getElementById("profile-settings-detail-columns");
 
@@ -2171,17 +2143,14 @@ function flipTable() {
     var numRows = rows.length;
     var temp = [];
   
-    // Loop through the rows and store them in an array
     for (var i = 0; i < numRows; i++) {
       temp.push(rows[i]);
     }
   
-    // Clear the table
     while (table.firstChild) {
       table.removeChild(table.firstChild);
     }
   
-    // Insert the rows in reverse order
     for (var i = numRows - 1; i >= 0; i--) {
       table.appendChild(temp[i]);
     }
@@ -2201,11 +2170,21 @@ function hideRows() {
 }
 
 function pullProductPrices() {
+
+    let table = document.getElementById("resouce-table-body");
+    for(let i = 0; i < table.rows.length; i++) {
+        table.rows[i].cells[4].children[0].value = 0;
+    }
+
+    let flipped = document.getElementById("table-settings-flip-table").checked;
+    if(flipped) {
+        flipTable();
+    }
+
     let server = document.getElementById("server-select").value;
     let city = document.getElementById("refining-city").value;
 
     let item_list = "";
-    let table = document.getElementById("resouce-table-body");
     for(let i = 0; i < table.rows.length; i++) {
         let img_value = table.rows[i].cells[3].innerHTML.split("/");
         let item_id = img_value[img_value.length-1].split(".")[0];
@@ -2227,16 +2206,32 @@ function pullProductPrices() {
             let price_cell = table.rows[i].cells[4].children[0];
             price_cell.value = price;
         }
-        updateNumbers();
     })
+    .then(() => {
+        if(flipped) {
+            flipTable();
+        }
+    }).finally(() => {
+        updateNumbers();
+    });
 }
 
 function pullResourcePrices() {
+
+    let table = document.getElementById("resouce-table-body");
+    for(let i = 0; i < table.rows.length; i++) {
+        table.rows[i].cells[2].children[0].value = 0;
+    }
+
+    let flipped = document.getElementById("table-settings-flip-table").checked;
+    if(flipped) {
+        flipTable();
+    }
+
     let server = document.getElementById("server-select").value;
     let city = document.getElementById("refining-city").value;
 
     let item_list = "";
-    let table = document.getElementById("resouce-table-body");
     for(let i = 0; i < table.rows.length; i++) {
         let img_value = table.rows[i].cells[1].innerHTML.split("/");
         let item_id = img_value[img_value.length-1].split(".")[0];
@@ -2258,6 +2253,12 @@ function pullResourcePrices() {
             let price_cell = table.rows[i].cells[2].children[0];
             price_cell.value = price;
         }
+    })
+    .then(() => {
+        if(flipped) {
+            flipTable();
+        }
+    }).finally(() => {
         updateNumbers();
     })
 }
@@ -2278,7 +2279,7 @@ function findResourceZCost() {
 
         let item_value = table.rows[i].cells[0].className;
         let tax_cost = item_value*(station_tax/4444)*5;
-        let resources_needed = getResourcesNeeded(tier);
+        let resources_needed = tierMultipliers[tier[0]];
 
         let product_value = table.rows[i].cells[4].children[0].value;
         let previous_product = 0;
@@ -2302,25 +2303,24 @@ function maxZ(x, y, n, m, o, p) {
     return (x * (1 - o) - y + (y * n) / 100 - m) / (p - (p * n) / 100);
 }
 
-function getResourcesNeeded(tier) {
-    let amount = 0;
-    switch(tier[0]) {
-        case "2": amount = 1; break;
-        case "3": amount = 2; break;
-        case "4": amount = 2; break;
-        case "5": amount = 3; break;
-        case "6": amount = 4; break;
-        case "7": amount = 5; break;
-        case "8": amount = 5; break;
-    }
-    return amount;
-}
+const tierMultipliers = {
+    "2": 1,
+    "3": 2,
+    "4": 2,
+    "5": 3,
+    "6": 4,
+    "7": 5,
+    "8": 5,
+  };
 
 function saveSettings(element) {
     let id = element.id;
     let value = element.type == "checkbox" ? element.checked : element.value;
 
-    localStorage.setItem(id, value);
+    if (typeof(Storage) !== "undefined" && localStorage.getItem(id) !== value.toString()) {
+        localStorage.setItem(id, value);
+    }
 }
 
+loadFromLocalStorage();
 init();

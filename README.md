@@ -1,6 +1,9 @@
 # Albion Online Refining Calculator
 
-### https://brannstroom.github.io/albiononline-refining-calculator/
+#### <span style="color:red;">Warning - Abandon all hope, ye who enter here!<span>
+##### This code is a kitchen sink of bad practises and may cause irreversible damage to your brain.
+
+#### https://brannstroom.github.io/albiononline-refining-calculator/
 
 This is a web-based resource refining calculator designed to help players determine the potential profit of their resource refining activities.
 With this tool, players can enter prices from resources they have gathered or bought from the market, in addition to additional information,
