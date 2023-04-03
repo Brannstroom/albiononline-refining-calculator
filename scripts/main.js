@@ -2087,8 +2087,8 @@ function getResourceCosts() {
         const prevValue = i - offset >= 0 ? +table.rows[i - offset].cells[4].children[0].value : 0;
         const multiplier = tierMultipliers[tier[0]];
         const resource_cost = resource_price * multiplier + prevValue;
-    
-        resource_prices.push(resource_cost);
+        
+        tier == "2.0" ? resource_prices.push(resource_price) : resource_prices.push(resource_cost);
     }
   
     return resource_prices;
