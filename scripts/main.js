@@ -2011,6 +2011,7 @@ function updateFocus() {
             case "28.5": return_rate = 49.7; break;
             case "20": return_rate = 46; break;
             case "0": return_rate = 37.1; break;
+            case "43.8": return_rate = 57.8; break;
         }
 
         let resource_cost = getResourceCosts()[i];
