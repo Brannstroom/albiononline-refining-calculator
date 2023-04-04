@@ -762,6 +762,162 @@ const resources = {
             tier: 8,
             enchant: 4,
         }
+    ],
+    rock: [
+        {
+            name: "Limestone",
+            image: "rock/T2_ROCK.png",
+            item_value: 4,
+            tier: 2,
+            enchant: 0,
+        },
+        {
+            name: "Sandstone",
+            image: "rock/T3_ROCK.png",
+            item_value: 2,
+            tier: 3,
+            enchant: 0,
+        },
+        {
+            name: "Travertine",
+            image: "rock/T4_ROCK.png",
+            item_value: 4,
+            tier: 4,
+            enchant: 0,
+        },
+        {
+            name: "Uncommon Travertine",
+            image: "rock/T4_ROCK_LEVEL1.png",
+            item_value: 12,
+            tier: 4,
+            enchant: 1,
+        },
+        {
+            name: "Rare Travertine",
+            image: "rock/T4_ROCK_LEVEL2.png",
+            item_value: 28,
+            tier: 4,
+            enchant: 2,
+        },
+        {
+            name: "Exceptional Travertine",
+            image: "rock/T4_ROCK_LEVEL3.png",
+            item_value: 60,
+            tier: 4,
+            enchant: 3,
+        },
+        {
+            name: "Granite",
+            image: "rock/T5_ROCK.png",
+            item_value: 5,
+            tier: 5,
+            enchant: 0,
+        },
+        {
+            name: "Uncommon Granite",
+            image: "rock/T5_ROCK_LEVEL1.png",
+            item_value: 10,
+            tier: 5,
+            enchant: 1,
+        },
+        {
+            name: "Rare Granite",
+            image: "rock/T5_ROCK_LEVEL2.png",
+            item_value: 21,
+            tier: 5,
+            enchant: 2,
+        },
+        {
+            name: "Exceptional Granite",
+            image: "rock/T5_ROCK_LEVEL3.png",
+            item_value: 42,
+            tier: 5,
+            enchant: 3,
+        },
+        {
+            name: "Slate",
+            image: "rock/T6_ROCK.png",
+            item_value: 8,
+            tier: 6,
+            enchant: 0,
+        },
+        {
+            name: "Uncommon Slate",
+            image: "rock/T6_ROCK_LEVEL1.png",
+            item_value: 16,
+            tier: 6,
+            enchant: 1,
+        },
+        {
+            name: "Rare Slate",
+            image: "rock/T6_ROCK_LEVEL2.png",
+            item_value: 32,
+            tier: 6,
+            enchant: 2,
+        },
+        {
+            name: "Exceptional Slate",
+            image: "rock/T6_ROCK_LEVEL3.png",
+            item_value: 64,
+            tier: 6,
+            enchant: 3,
+        },
+        {
+            name: "Basalt",
+            image: "rock/T7_ROCK.png",
+            item_value: 12,
+            tier: 7,
+            enchant: 0,
+        },
+        {
+            name: "Uncommon Basalt",
+            image: "rock/T7_ROCK_LEVEL1.png",
+            item_value: 25,
+            tier: 7,
+            enchant: 1,
+        },
+        {
+            name: "Rare Basalt",
+            image: "rock/T7_ROCK_LEVEL2.png",
+            item_value: 51,
+            tier: 7,
+            enchant: 2,
+        },
+        {
+            name: "Exceptional Basalt",
+            image: "rock/T7_ROCK_LEVEL3.png",
+            item_value: 102,
+            tier: 7,
+            enchant: 3,
+        },
+        {
+            name: "Marble",
+            image: "rock/T8_ROCK.png",
+            item_value: 25,
+            tier: 8,
+            enchant: 0,
+        },
+        {
+            name: "Uncommon Marble",
+            image: "rock/T8_ROCK_LEVEL1.png",
+            item_value: 51,
+            tier: 8,
+            enchant: 1,
+        },
+        {
+            name: "Rare Marble",
+            image: "rock/T8_ROCK_LEVEL2.png",
+            item_value: 102,
+            tier: 8,
+            enchant: 2,
+        },
+        {
+            name: "Exceptional Marble",
+            image: "rock/T8_ROCK_LEVEL3.png",
+            item_value: 204,
+            tier: 8,
+            enchant: 3,
+        }
     ]
 }
 
@@ -1641,6 +1797,184 @@ const products = {
             enchant: 4,
             focus_cost: 4714,
         }
+    ],
+    stoneblock: [
+        {
+            name: "Limestone Block",
+            image: "stoneblock/T2_STONEBLOCK.png",
+            item_value: 4,
+            tier: 2,
+            enchant: 0,
+            focus_cost: 18,
+        },
+        {
+            name: "Sandstone Block",
+            image: "stoneblock/T3_STONEBLOCK.png",
+            item_value: 8,
+            tier: 3,
+            enchant: 0,
+            focus_cost: 18,
+        },
+        {
+            name: "Travertine Block",
+            image: "stoneblock/T4_STONEBLOCK.png",
+            item_value: 16,
+            tier: 4,
+            enchant: 0,
+            focus_cost: 54,
+        },
+        {
+            name: "Travertine Block",
+            image: "stoneblock/T4_STONEBLOCK.png",
+            item_value: 16,
+            tier: 4,
+            enchant: 0,
+            focus_cost: 54,
+        },
+        {
+            name: "Travertine Block",
+            image: "stoneblock/T4_STONEBLOCK.png",
+            item_value: 16,
+            tier: 4,
+            enchant: 0,
+            focus_cost: 54,
+        },
+        {
+            name: "Travertine Block",
+            image: "stoneblock/T4_STONEBLOCK.png",
+            item_value: 16,
+            tier: 4,
+            enchant: 0,
+            focus_cost: 54,
+        },
+        {
+            name: "Granite Block",
+            image: "stoneblock/T5_STONEBLOCK.png",
+            item_value: 32,
+            tier: 5,
+            enchant: 0,
+            focus_cost: 94,
+        },
+        {
+            name: "Granite Block",
+            image: "stoneblock/T5_STONEBLOCK.png",
+            item_value: 32,
+            tier: 5,
+            enchant: 0,
+            focus_cost: 94,
+        },
+        {
+            name: "Granite Block",
+            image: "stoneblock/T5_STONEBLOCK.png",
+            item_value: 32,
+            tier: 5,
+            enchant: 0,
+            focus_cost: 94,
+        },
+        {
+            name: "Granite Block",
+            image: "stoneblock/T5_STONEBLOCK.png",
+            item_value: 32,
+            tier: 5,
+            enchant: 0,
+            focus_cost: 94,
+        },
+        {
+            name: "Slate Block",
+            image: "stoneblock/T6_STONEBLOCK.png",
+            item_value: 64,
+            tier: 6,
+            enchant: 0,
+            focus_cost: 164,
+        },
+        {
+            name: "Slate Block",
+            image: "stoneblock/T6_STONEBLOCK.png",
+            item_value: 64,
+            tier: 6,
+            enchant: 0,
+            focus_cost: 164,
+        },
+        {
+            name: "Slate Block",
+            image: "stoneblock/T6_STONEBLOCK.png",
+            item_value: 64,
+            tier: 6,
+            enchant: 0,
+            focus_cost: 164,
+        },
+        {
+            name: "Slate Block",
+            image: "stoneblock/T6_STONEBLOCK.png",
+            item_value: 64,
+            tier: 6,
+            enchant: 0,
+            focus_cost: 164,
+        },
+        {
+            name: "Basalt Block",
+            image: "stoneblock/T7_STONEBLOCK.png",
+            item_value: 128,
+            tier: 7,
+            enchant: 0,
+            focus_cost: 287,
+        },
+        {
+            name: "Basalt Block",
+            image: "stoneblock/T7_STONEBLOCK.png",
+            item_value: 128,
+            tier: 7,
+            enchant: 0,
+            focus_cost: 287,
+        },
+        {
+            name: "Basalt Block",
+            image: "stoneblock/T7_STONEBLOCK.png",
+            item_value: 128,
+            tier: 7,
+            enchant: 0,
+            focus_cost: 287,
+        },
+        {
+            name: "Basalt Block",
+            image: "stoneblock/T7_STONEBLOCK.png",
+            item_value: 128,
+            tier: 7,
+            enchant: 0,
+            focus_cost: 287,
+        },
+        {
+            name: "Marble Block",
+            image: "stoneblock/T8_STONEBLOCK.png",
+            item_value: 256,
+            tier: 8,
+            enchant: 0,
+            focus_cost: 503,
+        },
+        {
+            name: "Marble Block",
+            image: "stoneblock/T8_STONEBLOCK.png",
+            item_value: 256,
+            tier: 8,
+            enchant: 0,
+            focus_cost: 503,
+        },
+        {
+            name: "Marble Block",
+            image: "stoneblock/T8_STONEBLOCK.png",
+            item_value: 256,
+            tier: 8,
+            enchant: 0,
+            focus_cost: 503,
+        },
+        {
+            name: "Marble Block",
+            image: "stoneblock/T8_STONEBLOCK.png",
+            item_value: 256,
+            tier: 8,
+            enchant: 0,
+            focus_cost: 503,
+        }
     ]
 }
 
@@ -1668,6 +2002,9 @@ function init() {
             refining_resource_list = resources.wood;
             refining_product_list = products.plank;
             break;
+        case "4":
+            refining_resource_list = resources.rock;
+            refining_product_list = products.stoneblock;
     }
 
     for (let i = 0; i < refining_resource_list.length; i++) {
@@ -1710,7 +2047,7 @@ function init() {
 
         let product_price = document.createElement("td");
         let product_price_element = document.createElement("input");
-        product_price_element.id = "product-price-input-" + refining_product_list[i].tier + "." + refining_product_list[i].enchant;
+        product_price_element.id = "product-price-input-" + refining_product_list[i].tier + "." + refining_resource_list[i].enchant;
         product_price_element.type = "number";
         product_price_element.value = 0;
         product_price_element.onclick = function () {
@@ -2011,7 +2348,6 @@ function updateFocus() {
             case "28.5": return_rate = 49.7; break;
             case "20": return_rate = 46; break;
             case "0": return_rate = 37.1; break;
-            case "43.8": return_rate = 57.8; break;
         }
 
         let resource_cost = getResourceCosts()[i];
@@ -2069,6 +2405,8 @@ function validateInput(element) {
 
 function getResourceCosts() {
     const table = document.getElementById("resouce-table-body");
+    let refining_resource = document.getElementById("refining-resource").value;
+
     const resource_prices = [];
   
     const tierMultipliers = {
@@ -2083,12 +2421,21 @@ function getResourceCosts() {
   
     for (let i = 0; i < table.rows.length; i++) {
         const tier = table.rows[i].cells[0].innerHTML;
-        const resource_price = +table.rows[i].cells[2].children[0].value;
-        const offset = getOffset(tier);
-        const prevValue = i - offset >= 0 ? +table.rows[i - offset].cells[4].children[0].value : 0;
+        let resource_price = +table.rows[i].cells[2].children[0].value;
+        let offset = getOffset(tier);
+        let prevValue = i - offset >= 0 ? +table.rows[i - offset].cells[4].children[0].value : 0;
         const multiplier = tierMultipliers[tier[0]];
-        const resource_cost = resource_price * multiplier + prevValue;
-        
+
+        let tempcost = resource_price;
+        if(refining_resource == "4") {
+            let enchant = tier[2];
+            if(enchant == "1") resource_price = resource_price/2;
+            else if(enchant == "2") resource_price = resource_price/4;
+            else if(enchant == "3") resource_price = resource_price/8;
+        }
+
+        let resource_cost = resource_price * multiplier + prevValue;
+
         tier == "2.0" ? resource_prices.push(resource_price) : resource_prices.push(resource_cost);
     }
   
@@ -2104,7 +2451,9 @@ function colorProfits(row) {
 }
 
 function getOffset(tier) {
-    let offset = 5;
+    let refining_resource = document.getElementById("refining-resource").value;
+
+    let offset = refining_resource == "4" ? 4 : 5;
     if(tier == "3.0" || tier == "4.0") {
         offset = 1;
     } else if (tier == "4.1") {
@@ -2171,7 +2520,6 @@ function hideRows() {
 }
 
 function pullProductPrices() {
-
     let table = document.getElementById("resouce-table-body");
     for(let i = 0; i < table.rows.length; i++) {
         table.rows[i].cells[4].children[0].value = 0;
@@ -2183,7 +2531,7 @@ function pullProductPrices() {
     }
 
     let server = document.getElementById("server-select").value;
-    let city = document.getElementById("refining-city").value;
+    let city = document.getElementById("refining-city-product").value;
 
     let item_list = "";
     for(let i = 0; i < table.rows.length; i++) {
@@ -2197,13 +2545,15 @@ function pullProductPrices() {
 
         item_list += item_id + ",";
     }
+    let refining_resource = document.getElementById("refining-resource").value;
+    let valArr = [0,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6]
 
     let url = "https://"+server+".albion-online-data.com/api/v2/stats/prices/"+item_list+"?locations="+city;
     fetch(url)
     .then(response => response.json())
     .then(data => {
         for(let i = 0; i < table.rows.length; i++) {
-            let price = data[i].sell_price_min;
+            let price = data[refining_resource != "4" ? i : valArr[i]].sell_price_min;
             let price_cell = table.rows[i].cells[4].children[0];
             price_cell.value = price;
         }
@@ -2218,7 +2568,6 @@ function pullProductPrices() {
 }
 
 function pullResourcePrices() {
-
     let table = document.getElementById("resouce-table-body");
     for(let i = 0; i < table.rows.length; i++) {
         table.rows[i].cells[2].children[0].value = 0;
@@ -2230,7 +2579,7 @@ function pullResourcePrices() {
     }
 
     let server = document.getElementById("server-select").value;
-    let city = document.getElementById("refining-city").value;
+    let city = document.getElementById("refining-city-resource").value;
 
     let item_list = "";
     for(let i = 0; i < table.rows.length; i++) {
@@ -2265,9 +2614,7 @@ function pullResourcePrices() {
 }
 
 function findResourceZCost() {
-
     let table = document.getElementById("resouce-table-body");
-
 
     let station_tax = document.getElementById("refining-station-tax").value;
     let return_rate = document.getElementById("refining-station-return-rate").value;

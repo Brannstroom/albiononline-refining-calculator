@@ -180,10 +180,6 @@ input:checked + .slider:before {
     .switch, button {
         float: right;
     }
-    #server-select {
-        float: right;
-        width: fit-content;
-    }
 }
 
 .data-settings {
@@ -198,12 +194,17 @@ input:checked + .slider:before {
 .data-scrape {
     width: 16%;
     margin-left: -5rem;
+    
     #refining-city, #server-select, button{
         width: fit-content;
         float: right;
     }
     .scrape-button {
         margin-bottom: 0.3rem;
+    }
+
+    .pull-button {
+        margin-top: -0.7rem;
     }
 }
 
@@ -259,4 +260,3 @@ h1 {
         width: 3rem;
     }
 }
-

@@ -19,6 +19,7 @@
                     <option value="1">Bar</option>
                     <option value="2">Leather</option>
                     <option value="3">Plank</option>
+                    <option value="4">Stone Block</option>
                 </select>
 
                 <label for="refining-station-tax">Tax</label>
@@ -37,7 +38,6 @@
                     <option value="0">Royal Island (0%)</option>
                     <option value="28.5">Royal Island with Bonus (28.5%)</option>
                     <option value="20">Black Zone Hideout (20%)</option>
-                    <option value="43.8">43.8%</option>
                 </select>
             </div>
 
@@ -157,9 +157,11 @@
             </div>
             <br>
 
-            <div>
-                <label for="refining-city">Location</label>
-                <select id="refining-city" onchange="saveSettings(this);">
+            <div class="scrape-button">
+                <label class="text-label" for="scrape-button">Pull resource prices</label>
+                <br>
+                <label for="refining-city-resource">From:</label>
+                <select id="refining-city-resource" onchange="saveSettings(this);">
                     <option value="martlock">Martlock</option>
                     <option value="thetford">Thetford</option>
                     <option value="fortsterling">Fort Sterling</option>
@@ -167,18 +169,22 @@
                     <option value="bridgewatch">Bridgewatch</option>
                     <option value="caerleon">Caerleon</option>
                 </select>
+                <button class="profile-button pull-button" onclick="pullResourcePrices()">Pull</button>
             </div>
-            <br>
 
-            <div class="scrape-button">
-                <label class="text-label" for="scrape-button">Pull resource prices</label>
-                <button class="profile-button" onclick="pullResourcePrices()">Pull</button>
-            </div>
-            <br>
-
-            <div class="scrape-button">
+            <div class="scrape-button" style="margin-top:0.8rem;">
                 <label class="text-label" for="scrape-button">Pull product prices</label>
-                <button class="profile-button" onclick="pullProductPrices()">Pull</button>
+                <br>
+                <label for="refining-city-product">From: </label>
+                <select id="refining-city-product" onchange="saveSettings(this);">
+                    <option value="martlock">Martlock</option>
+                    <option value="thetford">Thetford</option>
+                    <option value="fortsterling">Fort Sterling</option>
+                    <option value="lymhurst">Lymhurst</option>
+                    <option value="bridgewatch">Bridgewatch</option>
+                    <option value="caerleon">Caerleon</option>
+                </select>
+                <button class="profile-button pull-button" onclick="pullProductPrices()">Pull</button>
             </div>
         </div>
 

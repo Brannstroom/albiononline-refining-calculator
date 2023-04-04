@@ -168,11 +168,6 @@ input:checked + .slider:before {
 .profile-settings .switch, .profile-settings button {
   float: right;
 }
-.profile-settings #server-select {
-  float: right;
-  width: -moz-fit-content;
-  width: fit-content;
-}
 
 .data-settings {
   width: 16%;
@@ -194,6 +189,9 @@ input:checked + .slider:before {
 }
 .data-scrape .scrape-button {
   margin-bottom: 0.3rem;
+}
+.data-scrape .pull-button {
+  margin-top: -0.7rem;
 }
 
 h1 {
