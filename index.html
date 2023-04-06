@@ -32,12 +32,19 @@
 
             <div>
                 <label for="refining-location">Return rate</label>
-                <select id="refining-station-return-rate" onchange="updateNumbers(this)">
+                <select id="refining-station-return-rate" onchange="customReturnRate();updateNumbers(this);">
                     <option value="15.2">Royal City (15.2%)</option>
                     <option value="36.7">Royal City with Bonus (36.7%)</option>
                     <option value="0">Royal Island (0%)</option>
                     <option value="28.5">Royal Island with Bonus (28.5%)</option>
-                    <option value="20">Black Zone Hideout (20%)</option>
+                    <option value="0">Custom</option>
+                </select>
+
+                <label class="text-label" for="daily-production-bonus">Daily bonus</label>
+                <select id="daily-production-bonus" onchange="updateNumbers(this);saveSettings(this);">
+                    <option value="0">0%</option>
+                    <option value="10">10%</option>
+                    <option value="20">20%</option>
                 </select>
             </div>
 
@@ -186,13 +193,18 @@
                 </select>
                 <button class="profile-button pull-button" onclick="pullProductPrices()">Pull</button>
             </div>
+            <div style="text-align: center;margin-top:0.5rem;">
+                <span>[<span style="color:green;">>15m</span>]</span>
+                <span style="margin-right:0.3rem;margin-left:0.3rem;">[<span style="color:yellow;">>1h</span>]</span>
+                <span>[<span style="color:#ff8000;"><1h</span>]</span>
+            </div>
         </div>
-
     </div>
 
     <div id="refining" class="refining">
         <table id="refining-table" class="detail-table">
             <thead>
+                <p id="table-failed-loading-error" style="color:red;">Seems like the table failed to load. Clear all data under Table settings or try another browser. If you have no luck fixing the problem, contact me on Discord (Peter#8103)</p>
                 <tr>
                     <th>TIER</th>
                     <th>RESOURCE</th>
@@ -209,7 +221,6 @@
                     <th id="detail-column">MARKET TAX</th>
                 </tr>
             </thead>
-
             <tbody id="resouce-table-body">
                 
             </tbody>

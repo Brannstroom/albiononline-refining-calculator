@@ -245,9 +245,9 @@ h1 {
 #refining-market-tax-percentage {
     width: fit-content;
     background-color: #2C3333;
-    margin-left: 0.3rem;
+    margin-left: 0.2rem;
     
-    border-bottom: $color3 solid 0.8px;
+    border-bottom: $color3 solid 3px;
 
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -259,4 +259,17 @@ h1 {
     input {
         width: 3rem;
     }
+}
+
+#daily-production-bonus {
+    width: fit-content;
+    height: 1.75rem;
+}
+
+#resouce-table-body {
+    
+    input {
+        border-bottom: $color4 0.125rem solid;
+    }
+
 }

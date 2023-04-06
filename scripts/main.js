@@ -2129,6 +2129,8 @@ function init() {
     if(document.getElementById("table-settings-hide-rows").checked) {
         document.getElementById("table-settings-hide-rows").click();
     }
+
+    document.getElementById("table-failed-loading-error").innerHTML = "";
 }
 
 function loadFromLocalStorage(type) {
@@ -2155,7 +2157,15 @@ function loadFromLocalStorage(type) {
     updateElementFromLocalStorage("profile-settings-detail-columns", true);
     updateElementFromLocalStorage("table-settings-flip-table", true);
     updateElementFromLocalStorage("server-select", false);
-    updateElementFromLocalStorage("refining-city", false);
+    updateElementFromLocalStorage("refining-city-resource", false);
+    updateElementFromLocalStorage("refining-city-product", false);
+
+    if(localStorage.getItem("custom-return-rate") != null) {
+        const storedValue = localStorage.getItem("custom-return-rate");
+        let selected_return_rate = document.getElementById("refining-station-return-rate");
+        selected_return_rate.options[selected_return_rate.options.length-1].innerText = "Custom (" + storedValue + "%)";
+        selected_return_rate.options[selected_return_rate.options.length-1].value = storedValue;
+    }
 }
 
 function updateElementFromLocalStorage(elementId, isCheckbox) {
@@ -2194,8 +2204,9 @@ function updateNumbers(element) {
                     document.getElementById(element_id).value = 0;
                 }   
                 localStorage.setItem(refining_resource+element_id, elementValue);
-            }
 
+                element.style.borderBottomColor = "#cbe4de";
+            }
             if(element_id.includes("refining-mastery-t")) {
                 let elementValue = document.getElementById(element_id).value;
                 localStorage.setItem(refining_resource+element_id, elementValue);
@@ -2204,7 +2215,7 @@ function updateNumbers(element) {
     }
 
     let tax = document.getElementById("refining-station-tax").value;
-    let return_rate = parseFloat(document.getElementById("refining-station-return-rate").value);
+    let return_rate = getReturnRate(false);
     let craft_amount = document.getElementById("refining-station-amount").value;
 
     let table = document.getElementById("resouce-table-body");
@@ -2341,14 +2352,7 @@ function updateFocus() {
         let item_value = table.rows[i].cells[0].className;
         let tax_cost = item_value*(tax/4444)*5;
 
-        let return_rate;
-        switch(document.getElementById("refining-station-return-rate").value) {
-            case "15.2": return_rate = 43.5; break;
-            case "36.7": return_rate = 53.9; break;
-            case "28.5": return_rate = 49.7; break;
-            case "20": return_rate = 46; break;
-            case "0": return_rate = 37.1; break;
-        }
+        let return_rate = getReturnRate(true)
 
         let resource_cost = getResourceCosts()[i];
 
@@ -2555,6 +2559,7 @@ function pullProductPrices() {
         for(let i = 0; i < table.rows.length; i++) {
             let price = data[refining_resource != "4" ? i : valArr[i]].sell_price_min;
             let price_cell = table.rows[i].cells[4].children[0];
+            changeAgeIndicator(price_cell, data[i].sell_price_min_date)
             price_cell.value = price;
         }
     })
@@ -2585,7 +2590,6 @@ function pullResourcePrices() {
     for(let i = 0; i < table.rows.length; i++) {
         let img_value = table.rows[i].cells[1].innerHTML.split("/");
         let item_id = img_value[img_value.length-1].split(".")[0];
-
         if(item_id[item_id.length-1] >= '0' && item_id[item_id.length-1] <= '9') {
             let enchant = item_id[item_id.length-1];
             item_id = item_id.replace("_LEVEL"+enchant, "_LEVEL"+enchant+"@"+enchant);
@@ -2601,6 +2605,7 @@ function pullResourcePrices() {
         for(let i = 0; i < table.rows.length; i++) {
             let price = data[i].sell_price_min;
             let price_cell = table.rows[i].cells[2].children[0];
+            changeAgeIndicator(price_cell, data[i].sell_price_min_date)
             price_cell.value = price;
         }
     })
@@ -2617,7 +2622,7 @@ function findResourceZCost() {
     let table = document.getElementById("resouce-table-body");
 
     let station_tax = document.getElementById("refining-station-tax").value;
-    let return_rate = document.getElementById("refining-station-return-rate").value;
+    let return_rate = getReturnRate(false);
     let tax_rate = 0;
     if(document.getElementById("refining-market-tax").checked) tax_rate = document.getElementById("refining-market-tax-percentage").value/100;
 
@@ -2668,6 +2673,81 @@ function saveSettings(element) {
     if (typeof(Storage) !== "undefined" && localStorage.getItem(id) !== value.toString()) {
         localStorage.setItem(id, value);
     }
+}
+
+function getReturnRate(focus) {
+    let selected_return_rate = parseFloat(document.getElementById("refining-station-return-rate").value);
+    let daily_production_bonus = parseFloat(document.getElementById("daily-production-bonus").value);
+    
+    let return_rate = selected_return_rate;
+
+    if(daily_production_bonus > 0) {
+        switch(selected_return_rate) {
+            case 15.2: daily_production_bonus == 10 ? return_rate = 21.8 : return_rate = 27.5; break;
+            case 36.7: daily_production_bonus == 10 ? return_rate = 40.4 : return_rate = 43.8; break;
+            case 0: daily_production_bonus == 10 ? return_rate = 9.0 : return_rate = 16.6; break; // TODO: Add return_rate for 10% bonus
+            case 28.5: daily_production_bonus == 10 ? return_rate = 33.3 : return_rate = 37.5; break; // TODO: Add return_rate for 10% bonus
+        }
+    }
+
+    if(focus) {
+        switch(return_rate) {
+            // 0% Bonus
+            case 15.2: return_rate = 43.5; break;
+            case 36.7: return_rate = 53.9; break;
+            case 0: return_rate = 37.1; break;
+            case 28.5: return_rate = 49.7; break;
+
+            // 10% Bonus TODO: Add return_rate for 10% bonus, with and without focus
+            case 21.8: return_rate = 46.5; break;
+            case 40.4: return_rate = 55.9; break;
+            case 9.0: return_rate = 40.8; break;
+            case 33.3: return_rate = 52.1; break;
+
+            // 20% Bonus
+            case 27.5: return_rate = 49.2; break;
+            case 43.8: return_rate = 57.8; break;
+            case 16.6: return_rate = 44.1; break;
+            case 37.5: return_rate = 54.3; break;
+        }
+    }
+    
+    return return_rate;
+}
+
+function changeAgeIndicator(element, age) {
+    const priceDate = new Date(age);
+    const dateUTC0 = new Date(new Date().toLocaleString('en', { timeZone: 'Etc/UTC' }));
+
+    const diff = Math.abs(dateUTC0 - priceDate) / 1000 / 60;
+
+    if (diff < 15) {
+        element.style.borderBottomColor = "green";
+    } else if (diff < 60) {
+        element.style.borderBottomColor = "yellow";
+    } else {
+        element.style.borderBottomColor = "#cc6600";
+    }
+}
+
+function customReturnRate() {
+
+    let selected_return_rate = document.getElementById("refining-station-return-rate");
+    if(selected_return_rate.selectedIndex == selected_return_rate.length-1) {
+        let previous_value = localStorage.getItem("custom-return-rate") != null ? localStorage.getItem("custom-return-rate") : 0.0;
+        let custom_return_rate = parseFloat(prompt("Enter custom return rate percentage.\n\nNumbers related to focus and production bonus"
+        + " will not show the correct numbers with a custom return rate and should therefore be ignored.", previous_value));
+        if(custom_return_rate == null || custom_return_rate == "" || isNaN(custom_return_rate)) {
+            custom_return_rate = 0.0;
+        }
+
+        selected_return_rate.options[selected_return_rate.length-1].innerText = "Custom (" + custom_return_rate + "%)";
+        selected_return_rate.options[selected_return_rate.length-1].value = custom_return_rate;
+        selected_return_rate.selectedIndex = selected_return_rate.length-1;
+
+        localStorage.setItem("custom-return-rate", custom_return_rate);
+    }
+
 }
 
 loadFromLocalStorage();
