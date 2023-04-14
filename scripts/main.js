@@ -2132,7 +2132,7 @@ function init() {
 
     document.getElementById("table-failed-loading-error").innerHTML = "";
 
-    _paq.push(['trackEvent', 'Refining', 'Load', 'Refining Table Loaded - ' + document.getElementById("refining-resource").options[document.getElementById("refining-resource").selectedIndex].text])
+    _paq.push(['trackEvent', 'Refining', 'Load', 'Refining Table Loaded - ' + document.getElementById("refining-resource").options[document.getElementById("refining-resource").selectedIndex].text, 0])
 }
 
 function loadFromLocalStorage(type) {
