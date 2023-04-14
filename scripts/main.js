@@ -2482,12 +2482,18 @@ function toggleColumns() {
     let detail_switch = document.getElementById("profile-settings-detail-columns");
 
     let width = !focus_switch.checked ? "100%" : detail_switch.checked ? "75%" : "60%";
+    
+    let window_width = window.innerWidth;
+    if (window_width < 1050) {
+        width = "100%";
+    } else if (window_width < 1300) {
+        width = "90%";
+    }
 
     document.getElementById("refining-table").classList.toggle("focus-table", focus_switch.checked);
     document.getElementById("refining-table").classList.toggle("detail-table", !detail_switch.checked);
 
     document.getElementById("refining-table").style.width = width;
-    document.getElementById("refining").style.margin = "0 auto";
 }
 
 function flipTable() {
@@ -2749,6 +2755,31 @@ function customReturnRate() {
     }
 
 }
+
+function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                timeout = null;
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+  }
+  
+  const handleResize = debounce(function() {
+        let window_width = window.innerWidth;
+        if (window_width < 1050) {
+            document.getElementById("refining-table").style.width = "100%";
+        } else if (window_width < 1300) {
+            document.getElementById("refining-table").style.width = "90%";
+        } else {
+            toggleColumns();
+        }
+  }, 30);
+  
+  window.addEventListener("resize", handleResize);
 
 loadFromLocalStorage();
 init();

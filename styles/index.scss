@@ -45,6 +45,7 @@ div {
 
 label {
     margin-left: 1rem;
+    white-space: nowrap; 
 }
 
 input, select {
@@ -198,10 +199,6 @@ input:checked + .slider:before {
     #refining-city, #server-select, button{
         width: fit-content;
         float: right;
-    }
-    .scrape-button {
-        margin-bottom: 0.3rem;
-        margin-left:1rem;
     }
 
     .pull-button {

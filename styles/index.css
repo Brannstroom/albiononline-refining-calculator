@@ -40,6 +40,7 @@ div {
 
 label {
   margin-left: 1rem;
+  white-space: nowrap;
 }
 
 input, select {
@@ -185,10 +186,6 @@ input:checked + .slider:before {
   width: -moz-fit-content;
   width: fit-content;
   float: right;
-}
-.data-scrape .scrape-button {
-  margin-bottom: 0.3rem;
-  margin-left: 1rem;
 }
 .data-scrape .pull-button {
   margin-top: -0.7rem;
