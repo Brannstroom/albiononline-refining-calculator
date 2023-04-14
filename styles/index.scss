@@ -43,13 +43,6 @@ div {
     font-size: 1em;
 }
 
-.profile {
-    padding: 1rem;
-    padding-top: 0.05rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
-    margin-bottom: 2rem;
-}
-
 label {
     margin-left: 1rem;
 }
@@ -172,40 +165,53 @@ input:checked + .slider:before {
 
 .profile {
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    padding: 1rem;
+    padding-top: 0.05rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    margin-bottom: 2rem;
+
 }
 
 .profile-settings {
     .switch, button {
         float: right;
+        margin-left:1rem;
     }
+    margin-right: 2rem;
 }
 
 .data-settings {
-    width: 16%;
-    margin-right: 0.5rem;
-    margin-left: -5rem;
     .switch, button {
         float: right;
+        margin-left:1rem;
     }
+    margin-right: 2rem;
 }
 
 .data-scrape {
-    width: 16%;
-    margin-left: -5rem;
     
+    min-width: 15%;
+
     #refining-city, #server-select, button{
         width: fit-content;
         float: right;
     }
     .scrape-button {
         margin-bottom: 0.3rem;
+        margin-left:1rem;
     }
 
     .pull-button {
         margin-top: -0.7rem;
+        margin-left:1rem;
     }
+}
+
+.profile-settings, .data-settings, .data-scrape {
+    margin: 0 auto;
 }
 
 

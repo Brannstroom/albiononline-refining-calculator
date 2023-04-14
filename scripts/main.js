@@ -2486,7 +2486,7 @@ function toggleColumns() {
     document.getElementById("refining-table").classList.toggle("focus-table", focus_switch.checked);
     document.getElementById("refining-table").classList.toggle("detail-table", !detail_switch.checked);
 
-    document.getElementById("refining").style.width = width;
+    document.getElementById("refining-table").style.width = width;
     document.getElementById("refining").style.margin = "0 auto";
 }
 
