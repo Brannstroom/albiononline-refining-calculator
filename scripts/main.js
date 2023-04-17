@@ -2563,9 +2563,10 @@ function pullProductPrices() {
     .then(response => response.json())
     .then(data => {
         for(let i = 0; i < table.rows.length; i++) {
-            let price = data[refining_resource != "4" ? i : valArr[i]].sell_price_min;
+            let index = refining_resource == "4" ? valArr[i] : i;
+            let price = data[index].sell_price_min;
             let price_cell = table.rows[i].cells[4].children[0];
-            changeAgeIndicator(price_cell, data[i].sell_price_min_date)
+            changeAgeIndicator(price_cell, data[index].sell_price_min_date)
             price_cell.value = price;
         }
     })
