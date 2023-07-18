@@ -2,7 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Resource Refining Table</title>
+        <meta name="description" content="Albion Online Resource Refining Calculator">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Resource Refining Calculator</title>
         <link rel="stylesheet" href="styles/index.css">
     </head>
 
@@ -17,199 +20,208 @@
         !function(a,n,i){a[n]=a[n]||{};for(var c=0;c<i.length;c++)!function(i){a[n][i]=a[n][i]||{},a[n][i].api=a[n][i].api||function(){var a=[].slice.call(arguments,0);"string"==typeof a[0]&&window[dataLayerName].push({event:n+"."+i+":"+a[0],parameters:[].slice.call(arguments,1)})}}(i[c])}(window,"ppms",["tm","cm"]);
         })(window, document, 'dataLayer', 'ce836606-4175-48ff-aed9-639dbe2b9a5e');
         </script>
-    <h1>Resource Refining Calcula<a onclick="findResourceZCost()">tor</a></h1>
+    <h1>Resource Refining Calculator</a></h1>
 
-    <div class="profile">
-        <div class="refining-settings">
-            <div class="refining-station">
-                <h3>Refining Station</h3>
-                <label for="refining-resource">Resource</label>
-                <select id="refining-resource" onchange="init()">
-                    <option value="0">Cloth</option>
-                    <option value="1">Bar</option>
-                    <option value="2">Leather</option>
-                    <option value="3">Plank</option>
-                    <option value="4">Stone Block</option>
-                </select>
-
-                <label for="refining-station-tax">Usage fee</label>
-                <input type="number" id="refining-station-tax" value="0" min="0" max="9999" onClick="this.select();" oninput="updateNumbers(this)">           
-
-                <label for="refining-station">Amount</label>
-                <input type="number" id="refining-station-amount" value="1" min="1" onClick="this.select();" oninput="updateNumbers(this)">                
-            </div>
-            <br>
-
-            <div>
-                <label for="refining-location">Return rate</label>
-                <select id="refining-station-return-rate" onchange="customReturnRate();updateNumbers(this);">
-                    <option value="15.2">Royal City (15.2%)</option>
-                    <option value="36.7">Royal City with Bonus (36.7%)</option>
-                    <option value="0">Royal Island (0%)</option>
-                    <option value="28.5">Royal Island with Bonus (28.5%)</option>
-                    <option value="0">Custom</option>
-                </select>
-
-                <label class="text-label" for="daily-production-bonus">Daily bonus</label>
-                <select id="daily-production-bonus" onchange="updateNumbers(this);saveSettings(this);">
-                    <option value="0">0%</option>
-                    <option value="10">10%</option>
-                    <option value="20">20%</option>
-                </select>
-            </div>
-
-            <div class="refining-mastery">
-                <h3>Refining Mastery</h3>
-
-                <label for="refining-mastery">T4</label>
-                <input type="number" id="refining-mastery-t4" value="0" min="0" max="100" onClick="this.select();" oninput="updateNumbers(this)">
-
-                <label for="refining-mastery">T5</label>
-                <input type="number" id="refining-mastery-t5" value="0" min="0" max="100" onClick="this.select();" oninput="updateNumbers(this)">
-
-                <label for="refining-mastery">T6</label>
-                <input type="number" id="refining-mastery-t6" value="0" min="0" max="100" onClick="this.select();" oninput="updateNumbers(this)">
-
-                <label for="refining-mastery">T7</label>
-                <input type="number" id="refining-mastery-t7" value="0" min="0" max="100" onClick="this.select();" oninput="updateNumbers(this)">
-
-                <label for="refining-mastery">T8</label>
-                <input type="number" id="refining-mastery-t8" value="0" min="0" max="100" onClick="this.select();" oninput="updateNumbers(this)">
-            </div>
-        </div>
-
-        <div class="profile-settings">
-            <h3>Profile Settings</h3>
-            <div>
-                <label class="text-label" for="refining-market-tax">Include market tax</label>
-                <select id="refining-market-tax-percentage" onchange="updateNumbers(this);saveSettings(this);">
-                    <option value="6.5">( 6.5%)</option>
-                    <option value="10.5">(10.5%)</option>
-                </select>
-                <label class="switch">
-                    <input type="checkbox" id="refining-market-tax" onchange="updateNumbers();saveSettings(this);">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <br>
-
-            <div>
-                <label class="text-label" for="refine-from-t2">Stack profit from 
-                    <select id="refine-from-t2-dropdown" onchange="updateNumbers(this)"">
-                        <option value="2">T2</option>
-                        <option value="3">T3</option>
-                        <option value="4">T4</option>
-                        <option value="5">T5</option>
-                        <option value="6">T6</option>
-                        <option value="7">T7</option>
+    <div class="profile-wrapper"> 
+        <div class="profile">
+            <div class="refining-settings">
+                <div class="refining-station">
+                    <h3>Refining Station</h3>
+                    <label for="refining-resource">Resource</label>
+                    <select id="refining-resource" onchange="init()">
+                        <option value="0">Cloth</option>
+                        <option value="1">Bar</option>
+                        <option value="2">Leather</option>
+                        <option value="3">Plank</option>
+                        <option value="4">Stone Block</option>
                     </select>
-                </label>
-                <label class="switch">
-                    <input type="checkbox" id="refine-from-t2" onchange="updateNumbers()">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <br>
 
-            <div>
-                <label class="text-label" for="profile-settings-focus-columns">Hide focus columns</label>
-                <label class="switch">
-                    <input type="checkbox" id="profile-settings-focus-columns" onchange="toggleColumns('focus');saveSettings(this);">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <br>
+                    <label for="refining-station-tax">Usage fee</label>
+                    <input type="number" id="refining-station-tax" value="0" min="0" max="9999" onClick="this.select();" oninput="updateNumbers(this)">           
 
-            <div>
-                <label class="text-label" for="profile-settings-detail-columns">Show detail columns</label>
-                <label class="switch">
-                    <input type="checkbox" id="profile-settings-detail-columns" onchange="toggleColumns('detail');saveSettings(this);">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <br>
-        </div>
-
-        <div class="data-settings">
-            <h3>Table settings</h3>
-            <div>
-                <label class="text-label" for="table-settings-flip-table">Flip table</label>
-                <label class="switch">
-                    <input type="checkbox" id="table-settings-flip-table" onchange="flipTable();saveSettings(this);">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <br>
-
-            <div>
-                <label class="text-label" for="table-settings-hide-rows">Hide unused rows</label>
-                <label class="switch">
-                    <input type="checkbox" id="table-settings-hide-rows" onchange="hideRows();">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <br>
-
-            <div style="margin-bottom:0.3rem;">
-                <label class="text-label" for="clear-table-button">Clear current table data</label>
-                <button class="profile-button" onclick="clearTable('table')">Table</button>
-            </div>
-            <br>
-
-            <div>
-                <label class="text-label" for="clear-table-button">Clear all data</label>
-                <button class="profile-button" onclick="clearTable('all')">All</button>
-            </div>
-        </div>
-
-        <div class="data-scrape">
-            <h3>Data Scrape</h3>
-
-            <div>
-                <label class="text-label" for="server-select">Select server</label>
-                <select id="server-select" onchange="saveSettings(this);">
-                    <option value="west">West</option>
-                    <option value="east">East</option>
-                </select>
-            </div>
-            <br>
-
-            <div class="scrape-button">
-                <label class="text-label" for="scrape-button">Pull resource prices</label>
+                    <label for="refining-station">Amount</label>
+                    <input type="number" id="refining-station-amount" value="1" min="1" onClick="this.select();" oninput="updateNumbers(this)">                
+                </div>
                 <br>
-                <label for="refining-city-resource">From:</label>
-                <select id="refining-city-resource" onchange="saveSettings(this);">
-                    <option value="martlock">Martlock</option>
-                    <option value="thetford">Thetford</option>
-                    <option value="fortsterling">Fort Sterling</option>
-                    <option value="lymhurst">Lymhurst</option>
-                    <option value="bridgewatch">Bridgewatch</option>
-                    <option value="caerleon">Caerleon</option>
-                </select>
-                <button class="profile-button pull-button" onclick="pullResourcePrices()">Pull</button>
+
+                <div>
+                    <label for="refining-location">Return rate</label>
+                    <select id="refining-station-return-rate" onchange="customReturnRate();updateNumbers(this);">
+                        <option value="15.2">Royal City (15.2%)</option>
+                        <option value="36.7">Royal City with Bonus (36.7%)</option>
+                        <option value="0">Royal Island (0%)</option>
+                        <option value="28.5">Royal Island with Bonus (28.5%)</option>
+                        <option value="0">Custom</option>
+                    </select>
+
+                    <label class="text-label" for="daily-production-bonus">Daily bonus</label>
+                    <select id="daily-production-bonus" onchange="updateNumbers(this);saveSettings(this);">
+                        <option value="0">0%</option>
+                        <option value="10">10%</option>
+                        <option value="20">20%</option>
+                    </select>
+                </div>
+
+                <div class="refining-mastery">
+                    <h3>Refining Mastery</h3>
+
+                    <label for="refining-mastery">T4</label>
+                    <input type="number" id="refining-mastery-t4" value="0" min="0" max="100" onClick="this.select();" oninput="updateNumbers(this)">
+
+                    <label for="refining-mastery">T5</label>
+                    <input type="number" id="refining-mastery-t5" value="0" min="0" max="100" onClick="this.select();" oninput="updateNumbers(this)">
+
+                    <label for="refining-mastery">T6</label>
+                    <input type="number" id="refining-mastery-t6" value="0" min="0" max="100" onClick="this.select();" oninput="updateNumbers(this)">
+
+                    <label for="refining-mastery">T7</label>
+                    <input type="number" id="refining-mastery-t7" value="0" min="0" max="100" onClick="this.select();" oninput="updateNumbers(this)">
+
+                    <label for="refining-mastery">T8</label>
+                    <input type="number" id="refining-mastery-t8" value="0" min="0" max="100" onClick="this.select();" oninput="updateNumbers(this)">
+                </div>
+                <br>
+
+                <div>
+                    <label for="clear-table-button">Calculate max resource price</label>
+                    <button class="profile-button smaller-button" onclick="findResourceZCost()">Calculate</button>
+                    <label class="maxztutorial" onclick="toggleTutorialPopup()">How does it work?</label>
+                </div>
             </div>
 
-            <div class="scrape-button" style="margin-top:0.8rem;">
-                <label class="text-label" for="scrape-button">Pull product prices</label>
+            <div class="profile-settings">
+                <h3>Settings</h3>
+                <div>
+                    <label class="text-label" for="refining-market-tax">Include market tax</label>
+                    <select id="refining-market-tax-percentage" onchange="updateNumbers(this);saveSettings(this);">
+                        <option value="6.5">( 6.5%)</option>
+                        <option value="10.5">(10.5%)</option>
+                    </select>
+                    <label class="switch">
+                        <input type="checkbox" id="refining-market-tax" onchange="updateNumbers();saveSettings(this);">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
                 <br>
-                <label for="refining-city-product">From: </label>
-                <select id="refining-city-product" onchange="saveSettings(this);">
-                    <option value="martlock">Martlock</option>
-                    <option value="thetford">Thetford</option>
-                    <option value="fortsterling">Fort Sterling</option>
-                    <option value="lymhurst">Lymhurst</option>
-                    <option value="bridgewatch">Bridgewatch</option>
-                    <option value="caerleon">Caerleon</option>
-                </select>
-                <button class="profile-button pull-button" onclick="pullProductPrices()">Pull</button>
+
+                <div>
+                    <label class="text-label" for="refine-from-t2">Stack profits from 
+                        <select id="refine-from-t2-dropdown" onchange="updateNumbers(this)"">
+                            <option value="2">T2</option>
+                            <option value="3">T3</option>
+                            <option value="4">T4</option>
+                            <option value="5">T5</option>
+                            <option value="6">T6</option>
+                            <option value="7">T7</option>
+                        </select>
+                    </label>
+                    <label class="switch">
+                        <input type="checkbox" id="refine-from-t2" onchange="updateNumbers()">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <br>
+
+                <div>
+                    <label class="text-label" for="profile-settings-focus-columns">Hide focus columns</label>
+                    <label class="switch">
+                        <input type="checkbox" id="profile-settings-focus-columns" onchange="toggleColumns('focus');saveSettings(this);">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <br>
+
+                <div>
+                    <label class="text-label" for="profile-settings-detail-columns">Show detail columns</label>
+                    <label class="switch">
+                        <input type="checkbox" id="profile-settings-detail-columns" onchange="toggleColumns('detail');saveSettings(this);">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
             </div>
-            <div style="text-align: center;margin-top:0.5rem;">
-                <span>[<span style="color:green;">>15m</span>]</span>
-                <span style="margin-right:0.3rem;margin-left:0.3rem;">[<span style="color:yellow;">>1h</span>]</span>
-                <span>[<span style="color:#ff8000;"><1h</span>]</span>
+
+            <div class="data-settings">
+                <h3>ㅤ</h3>
+                <div>
+                    <label class="text-label" for="table-settings-flip-table">Flip table</label>
+                    <label class="switch">
+                        <input type="checkbox" id="table-settings-flip-table" onchange="flipTable();saveSettings(this);">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <br>
+
+                <div>
+                    <label class="text-label" for="table-settings-hide-rows">Hide unused rows</label>
+                    <label class="switch">
+                        <input type="checkbox" id="table-settings-hide-rows" onchange="hideRows();">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <br>
+
+                <div style="margin-bottom:0.3rem;">
+                    <label class="text-label" for="clear-table-button">Clear current table data</label>
+                    <button class="profile-button" onclick="clearTable('table')">Table</button>
+                </div>
+                <br>
+
+                <div>
+                    <label class="text-label" for="clear-table-button">Clear all data</label>
+                    <button class="profile-button" onclick="clearTable('all')">All</button>
+                </div>
+            </div>
+
+            <div class="data-scrape">
+                <h3>Data Pull</h3>
+
+                <div>
+                    <label class="text-label" for="server-select">Select server</label>
+                    <select id="server-select" onchange="saveSettings(this);">
+                        <option value="west">West</option>
+                        <option value="east">East</option>
+                    </select>
+                </div>
+                <br>
+
+                <div class="scrape-button">
+                    <label class="text-label" for="scrape-button">Pull resource prices</label>
+                    <br>
+                    <label for="refining-city-resource">From:</label>
+                    <select id="refining-city-resource" onchange="saveSettings(this);">
+                        <option value="martlock">Martlock</option>
+                        <option value="thetford">Thetford</option>
+                        <option value="fortsterling">Fort Sterling</option>
+                        <option value="lymhurst">Lymhurst</option>
+                        <option value="bridgewatch">Bridgewatch</option>
+                        <option value="caerleon">Caerleon</option>
+                    </select>
+                    <button class="profile-button pull-button" onclick="pullResourcePrices()">Pull</button>
+                </div>
+
+                <div class="scrape-button" style="margin-top:0.8rem;">
+                    <label class="text-label" for="scrape-button">Pull product prices</label>
+                    <br>
+                    <label for="refining-city-product">From: </label>
+                    <select id="refining-city-product" onchange="saveSettings(this);">
+                        <option value="martlock">Martlock</option>
+                        <option value="thetford">Thetford</option>
+                        <option value="fortsterling">Fort Sterling</option>
+                        <option value="lymhurst">Lymhurst</option>
+                        <option value="bridgewatch">Bridgewatch</option>
+                        <option value="caerleon">Caerleon</option>
+                    </select>
+                    <button class="profile-button pull-button" onclick="pullProductPrices()">Pull</button>
+                </div>
+                <div style="text-align: center;margin-top:0.5rem;">
+                    <span title="Price is less than 15 minutes old">[<span style="color:green;">>15m</span>]</span>
+                    <span title="Price is between 15 and 60 minutes old" style="margin-right:0.3rem;margin-left:0.3rem;">[<span style="color:yellow;">>1h</span>]</span>
+                    <span title="Price is more than 1 hour old and is likely unreliable">[<span style="color:#ff8000;"><1h</span>]</span>
+                    <span title="No price found">[<span style="color:red;">NaN</span>]</span>
+                </div>
             </div>
         </div>
-    </div>
+
 
     <div id="refining" class="refining">
         <table id="refining-table" class="detail-table">
@@ -237,11 +249,33 @@
         </table>
     </div>
 
+    <div class="tutorialpopup" id="tutorial-popup" style="display:none;">
+        <div class="tutorialpopup-close" onclick="toggleTutorialPopup()">X</div>
+        <h2 style="color:#0E8388;margin-left:1rem;margin-bottom:-1rem;">How the function works</h2>
+        <div class="tutorialtext">
+            This feature will quickly calculate the maximum price you will be able to pay for the resources and still make a profit at the current product price, and input it into the table.
+            This is useful if you want to buy a large amount of resources and just want to know the maximum price you can pay for them and still make a profit when refining them into the product.
+            <br><br>
+            <b>How to use:</b>
+            <br>
+            1. Pull or input the current product prices into the product price input field.
+            <br>
+            2. Click the "Calculate" button.
+            <br>
+            3. Purchase all the resources you want to refine, up to the maximum price calculated.
+            <br>
+            4. ????
+            <br>    
+            5. Profit!
+        </div>
+    </div>
+
     <footer>
-        <p>I hope you find this refining calculator useful! If you encounter any issues or have any suggestions on how to improve it, send me a message on Discord (Peter#8103).</p>
+        <p>I hope you find this refining calculator useful! If you encounter any issues or have any suggestions on how to improve it, send me a message on <a target="_blank" href="https://discord.com/users/147806091156127744">Discord</a> (Peter #8103 / Brannstroom) or open an issue in the <a href="https://github.com/Brannstroom/albiononline-refining-calculator" target="_blank">Github repository</a>.</p>
         <p>Created by <a target="_blank" href="https://github.com/Brannstroom">Brannstroom</a></p>
     </footer>
 
     <script src="scripts/main.js"></script>
+
     </body>
 </html>

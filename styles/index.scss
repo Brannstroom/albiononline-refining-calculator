@@ -6,7 +6,6 @@ $color4: #cbe4de;
 body {
     background-color: $color1;
     color: $color4;
-    width: 80%;
     margin: 0 auto;
 }
 
@@ -56,13 +55,16 @@ input, select {
     background-color: $color2;
     color: $color4;
     text-align: right;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    margin: 0;
 }
 
 
@@ -81,7 +83,6 @@ th {
     text-align: center;
 }
 
-// rounded switch button
 .switch {
     position: relative;
     display: inline-block;
@@ -133,7 +134,6 @@ input:checked + .slider:before {
     transform: translateX(32px);
 }
 
-/* Rounded sliders */
 .slider.round {
     border-radius: 34px;
 }
@@ -165,6 +165,9 @@ input:checked + .slider:before {
 }
 
 .profile {
+    width: 80%;
+    margin: 0 auto;
+
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -173,6 +176,8 @@ input:checked + .slider:before {
     padding-top: 0.05rem;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
     margin-bottom: 2rem;
+    margin-left: 9%;
+    margin-right: 1%;
 
 }
 
@@ -275,4 +280,63 @@ h1 {
         border-bottom: $color4 0.125rem solid;
     }
 
+}
+
+.refining {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: -1.5rem;
+}
+
+.profile-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+footer {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.smaller-button {
+    width: 70px;
+    padding: 0.5rem;
+    font-size: 0.8em;
+    margin-left: 0.6rem;
+}
+
+.maxztutorial:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.tutorialpopup {
+    width: 30%;
+    height: fit-content;
+    position: fixed;
+    top: 30%;
+    left: 35%;
+    background: #1d2222;
+    border: 2px solid $color2;
+    border-radius: 5px;
+
+    -webkit-box-shadow: 0px 0px 0px 2000px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 0px 2000px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 0px 2000px rgba(0,0,0,0.5);
+}
+
+.tutorialtext {
+    margin: 2rem;
+}
+
+.tutorialpopup-close {
+    float: right;
+    font-size: 1.3rem;
+    margin: 0.3rem 0.5rem;
+    cursor: pointer;
+
+    &:hover {
+        color: $color3;
+    }
 }

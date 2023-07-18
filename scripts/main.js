@@ -2020,6 +2020,7 @@ function init() {
         resource_image_element.src = "images/resources/" + refining_resource_list[i].image;
         resource_image_element.style.width = "75px";
         resource_image_element.style.height = "75px";
+        resource_image_element.alt = refining_resource_list[i].name + " " + refining_resource_list[i].tier + "." + refining_resource_list[i].enchant + " image";
         resource_image.appendChild(resource_image_element);
         row.appendChild(resource_image);
 
@@ -2042,6 +2043,7 @@ function init() {
         product_image_element.src = "images/resources/" + refining_product_list[i].image;
         product_image_element.style.width = "75px";
         product_image_element.style.height = "75px";
+        product_image_element.alt = refining_product_list[i].name + " " + refining_product_list[i].tier + "." + refining_product_list[i].enchant + " image";
         product_image.appendChild(product_image_element);
         row.appendChild(product_image);
 
@@ -2566,7 +2568,7 @@ function pullProductPrices() {
             let index = refining_resource == "4" ? valArr[i] : i;
             let price = data[index].sell_price_min;
             let price_cell = table.rows[i].cells[4].children[0];
-            changeAgeIndicator(price_cell, data[index].sell_price_min_date)
+            changeAgeIndicator(price_cell, data[index].sell_price_min_date, data[index].sell_price_min)
             price_cell.value = price;
         }
     })
@@ -2612,7 +2614,7 @@ function pullResourcePrices() {
         for(let i = 0; i < table.rows.length; i++) {
             let price = data[i].sell_price_min;
             let price_cell = table.rows[i].cells[2].children[0];
-            changeAgeIndicator(price_cell, data[i].sell_price_min_date)
+            changeAgeIndicator(price_cell, data[i].sell_price_min_date, data[i].sell_price_min)
             price_cell.value = price;
         }
     })
@@ -2722,11 +2724,16 @@ function getReturnRate(focus) {
     return return_rate;
 }
 
-function changeAgeIndicator(element, age) {
+function changeAgeIndicator(element, age, price) {
     const priceDate = new Date(age);
     const dateUTC0 = new Date(new Date().toLocaleString('en', { timeZone: 'Etc/UTC' }));
 
     const diff = Math.abs(dateUTC0 - priceDate) / 1000 / 60;
+    
+    if(price == 0) {
+        element.style.borderBottomColor = "red";
+        return;
+    }
 
     if (diff < 15) {
         element.style.borderBottomColor = "green";
@@ -2784,3 +2791,9 @@ function debounce(func, wait) {
 
 loadFromLocalStorage();
 init();
+
+function toggleTutorialPopup() {
+    var popup = document.getElementById("tutorial-popup");
+    var display = document.getElementById("tutorial-popup").style.display;
+    popup.style.display = display == "none" ? "block" : "none";
+}
