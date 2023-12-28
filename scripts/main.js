@@ -2694,8 +2694,8 @@ function getReturnRate(focus) {
         switch(selected_return_rate) {
             case 15.2: daily_production_bonus == 10 ? return_rate = 21.8 : return_rate = 27.5; break;
             case 36.7: daily_production_bonus == 10 ? return_rate = 40.4 : return_rate = 43.8; break;
-            case 0: daily_production_bonus == 10 ? return_rate = 9.0 : return_rate = 16.6; break; // TODO: Add return_rate for 10% bonus
-            case 28.5: daily_production_bonus == 10 ? return_rate = 33.3 : return_rate = 37.5; break; // TODO: Add return_rate for 10% bonus
+            case 0: daily_production_bonus == 10 ? return_rate = 9.0 : return_rate = 16.6; break;
+            case 28.5: daily_production_bonus == 10 ? return_rate = 33.3 : return_rate = 37.5; break;
         }
     }
 
@@ -2707,7 +2707,7 @@ function getReturnRate(focus) {
             case 0: return_rate = 37.1; break;
             case 28.5: return_rate = 49.7; break;
 
-            // 10% Bonus TODO: Add return_rate for 10% bonus, with and without focus
+            // 10% Bonus
             case 21.8: return_rate = 46.5; break;
             case 40.4: return_rate = 55.9; break;
             case 9.0: return_rate = 40.8; break;
