@@ -2661,8 +2661,8 @@ function findResourceZCost() {
     updateNumbers();
 }
 
-function maxZ(x, y, n, m, o, p) {
-    return (x * (1 - o) - y + (y * n) / 100 - m) / (p - (p * n) / 100);
+function maxZ(product_value, previous_product, return_rate, usage_fee, tax_rate, resources_needed) {
+    return (product_value * (1 - tax_rate) - previous_product + (previous_product * return_rate) / 100 - usage_fee) / (resources_needed - (resources_needed * return_rate) / 100);
 }
 
 const tierMultipliers = {
