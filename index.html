@@ -85,7 +85,8 @@
                 <br>
 
                 <div>
-                    <label for="clear-table-button">Calculate max resource price</label>
+                    <label for="clear-table-button">Calculate max resource price for </label>
+                    <input type="number" id="refining-max-resource-price-percentage" value="0" min="0" onClick="this.select();" oninput="updateNumbers(this)"> % profit
                     <button class="profile-button smaller-button" onclick="findResourceZCost()">Calculate</button>
                     <label class="maxztutorial" onclick="toggleTutorialPopup()">How does it work?</label>
                 </div>
@@ -255,20 +256,22 @@
         <div class="tutorialpopup-close" onclick="toggleTutorialPopup()">X</div>
         <h2 style="color:#0E8388;margin-left:1rem;margin-bottom:-1rem;">How the function works</h2>
         <div class="tutorialtext">
-            This feature will quickly calculate the maximum price you will be able to pay for the resources and still make a profit at the current product price, and input it into the table.
-            This is useful if you want to buy a large amount of resources and just want to know the maximum price you can pay for them and still make a profit when refining them into the product.
+            This feature will calculate the maximum price you will be able to pay for the resources to still make the specified profit percentage at the current product price.
+            <br><br>
+            Keeping this at 0% can be a good idea for leveling refining, as you will be able to know the highest price you will be able to pay and break even. Remember that when doing this, everything bought below the calculated price will be a profit.
             <br><br>
             <b>How to use:</b>
             <br>
-            1. Pull or input the current product prices into the product price input field.
+            1. Input usage fee and wether to include market tax.
             <br>
-            2. Click the "Calculate" button.
+            2. Pull or input the current product prices into the product price input field.
             <br>
-            3. Purchase all the resources you want to refine, up to the maximum price calculated.
+            3. Input the desired profit percentage.
             <br>
-            4. ????
-            <br>    
-            5. Profit!
+            4. Click the "Calculate" button.
+            <br>
+            5. Purchase all the resources you want to refine, up to the maximum price calculated.
+            <br>
         </div>
     </div>
 

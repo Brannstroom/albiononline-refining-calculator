@@ -2238,7 +2238,9 @@ function updateNumbers(element) {
         let tier = table.rows[i].cells[0].innerHTML;
         
         if(table.rows[i].cells[0].innerHTML == "2.0") tax_cost = 0;
+
         let profit = (product_price - resource_cost + (resource_cost/100*return_rate) - tax_cost)*craft_amount;
+
 
         let market_tax = document.getElementById("refining-market-tax-percentage").value/100;
         let market_tax_cost = (product_price*market_tax)*craft_amount;
@@ -2254,7 +2256,8 @@ function updateNumbers(element) {
             }
         }
 
-        let profit_percentage = (profit / (resource_cost*craft_amount)) * 100;
+        // let profit_percentage = (profit / (resource_cost*craft_amount)) * 100;
+        let profit_percentage = (profit / ((product_price*(1-market_tax))*craft_amount)) * 100;
         
         let label_prefix = "<a href='#' class='missing_resource_tooltip' style='color:red;text-decoration:none;' title='Missing price of previous tier product'>";
         let label_suffix = " (!)</a>";
@@ -2446,7 +2449,7 @@ function getResourceCosts() {
     }
   
     return resource_prices;
-  }
+}
 
 function colorProfits(row) {
     if(row.innerHTML.includes("-")) {
@@ -2662,7 +2665,9 @@ function findResourceZCost() {
 }
 
 function maxZ(product_value, previous_product, return_rate, usage_fee, tax_rate, resources_needed) {
-    return (product_value * (1 - tax_rate) - previous_product + (previous_product * return_rate) / 100 - usage_fee) / (resources_needed - (resources_needed * return_rate) / 100);
+    let profit_percentage = document.getElementById("refining-max-resource-price-percentage").value
+
+    return (product_value * (1-profit_percentage/100) * (1 - tax_rate) - previous_product + (previous_product * return_rate) / 100 - usage_fee) / (resources_needed - (resources_needed * return_rate) / 100) 
 }
 
 const tierMultipliers = {

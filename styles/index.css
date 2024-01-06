@@ -311,4 +311,9 @@ footer {
 }
 .tutorialpopup-close:hover {
   color: #0E8388;
+}
+
+#refining-max-resource-price-percentage {
+  width: 2rem;
+  margin-right: -0.2rem;
 }/*# sourceMappingURL=index.css.map */
