@@ -2570,7 +2570,6 @@ function pullProductPrices(resources) {
     let valArr = [0,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6]
 
     let url = "https://"+server+".albion-online-data.com/api/v2/stats/history/"+item_list+"?time-scale="+(time_period > 24 ? 24 : time_period)+"&locations="+city;
-    console.log(url);
     fetch(url)
     .then(response => response.json())
     .then(data => {
