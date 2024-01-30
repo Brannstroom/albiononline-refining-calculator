@@ -186,7 +186,7 @@ input:checked + .slider:before {
 .data-scrape {
   min-width: 15%;
 }
-.data-scrape #refining-city, .data-scrape #server-select, .data-scrape button {
+.data-scrape #refining-city, .data-scrape #server-select, .data-scrape button, .data-scrape #time-period-select {
   width: -moz-fit-content;
   width: fit-content;
   float: right;

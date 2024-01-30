@@ -2161,6 +2161,7 @@ function loadFromLocalStorage(type) {
     updateElementFromLocalStorage("server-select", false);
     updateElementFromLocalStorage("refining-city-resource", false);
     updateElementFromLocalStorage("refining-city-product", false);
+    updateElementFromLocalStorage("time-period-select", false)
 
     if(localStorage.getItem("custom-return-rate") != null) {
         const storedValue = localStorage.getItem("custom-return-rate");
@@ -2534,10 +2535,13 @@ function hideRows() {
     }
 }
 
-function pullProductPrices() {
+function pullProductPrices(resources) {
+
+    let offset = (resources ? 2 : 0);
+
     let table = document.getElementById("resouce-table-body");
     for(let i = 0; i < table.rows.length; i++) {
-        table.rows[i].cells[4].children[0].value = 0;
+        table.rows[i].cells[4-offset].children[0].value = 0;
     }
 
     let flipped = document.getElementById("table-settings-flip-table").checked;
@@ -2547,10 +2551,11 @@ function pullProductPrices() {
 
     let server = document.getElementById("server-select").value;
     let city = document.getElementById("refining-city-product").value;
+    let time_period = document.getElementById("time-period-select").value;
 
     let item_list = "";
     for(let i = 0; i < table.rows.length; i++) {
-        let img_value = table.rows[i].cells[3].innerHTML.split("/");
+        let img_value = table.rows[i].cells[3-offset].innerHTML.split("/");
         let item_id = img_value[img_value.length-1].split(".")[0];
 
         if(item_id[item_id.length-1] >= '0' && item_id[item_id.length-1] <= '9') {
@@ -2560,74 +2565,50 @@ function pullProductPrices() {
 
         item_list += item_id + ",";
     }
+
     let refining_resource = document.getElementById("refining-resource").value;
     let valArr = [0,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6]
 
-    let url = "https://"+server+".albion-online-data.com/api/v2/stats/prices/"+item_list+"?locations="+city;
+    let url = "https://"+server+".albion-online-data.com/api/v2/stats/history/"+item_list+"?time-scale="+(time_period > 24 ? 24 : time_period)+"&locations="+city;
+    console.log(url);
     fetch(url)
     .then(response => response.json())
     .then(data => {
         for(let i = 0; i < table.rows.length; i++) {
             let index = refining_resource == "4" ? valArr[i] : i;
-            let price = data[index].sell_price_min;
-            let price_cell = table.rows[i].cells[4].children[0];
-            changeAgeIndicator(price_cell, data[index].sell_price_min_date, data[index].sell_price_min)
-            price_cell.value = price;
+            let price;
+
+            if (data[index] && data[index].data && data[index].data.length > 0 && data[index].data[0].avg_price !== null) {
+                data[index].data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+                if (time_period <= 24) {
+                    price = data[index].data[0].avg_price;
+                } else {
+                    let sum = 0;
+                    const numDataPoints = Math.min(time_period / 24, data[index].data.length);
+                    for (let j = 0; j < numDataPoints; j++) {
+                        if (data[index].data[j] && data[index].data[j].avg_price !== null) {
+                            sum += data[index].data[j].avg_price;
+                        }
+                    }
+                    if (sum !== 0) {
+                        price = Math.round(sum / (time_period / 24));
+                    }
+                }
+            }
+
+            let price_cell = table.rows[i].cells[4-offset].children[0];
+
+            price_cell.value = (price || 0);
         }
-    })
-    .then(() => {
+    }
+    ).then(() => {
         if(flipped) {
             flipTable();
         }
-    }).finally(() => {
+    }
+    ).finally(() => {
         updateNumbers();
     });
-}
-
-function pullResourcePrices() {
-    let table = document.getElementById("resouce-table-body");
-    for(let i = 0; i < table.rows.length; i++) {
-        table.rows[i].cells[2].children[0].value = 0;
-    }
-
-    let flipped = document.getElementById("table-settings-flip-table").checked;
-    if(flipped) {
-        flipTable();
-    }
-
-    let server = document.getElementById("server-select").value;
-    let city = document.getElementById("refining-city-resource").value;
-
-    let item_list = "";
-    for(let i = 0; i < table.rows.length; i++) {
-        let img_value = table.rows[i].cells[1].innerHTML.split("/");
-        let item_id = img_value[img_value.length-1].split(".")[0];
-        if(item_id[item_id.length-1] >= '0' && item_id[item_id.length-1] <= '9') {
-            let enchant = item_id[item_id.length-1];
-            item_id = item_id.replace("_LEVEL"+enchant, "_LEVEL"+enchant+"@"+enchant);
-        }
-
-        item_list += item_id + ",";
-    }
-
-    let url = "https://"+server+".albion-online-data.com/api/v2/stats/prices/"+item_list+"?locations="+city;
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        for(let i = 0; i < table.rows.length; i++) {
-            let price = data[i].sell_price_min;
-            let price_cell = table.rows[i].cells[2].children[0];
-            changeAgeIndicator(price_cell, data[i].sell_price_min_date, data[i].sell_price_min)
-            price_cell.value = price;
-        }
-    })
-    .then(() => {
-        if(flipped) {
-            flipTable();
-        }
-    }).finally(() => {
-        updateNumbers();
-    })
 }
 
 function findResourceZCost() {
@@ -2727,26 +2708,6 @@ function getReturnRate(focus) {
     }
     
     return return_rate;
-}
-
-function changeAgeIndicator(element, age, price) {
-    const priceDate = new Date(age);
-    const dateUTC0 = new Date(new Date().toLocaleString('en', { timeZone: 'Etc/UTC' }));
-
-    const diff = Math.abs(dateUTC0 - priceDate) / 1000 / 60;
-    
-    if(price == 0) {
-        element.style.borderBottomColor = "red";
-        return;
-    }
-
-    if (diff < 15) {
-        element.style.borderBottomColor = "green";
-    } else if (diff < 60) {
-        element.style.borderBottomColor = "yellow";
-    } else {
-        element.style.borderBottomColor = "#cc6600";
-    }
 }
 
 function customReturnRate() {

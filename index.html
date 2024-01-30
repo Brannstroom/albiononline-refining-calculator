@@ -187,6 +187,19 @@
                 </div>
                 <br>
 
+                <div>
+                    <label class="text-label" for="time-period-select">Select time period</label>
+                    <select id="time-period-select" onchange="saveSettings(this)">
+                        <option value="1">1 Hour</option>
+                        <option value="6">6 Hours</option>
+                        <option value="24">1 Day</option>
+                        <option value="72">3 Days</option>
+                        <option value="168">1 Week</option>
+                        <option value="720">1 Month</option>
+                    </select>
+                </div>
+                <br>
+
                 <div class="scrape-button">
                     <label class="text-label" for="scrape-button">Pull resource prices</label>
                     <br>
@@ -199,7 +212,7 @@
                         <option value="bridgewatch">Bridgewatch</option>
                         <option value="caerleon">Caerleon</option>
                     </select>
-                    <button class="profile-button pull-button" onclick="pullResourcePrices()">Pull</button>
+                    <button class="profile-button pull-button" onclick="pullProductPrices(true)">Pull</button>
                 </div>
 
                 <div class="scrape-button" style="margin-top:0.8rem;">
@@ -214,13 +227,7 @@
                         <option value="bridgewatch">Bridgewatch</option>
                         <option value="caerleon">Caerleon</option>
                     </select>
-                    <button class="profile-button pull-button" onclick="pullProductPrices()">Pull</button>
-                </div>
-                <div style="text-align: center;margin-top:0.5rem;">
-                    <span title="Price is less than 15 minutes old">[<span style="color:green;">>15m</span>]</span>
-                    <span title="Price is between 15 and 60 minutes old" style="margin-right:0.3rem;margin-left:0.3rem;">[<span style="color:yellow;">>1h</span>]</span>
-                    <span title="Price is more than 1 hour old and is likely unreliable">[<span style="color:#ff8000;"><1h</span>]</span>
-                    <span title="No price found">[<span style="color:red;">NaN</span>]</span>
+                    <button class="profile-button pull-button" onclick="pullProductPrices(false)">Pull</button>
                 </div>
             </div>
         </div>
