@@ -2162,6 +2162,7 @@ function loadFromLocalStorage(type) {
     updateElementFromLocalStorage("refining-city-resource", false);
     updateElementFromLocalStorage("refining-city-product", false);
     updateElementFromLocalStorage("time-period-select", false)
+    updateElementFromLocalStorage("price-type-select", false);
 
     if(localStorage.getItem("custom-return-rate") != null) {
         const storedValue = localStorage.getItem("custom-return-rate");
@@ -2249,8 +2250,8 @@ function updateNumbers(element) {
             profit = profit - market_tax_cost;
         }
 
-        if(document.getElementById("refine-from-t2").checked) {
-            if(tier[0] > document.getElementById("refine-from-t2-dropdown").value) {
+        if(document.getElementById("refine-from").checked) {
+            if(tier[0] > document.getElementById("refine-from-dropdown").value) {
                 let offset = getOffset(tier);
                 let previous_profit = table.rows[i-offset].cells[5].children[0].innerHTML;
                 profit = profit + parseFloat(previous_profit);
@@ -2535,7 +2536,75 @@ function hideRows() {
     }
 }
 
-function pullProductPrices(resources) {
+function pullPrices(resources) {
+    let pull_price_type = document.getElementById("price-type-select").value;
+    if(pull_price_type == "average") {
+        pullAveragePrices(resources);
+    } else {
+        pullCurrentPrices(resources);
+    }
+}
+
+function pullCurrentPrices(resources) {
+    let offset = (resources ? 2 : 0);
+
+    let table = document.getElementById("resouce-table-body");
+    for(let i = 0; i < table.rows.length; i++) {
+        table.rows[i].cells[4-offset].children[0].value = 0;
+    }
+
+    let flipped = document.getElementById("table-settings-flip-table").checked;
+    if(flipped) {
+        flipTable();
+    }
+
+    let server = document.getElementById("server-select").value;
+    let city = document.getElementById("refining-city-product").value;
+
+    let item_list = "";
+    for(let i = 0; i < table.rows.length; i++) {
+        let img_value = table.rows[i].cells[3-offset].innerHTML.split("/");
+        let item_id = img_value[img_value.length-1].split(".")[0];
+
+        if(item_id[item_id.length-1] >= '0' && item_id[item_id.length-1] <= '9') {
+            let enchant = item_id[item_id.length-1];
+            item_id = item_id.replace("_LEVEL"+enchant, "_LEVEL"+enchant+"@"+enchant);
+        }
+
+        item_list += item_id + ",";
+    }
+
+    let refining_resource = document.getElementById("refining-resource").value;
+    let valArr = [0,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6]
+
+    let url = "https://"+server+".albion-online-data.com/api/v2/stats/prices/"+item_list+"?locations="+city;
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        for(let i = 0; i < table.rows.length; i++) {
+            let index = refining_resource == "4" ? valArr[i] : i;
+            let price;
+
+            if (data[index] && data[index].sell_price_min !== null) {
+                price = data[index].sell_price_min;
+            }
+
+            let price_cell = table.rows[i].cells[4-offset].children[0];
+
+            price_cell.value = (price || 0);
+        }
+    }
+    ).then(() => {
+        if(flipped) {
+            flipTable();
+        }
+    }
+    ).finally(() => {
+        updateNumbers();
+    });
+}
+
+function pullAveragePrices(resources) {
 
     let offset = (resources ? 2 : 0);
 
@@ -2741,24 +2810,35 @@ function debounce(func, wait) {
         };
   }
   
-  const handleResize = debounce(function() {
-        let window_width = window.innerWidth;
-        if (window_width < 1050) {
-            document.getElementById("refining-table").style.width = "100%";
-        } else if (window_width < 1300) {
-            document.getElementById("refining-table").style.width = "90%";
-        } else {
-            toggleColumns();
-        }
-  }, 30);
-  
-  window.addEventListener("resize", handleResize);
-
-loadFromLocalStorage();
-init();
+const handleResize = debounce(function() {
+    let window_width = window.innerWidth;
+    if (window_width < 1050) {
+        document.getElementById("refining-table").style.width = "100%";
+    } else if (window_width < 1300) {
+        document.getElementById("refining-table").style.width = "90%";
+    } else {
+        toggleColumns();
+    }
+}, 30);
 
 function toggleTutorialPopup() {
     var popup = document.getElementById("tutorial-popup");
     var display = document.getElementById("tutorial-popup").style.display;
     popup.style.display = display == "none" ? "block" : "none";
 }
+
+function editPullPriceType() {
+    let pull_price_type = document.getElementById("price-type-select").value;
+
+    if(pull_price_type == "average") {
+        document.getElementById("period-select-div").style.display = "block";
+    } else {
+        document.getElementById("period-select-div").style.display = "none";
+    }
+}
+
+window.addEventListener("resize", handleResize);
+
+loadFromLocalStorage();
+init();
+editPullPriceType();

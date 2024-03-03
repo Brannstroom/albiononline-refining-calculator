@@ -108,8 +108,8 @@
                 <br>
 
                 <div>
-                    <label class="text-label" for="refine-from-t2">Stack profits from 
-                        <select id="refine-from-t2-dropdown" onchange="updateNumbers(this)"">
+                    <label class="text-label" for="refine-from">Stack profits from 
+                        <select id="refine-from-dropdown" onchange="updateNumbers(this);updateRefineFromToDropdown()">
                             <option value="2">T2</option>
                             <option value="3">T3</option>
                             <option value="4">T4</option>
@@ -119,9 +119,10 @@
                         </select>
                     </label>
                     <label class="switch">
-                        <input type="checkbox" id="refine-from-t2" onchange="updateNumbers()">
+                        <input type="checkbox" id="refine-from" onchange="updateNumbers()">
                         <span class="slider round"></span>
                     </label>
+
                 </div>
                 <br>
 
@@ -176,7 +177,7 @@
             </div>
 
             <div class="data-scrape">
-                <h3>Pull average prices</h3>
+                <h3>Pull prices</h3>
 
                 <div>
                     <label class="text-label" for="server-select">Select server</label>
@@ -184,10 +185,19 @@
                         <option value="west">West</option>
                         <option value="east">East</option>
                     </select>
+                    <br><br>
                 </div>
-                <br>
-
+                
                 <div>
+                    <label class="text-label" for="">Type</label>
+                    <select id="price-type-select" onchange="saveSettings(this);editPullPriceType(this)">
+                        <option value="current">Current</option>
+                        <option value="average">Average</option>
+                    </select>
+                    <br><br>
+                </div>
+
+                <div id="period-select-div">
                     <label class="text-label" for="time-period-select">Select time period</label>
                     <select id="time-period-select" onchange="saveSettings(this)">
                         <option value="1">1 Hour</option>
@@ -197,8 +207,8 @@
                         <option value="168">1 Week</option>
                         <option value="720">1 Month</option>
                     </select>
+                    <br><br>
                 </div>
-                <br>
 
                 <div class="scrape-button">
                     <label class="text-label" for="scrape-button">Pull resource prices</label>
@@ -212,7 +222,7 @@
                         <option value="bridgewatch">Bridgewatch</option>
                         <option value="caerleon">Caerleon</option>
                     </select>
-                    <button class="profile-button pull-button" onclick="pullProductPrices(true)">Pull</button>
+                    <button class="profile-button pull-button" onclick="pullPrices(true)">Pull</button>
                 </div>
 
                 <div class="scrape-button" style="margin-top:0.8rem;">
@@ -227,7 +237,7 @@
                         <option value="bridgewatch">Bridgewatch</option>
                         <option value="caerleon">Caerleon</option>
                     </select>
-                    <button class="profile-button pull-button" onclick="pullProductPrices(false)">Pull</button>
+                    <button class="profile-button pull-button" onclick="pullPrices(false)">Pull</button>
                 </div>
             </div>
         </div>

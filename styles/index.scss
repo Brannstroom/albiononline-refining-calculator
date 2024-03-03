@@ -201,7 +201,7 @@ input:checked + .slider:before {
     
     min-width: 15%;
 
-    #refining-city, #server-select, button, #time-period-select{
+    #refining-city, #server-select, button, #time-period-select, #price-type-select{
         width: fit-content;
         float: right;
     }
@@ -245,9 +245,12 @@ h1 {
     display: none;
 }
 
-#refine-from-t2-dropdown{
-    margin-left: 0.5rem;
-    width: 4rem;
+#refine-from-dropdown, #refine-to-dropdown {
+    width: 2.5rem;
+}
+
+#refine-to-dropdown {
+    margin-right: -0.8rem;
 }
 
 #refining-market-tax-percentage {
