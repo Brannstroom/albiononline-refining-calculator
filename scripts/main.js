@@ -2558,8 +2558,10 @@ function pullCurrentPrices(resources) {
         flipTable();
     }
 
+    let element_id = resources ? "refining-city-resource" : "refining-city-product";
+
     let server = document.getElementById("server-select").value;
-    let city = document.getElementById("refining-city-product").value;
+    let city = document.getElementById(element_id).value;
 
     let item_list = "";
     for(let i = 0; i < table.rows.length; i++) {
@@ -2618,8 +2620,10 @@ function pullAveragePrices(resources) {
         flipTable();
     }
 
+    let element_id = resources ? "refining-city-resource" : "refining-city-product";
+
     let server = document.getElementById("server-select").value;
-    let city = document.getElementById("refining-city-product").value;
+    let city = document.getElementById(element_id).value;
     let time_period = document.getElementById("time-period-select").value;
 
     let item_list = "";
