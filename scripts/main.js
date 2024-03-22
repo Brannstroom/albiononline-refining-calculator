@@ -1983,42 +1983,28 @@ function init() {
     document.getElementById("resouce-table-body").innerHTML = "";
 
     let refining_resource = document.getElementById("refining-resource").value;
-
-    let resource_name = "";
-    let product_name = "";
-
     let refining_resource_list = {};
     let refining_product_list = {};
     switch (refining_resource) {
         case "0":
             refining_resource_list = resources.fiber;
             refining_product_list = products.cloth;
-            resource_name = "Fiber";
-            product_name = "Cloth";
             break;
         case "1":
             refining_resource_list = resources.ore;
             refining_product_list = products.bar;
-            resource_name = "Ore";
-            product_name = "Bar";
             break;
         case "2":
             refining_resource_list = resources.hide;
             refining_product_list = products.leather;
-            resource_name = "Hide";
-            product_name = "Leather";
             break;
         case "3":
             refining_resource_list = resources.wood;
             refining_product_list = products.plank;
-            resource_name = "Wood";
-            product_name = "Plank";
             break;
         case "4":
             refining_resource_list = resources.rock;
             refining_product_list = products.stoneblock;
-            resource_name = "Rock";
-            product_name = "Stoneblock";
     }
 
     for (let i = 0; i < refining_resource_list.length; i++) {
@@ -2037,7 +2023,7 @@ function init() {
         resource_image_element.alt = refining_resource_list[i].name + " " + refining_resource_list[i].tier + "." + refining_resource_list[i].enchant + " image";
 
         resource_image_element.onclick = function() {
-            copySearchString(resource_name + " " + refining_resource_list[i].tier + "." + refining_resource_list[i].enchant);
+            copySearchString(refining_resource_list[i].name);
         }
 
         resource_image.appendChild(resource_image_element);
@@ -2065,7 +2051,7 @@ function init() {
         product_image_element.alt = refining_product_list[i].name + " " + refining_product_list[i].tier + "." + refining_product_list[i].enchant + " image";
 
         product_image_element.onclick = function () {
-            copySearchString(product_name + " " + refining_product_list[i].tier + "." + refining_product_list[i].enchant);
+            copySearchString(refining_product_list[i].name);
         }
 
         product_image.appendChild(product_image_element);
