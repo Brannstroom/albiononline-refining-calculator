@@ -2610,6 +2610,8 @@ function pullCurrentPrices(resources) {
             let price_cell = table.rows[i].cells[4-offset].children[0];
 
             price_cell.value = (price || 0);
+
+            changeAgeIndicator(price_cell, data[i].sell_price_min_date);
         }
     }
     ).then(() => {
@@ -2854,6 +2856,21 @@ function editPullPriceType() {
         document.getElementById("period-select-div").style.display = "block";
     } else {
         document.getElementById("period-select-div").style.display = "none";
+    }
+}
+
+function changeAgeIndicator(element, age) {
+    const priceDate = new Date(age);
+    const dateUTC0 = new Date(new Date().toLocaleString('en', { timeZone: 'Etc/UTC' }));
+
+    const diff = Math.abs(dateUTC0 - priceDate) / 1000 / 60;
+
+    if (diff < 30) {
+        element.style.borderBottomColor = "green";
+    } else if (diff < 240) {
+        element.style.borderBottomColor = "yellow";
+    } else {
+        element.style.borderBottomColor = "#cc6600";
     }
 }
 
