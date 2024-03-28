@@ -2173,6 +2173,12 @@ function loadFromLocalStorage(type) {
     updateElementFromLocalStorage("refining-city-product", false);
     updateElementFromLocalStorage("time-period-select", false)
     updateElementFromLocalStorage("price-type-select", false);
+    updateElementFromLocalStorage("refining-resource", false);
+    updateElementFromLocalStorage("refining-station-return-rate", false);
+    updateElementFromLocalStorage("daily-production-bonus", false);
+    updateElementFromLocalStorage("refining-station-amount", false);
+    updateElementFromLocalStorage("refining-station-tax", false);
+    updateElementFromLocalStorage("refining-max-resource-price-percentage", false);
 
     if(localStorage.getItem("custom-return-rate") != null) {
         const storedValue = localStorage.getItem("custom-return-rate");

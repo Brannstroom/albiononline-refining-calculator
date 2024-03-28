@@ -30,7 +30,7 @@
                 <div class="refining-station">
                     <h3>Refining Station</h3>
                     <label for="refining-resource">Resource</label>
-                    <select id="refining-resource" onchange="init()">
+                    <select id="refining-resource" onchange="init();saveSettings(this);">
                         <option value="0">Cloth</option>
                         <option value="1">Bar</option>
                         <option value="2">Leather</option>
@@ -39,16 +39,16 @@
                     </select>
 
                     <label for="refining-station-tax">Usage fee</label>
-                    <input type="number" id="refining-station-tax" value="0" min="0" max="9999" onClick="this.select();" oninput="updateNumbers(this)">           
+                    <input type="number" id="refining-station-tax" value="0" min="0" max="9999" onClick="this.select();" oninput="updateNumbers(this);saveSettings(this);">           
 
                     <label for="refining-station">Amount</label>
-                    <input type="number" id="refining-station-amount" value="1" min="1" onClick="this.select();" oninput="updateNumbers(this)">                
+                    <input type="number" id="refining-station-amount" value="1" min="1" onClick="this.select();" oninput="updateNumbers(this);saveSettings(this);">                
                 </div>
                 <br>
 
                 <div>
                     <label for="refining-location">Return rate</label>
-                    <select id="refining-station-return-rate" onchange="customReturnRate();updateNumbers(this);">
+                    <select id="refining-station-return-rate" onchange="customReturnRate();updateNumbers(this);saveSettings(this);">
                         <option value="15.2">Royal City (15.2%)</option>
                         <option value="36.7">Royal City with Bonus (36.7%)</option>
                         <option value="0">Royal Island (0%)</option>
@@ -86,7 +86,7 @@
 
                 <div>
                     <label for="clear-table-button">Calculate max resource price for </label>
-                    <input type="number" id="refining-max-resource-price-percentage" value="0" min="0" onClick="this.select();" oninput="updateNumbers(this)"> % profit
+                    <input type="number" id="refining-max-resource-price-percentage" value="0" min="0" onClick="this.select();" oninput="updateNumbers(this);saveSettings(this);"> % profit
                     <button class="profile-button smaller-button" onclick="findResourceZCost()">Calculate</button>
                     <label class="maxztutorial" onclick="toggleTutorialPopup()">How does it work?</label>
                 </div>
