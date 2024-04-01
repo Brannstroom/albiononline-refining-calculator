@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Albion Online Resource Refining Calculator</title>
-        <meta name="description" content="An efficient and easy-to-use Resource Refining Calculator for Albion Online! Refine resources and maximize your profits with many useful features to calculate profits, focus cost, and more. Craft smarter and increase your profits. ">
+        <meta name="description" content="An efficient and easy-to-use Resource Refining Calculator for Albion Online! Refine resources and maximize your profits with many useful features.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <meta name="keywords" content=" Albion online, refining calculator, refining resource, profit calculator, Albion Online tools, Albion Online calculator, Albion Online silver making, Albion Online profit, Albion Online refining, Albion Online resource refining">
@@ -12,12 +12,31 @@
         <link rel="stylesheet" href="styles/index.css">
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
+        <meta name="google-site-verification" content="TfwknlfnF0aGuoQcclajv_00HvyPnq3aAEbfzvRS3FY" />
+
+  	    <!-- Facebook Meta Tags -->
+        <meta property="og:title" content="Albion Online Resource Refining Calculator">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://brannstroom.github.io/albiononline-refining-calculator/">
+        <meta property="og:description" content="An efficient and easy-to-use Resource Refining Calculator for Albion Online! Refine resources and maximize your profits with many useful features to calculate profits, focus cost, and more. Craft smarter and increase your profits. ">
+        <meta property="og:image" content="https://imgur.com/a/PrVszyL">
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="Albion Online Resource Refining Calculator">
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:domain" content="https://brannstroom.github.io/albiononline-refining-calculator/">
+        <meta property="twitter:url" content="https://brannstroom.github.io/albiononline-refining-calculator/">
+        <meta name="twitter:title" content="Albion Online Resource Refining Calculator">
+        <meta name="twitter:description" content="An efficient and easy-to-use Resource Refining Calculator for Albion Online! Refine resources and maximize your profits with many useful features to calculate profits, focus cost, and more. Craft smarter and increase your profits. ">
+        <meta name="twitter:image" content="https://imgur.com/a/PrVszyL">
+
         <script type="application/ld+json">
             {
                 "@context": "http://schema.org",
                 "@type": "WebApplication",
                 "name": "Albion Online Resource Refining Calculator",
-                "description": "An efficient resource refining calculator for Albion Online with many useful features to calculate profits, focus cost, and more. Craft smarter and increase your profits."
+                "description": "An efficient and easy-to-use Resource Refining Calculator for Albion Online! Refine resources and maximize your profits with many useful features."
                 "url": "https://brannstroom.github.io/albiononline-refining-calculator/",
                 "author": {
                     "@type": "Person",
@@ -47,7 +66,7 @@
         <div class="profile">
             <div class="refining-settings">
                 <div class="refining-station">
-                    <h3>Refining Station</h3>
+                    <h2>Refining Station</h2>
                     <label for="refining-resource">Resource</label>
                     <select id="refining-resource" onchange="init();saveSettings(this);">
                         <option value="0">Cloth</option>
@@ -112,7 +131,7 @@
             </div>
 
             <div class="profile-settings">
-                <h3>Settings</h3>
+                <h2>Settings</h2>
                 <div>
                     <label class="text-label" for="refining-market-tax">Include market tax</label>
                     <select id="refining-market-tax-percentage" onchange="updateNumbers(this);saveSettings(this);">
@@ -164,7 +183,7 @@
             </div>
 
             <div class="data-settings">
-                <h3>ㅤ</h3>
+                <h2>ㅤ</h2>
                 <div>
                     <label class="text-label" for="table-settings-flip-table">Flip table</label>
                     <label class="switch">
@@ -196,7 +215,7 @@
             </div>
 
             <div class="data-scrape">
-                <h3>Pull prices</h3>
+                <h2>Pull prices</h2>
 
                 <div>
                     <label class="text-label" for="server-select">Select server</label>
@@ -292,7 +311,7 @@
 
     <div class="tutorialpopup" id="tutorial-popup" style="display:none;">
         <div class="tutorialpopup-close" onclick="toggleTutorialPopup()">X</div>
-        <h2 style="color:#0E8388;margin-left:1rem;margin-bottom:-1rem;">How the function works</h2>
+        <p style="font-size:x-large;color:#0E8388;margin-left:1rem;margin-bottom:-1rem;">How the function works</p>
         <div class="tutorialtext">
             This feature will calculate the maximum price you will be able to pay for the resources to still make the specified profit percentage at the current product price.
             <br><br>

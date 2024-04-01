@@ -20,7 +20,7 @@ h1 {
 }
 
 h2 {
-    color: $color2;
+    color: $color4;
     font-size: 1.5em;
     text-align: center;
 }
@@ -348,3 +348,18 @@ footer {
     width: 2rem;
     margin-right: -0.2rem;
 }
+
+#copy-tooltip {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: none;
+    top: 4%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0.8rem;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    font-size: 0.8rem;
+  }

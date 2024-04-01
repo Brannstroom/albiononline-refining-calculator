@@ -15,7 +15,7 @@ h1 {
 }
 
 h2 {
-  color: #2E4F4F;
+  color: #cbe4de;
   font-size: 1.5em;
   text-align: center;
 }
@@ -316,6 +316,11 @@ footer {
   color: #0E8388;
 }
 
+#refining-max-resource-price-percentage {
+  width: 2rem;
+  margin-right: -0.2rem;
+}
+
 #copy-tooltip {
   position: fixed;
   background: rgba(0, 0, 0, 0.8);
@@ -329,9 +334,4 @@ footer {
   color: white;
   text-align: center;
   font-size: 0.8rem;
-}
-
-#refining-max-resource-price-percentage {
-  width: 2rem;
-  margin-right: -0.2rem;
-}
+}/*# sourceMappingURL=index.css.map */
