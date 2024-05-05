@@ -2251,7 +2251,7 @@ function updateNumbers(element) {
 
         let product_price = table.rows[i].cells[4].children[0].value;
         let item_value = table.rows[i].cells[0].className;
-        let tax_cost = item_value*(tax/4444)*5;
+        let tax_cost = ((item_value * 0.1125)*tax)/100;
 
         let tier = table.rows[i].cells[0].innerHTML;
         
@@ -2373,7 +2373,7 @@ function updateFocus() {
 
         let product_price = table.rows[i].cells[4].children[0].value;
         let item_value = table.rows[i].cells[0].className;
-        let tax_cost = item_value*(tax/4444)*5;
+        let tax_cost = ((item_value * 0.1125)*tax)/100;
 
         let return_rate = getReturnRate(true)
 
@@ -2714,7 +2714,7 @@ function findResourceZCost() {
         let tier = table.rows[i].cells[0].innerHTML;
 
         let item_value = table.rows[i].cells[0].className;
-        let tax_cost = item_value*(station_tax/4444)*5;
+        let tax_cost = ((item_value * 0.1125)*station_tax)/100;
         let resources_needed = tierMultipliers[tier[0]];
 
         let product_value = table.rows[i].cells[4].children[0].value;
