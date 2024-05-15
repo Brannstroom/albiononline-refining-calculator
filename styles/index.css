@@ -334,4 +334,25 @@ footer {
   color: white;
   text-align: center;
   font-size: 0.8rem;
+}
+
+.hide-enchants-div {
+  height: 40px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-top: 4px;
+}
+
+.hide-enchants-button {
+  height: 30px;
+  width: 30px;
+  border-radius: 10%;
+  text-align: center;
+}
+
+.button-is-active {
+  background-color: #2E4F4F;
+  color: #cbe4de;
+  box-shadow: 0 2px #666;
+  transform: translateY(2px);
 }/*# sourceMappingURL=index.css.map */

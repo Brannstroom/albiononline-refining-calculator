@@ -2160,6 +2160,14 @@ function loadFromLocalStorage(type) {
         if(product_price != null) {
             table.rows[i].cells[4].getElementsByTagName("input")[0].value = product_price;
         }
+        
+        let enchant = tier.split(".")[1];
+        let hideEnchant = localStorage.getItem("hide-enchant-"+enchant);
+        if(hideEnchant != null && hideEnchant == "true") {
+            table.rows[i].classList.add("hidden-row");
+            let button = document.getElementById("hide-enchants-button-"+enchant);
+            button.classList.toggle("button-is-active");
+        }
     }
 
     if(type == "init") return;
@@ -2549,6 +2557,26 @@ function hideRows() {
         if(value1 == 0 && value2 == 0) {
             rows[i].classList.toggle("hidden-row", hide_switch.checked);
         }
+    }
+}
+
+function hideEnchant(enchant) {
+    let table = document.getElementById("resouce-table-body");
+    let rows = table.rows;
+    for(let i = 0; i < rows.length; i++) {
+        let foundEnchant = rows[i].cells[0].innerHTML.split(".")[1];
+        if(foundEnchant == enchant) {
+            rows[i].classList.toggle("hidden-row");
+        }
+    }
+
+    let button = document.getElementById("hide-enchants-button-"+enchant);
+    button.classList.toggle("button-is-active");
+
+    if(localStorage.getItem("hide-enchant-"+enchant) == "true") {
+        localStorage.setItem("hide-enchant-"+enchant, "false");
+    } else {
+        localStorage.setItem("hide-enchant-"+enchant, "true");
     }
 }
 
