@@ -2166,7 +2166,9 @@ function loadFromLocalStorage(type) {
         if(hideEnchant != null && hideEnchant == "true") {
             table.rows[i].classList.add("hidden-row");
             let button = document.getElementById("hide-enchants-button-"+enchant);
-            button.classList.toggle("button-is-active");
+            if(button != null) {
+                button.classList.add("button-is-active");
+            }
         }
     }
 
@@ -2590,6 +2592,7 @@ function pullPrices(resources) {
 }
 
 function pullCurrentPrices(resources) {
+    console.log("pullCurrentPrices", resources);
     let offset = (resources ? 2 : 0);
 
     let table = document.getElementById("resouce-table-body");
@@ -2628,7 +2631,7 @@ function pullCurrentPrices(resources) {
     .then(response => response.json())
     .then(data => {
         for(let i = 0; i < table.rows.length; i++) {
-            let index = refining_resource == "4" ? valArr[i] : i;
+            let index = refining_resource == "4" && !resources ? valArr[i] : i;
             let price;
 
             if (data[index] && data[index].sell_price_min !== null) {
@@ -2636,10 +2639,15 @@ function pullCurrentPrices(resources) {
             }
 
             let price_cell = table.rows[i].cells[4-offset].children[0];
-
             price_cell.value = (price || 0);
-
-            changeAgeIndicator(price_cell, data[i].sell_price_min_date);
+           
+            if(data[index]) {
+                try {
+                    changeAgeIndicator(price_cell, data[index].sell_price_min_date);
+                } catch (error) {
+                    console.log(error);
+                }
+            }
         }
     }
     ).then(() => {
