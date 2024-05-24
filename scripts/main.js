@@ -2701,7 +2701,7 @@ function pullAveragePrices(resources) {
     .then(response => response.json())
     .then(data => {
         for(let i = 0; i < table.rows.length; i++) {
-            let index = refining_resource == "4" ? valArr[i] : i;
+            let index = refining_resource == "4" && !resources ? valArr[i] : i;
             let price;
 
             if (data[index] && data[index].data && data[index].data.length > 0 && data[index].data[0].avg_price !== null) {
