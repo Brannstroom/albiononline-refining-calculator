@@ -2274,6 +2274,8 @@ function updateNumbers(element) {
         let market_tax_cost = (product_price*market_tax)*craft_amount;
         if(document.getElementById("refining-market-tax").checked) {
             profit = profit - market_tax_cost;
+        } else {
+            market_tax = 0;
         }
 
         if(document.getElementById("refine-from").checked) {
@@ -2390,9 +2392,10 @@ function updateFocus() {
         let resource_cost = getResourceCosts()[i];
 
         let focus_profit = (product_price - resource_cost + (resource_cost/100*return_rate) - tax_cost)*craft_amount;
+        let market_tax = document.getElementById("refining-market-tax-percentage").value/100;
 
         if(document.getElementById("refining-market-tax").checked) {
-            focus_profit = focus_profit - (focus_profit*0.065);
+            focus_profit = focus_profit - (focus_profit*market_tax);
         }
 
         let profit_per_focus = focus_profit/focus_cost;
