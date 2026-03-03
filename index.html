@@ -133,12 +133,8 @@
             <div class="profile-settings">
                 <h2>Settings</h2>
                 <div>
-                    <label class="text-label" for="refining-market-tax">Include market tax</label>
-                    <select id="refining-market-tax-percentage" onchange="updateNumbers(this);saveSettings(this);">
-                        <option value="2.5">(2.5%)</option>
-                        <option selected value="6.5">(6.5%)</option>
-                        <option value="10.5">(10.5%)</option>
-                    </select>
+                    <label class="text-label" for="refining-market-tax">Include tax</label>
+                    <input type="number" id="refining-market-tax-percentage" value="6.5" min="0" max="100" oninput="updateNumbers(this);saveSettings(this);"> %
                     <label class="switch">
                         <input type="checkbox" id="refining-market-tax" onchange="updateNumbers();saveSettings(this);">
                         <span class="slider round"></span>
