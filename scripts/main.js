@@ -2889,6 +2889,18 @@ function toggleTutorialPopup() {
     popup.style.display = display == "none" ? "block" : "none";
 }
 
+function dismissArchivedPopup() {
+    document.getElementById("archived-popup").style.display = "none";
+    localStorage.setItem("archived-popup-seen", "true");
+}
+
+function showArchivedPopupOnce() {
+    if (localStorage.getItem("archived-popup-seen") !== "true") {
+        var el = document.getElementById("archived-popup");
+        if (el) el.style.display = "flex";
+    }
+}
+
 function editPullPriceType() {
     let pull_price_type = document.getElementById("price-type-select").value;
 
@@ -2935,3 +2947,4 @@ window.addEventListener("resize", handleResize);
 loadFromLocalStorage();
 init();
 editPullPriceType();
+showArchivedPopupOnce();

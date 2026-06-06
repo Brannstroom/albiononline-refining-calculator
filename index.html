@@ -50,6 +50,10 @@
     </head>
 
   <body>
+    <div class="archived-banner">
+        <span>This calculator is <strong>archived</strong> &amp; will no longer be updated. Everything here is <strong>free</strong> in my new, continuously-updated tool.</span>
+        <a href="https://www.wealthyalbion.com/" target="_blank" rel="noopener">Visit WealthyAlbion.com →</a>
+    </div>
     <script type="text/javascript">
         (function(window, document, dataLayerName, id) {
         window[dataLayerName]=window[dataLayerName]||[],window[dataLayerName].push({start:(new Date).getTime(),event:"stg.start"});var scripts=document.getElementsByTagName('script')[0],tags=document.createElement('script');
@@ -342,6 +346,19 @@
             <br>
             5. Purchase all the resources you want to refine, up to the maximum price calculated.
             <br>
+        </div>
+    </div>
+
+    <div class="archived-popup-overlay" id="archived-popup" style="display:none;">
+        <div class="archived-popup">
+            <button class="archived-popup-close" onclick="dismissArchivedPopup()" aria-label="Close">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <h2 class="archived-popup-title">This tool is now archived</h2>
+            <p class="archived-popup-body">
+                This Resource Refining Calculator is now archived and will no longer be updated. It will <strong>stay online</strong> and everything it does is also available <strong>for free</strong> in my new tool — which is continuously updated and offers various other tools to help you find and calculate profit.</strong>
+            </p>
+            <a class="archived-popup-button" href="https://www.wealthyalbion.com/" target="_blank" rel="noopener">Visit WealthyAlbion.com</a>
         </div>
     </div>
 
